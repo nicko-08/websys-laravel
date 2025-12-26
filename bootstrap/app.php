@@ -16,14 +16,18 @@ return Application::configure(basePath: dirname(__DIR__))
     )
 
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->api(prepend: [
+            \Illuminate\Http\Middleware\HandleCors::class,
+        ]);
         $middleware->api(append: [
+            \App\Http\Middleware\SecurityHeaders::class,
             \App\Http\Middleware\LogApiRequests::class,
         ]);
         $middleware->alias([
             'role' => \App\Http\Middleware\RoleMiddleware::class,
             'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         ]);
-        $middleware->throttleApi('60,1');
+        $middleware->throttleApi(env('API_RATE_LIMIT', 60) . ',1');
     })
 
     ->withSchedule(function (Schedule $schedule) {
