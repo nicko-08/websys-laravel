@@ -106,4 +106,6 @@ Route::prefix('v1')->group(function () {
 
     Route::apiResource('/fiscal-years', FiscalYearController::class)
         ->only(['index', 'show']);
+
+    Route::get('/health', fn() => response()->json(['status' => 'ok']));
 });
