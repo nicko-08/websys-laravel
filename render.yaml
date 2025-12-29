@@ -6,7 +6,7 @@ services:
     region: oregon
     branch: deploy/render
     dockerfilePath: ./Dockerfile
-    rootDir: /
+    rootDir: .
     autoDeploy: true
     envVars:
       - key: APP_NAME
