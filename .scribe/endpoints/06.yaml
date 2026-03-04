@@ -1,23 +1,23 @@
-name: 'Government Units'
-description: 'Government unit management endpoints'
+name: 'Budget Categories'
+description: 'Budget category management endpoints'
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/v1/government-units
+    uri: api/v1/budget-categories
     metadata:
       custom: []
-      groupName: 'Government Units'
-      groupDescription: 'Government unit management endpoints'
+      groupName: 'Budget Categories'
+      groupDescription: 'Budget category management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'List government units'
+      title: 'List budget categories'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -30,11 +30,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 403
-        content: |-
-          {
-              "message": "This action is unauthorized."
-          }
+        status: 200
+        content: '{"data":[{"id":1,"name":"Infrastructure Development"},{"id":2,"name":"Health and Sanitation"},{"id":3,"name":"Education and Youth"},{"id":4,"name":"Peace and Order"},{"id":5,"name":"Environment and Waste Management"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -49,78 +46,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/v1/government-units
-    metadata:
-      custom: []
-      groupName: 'Government Units'
-      groupDescription: 'Government unit management endpoints'
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Create government unit'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        custom: []
-        name: name
-        description: 'Unit name.'
-        required: true
-        example: 'Barangay Commonwealth'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: 'Unit type.'
-        required: true
-        example: Barangay
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      parent_id:
-        custom: []
-        name: parent_id
-        description: 'Parent unit ID.'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
-      name: 'Barangay Commonwealth'
-      type: Barangay
-      parent_id: 1
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -128,26 +54,26 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: 'api/v1/government-units/{id}'
+    uri: 'api/v1/budget-categories/{id}'
     metadata:
       custom: []
-      groupName: 'Government Units'
-      groupDescription: 'Government unit management endpoints'
+      groupName: 'Budget Categories'
+      groupDescription: 'Budget category management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show government unit'
+      title: 'Show budget category'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the government unit.'
+        description: 'The ID of the budget category.'
         required: true
         example: 1
         type: integer
@@ -165,11 +91,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 403
-        content: |-
-          {
-              "message": "This action is unauthorized."
-          }
+        status: 200
+        content: '{"data":{"id":1,"name":"Infrastructure Development"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -184,7 +107,54 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/budget-categories
+    metadata:
+      custom: []
+      groupName: 'Budget Categories'
+      groupDescription: 'Budget category management endpoints'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create budget category'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Category name.'
+        required: true
+        example: 'Office Supplies'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Office Supplies'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -193,26 +163,26 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/government-units/{id}'
+    uri: 'api/v1/budget-categories/{id}'
     metadata:
       custom: []
-      groupName: 'Government Units'
-      groupDescription: 'Government unit management endpoints'
+      groupName: 'Budget Categories'
+      groupDescription: 'Budget category management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update government unit'
+      title: 'Update budget category'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the government unit.'
+        description: 'The ID of the budget category.'
         required: true
         example: 1
         type: integer
@@ -228,47 +198,23 @@ endpoints:
       name:
         custom: []
         name: name
-        description: 'Updated official name of the government unit. Must not be greater than 255 characters.'
+        description: 'Category name.'
         required: false
-        example: 'Department of Transportation'
+        example: 'Office Equipment'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: 'Updated type or classification of the government unit. Must not be greater than 100 characters.'
-        required: false
-        example: Department
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      parent_id:
-        custom: []
-        name: parent_id
-        description: 'ID of the parent government unit, if this unit is part of a hierarchical structure. Can be null. The <code>id</code> of an existing record in the government_units table.'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
         deprecated: false
     cleanBodyParameters:
-      name: 'Department of Transportation'
-      type: Department
-      parent_id: 1
+      name: 'Office Equipment'
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -276,26 +222,26 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/v1/government-units/{id}'
+    uri: 'api/v1/budget-categories/{id}'
     metadata:
       custom: []
-      groupName: 'Government Units'
-      groupDescription: 'Government unit management endpoints'
+      groupName: 'Budget Categories'
+      groupDescription: 'Budget category management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete government unit'
+      title: 'Delete budget category'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the government unit.'
+        description: 'The ID of the budget category.'
         required: true
         example: 1
         type: integer
@@ -315,7 +261,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null

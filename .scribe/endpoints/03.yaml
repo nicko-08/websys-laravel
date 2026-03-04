@@ -1,29 +1,41 @@
-name: 'Budget Items'
-description: 'Budget item management endpoints'
+name: Budgets
+description: 'Budget management endpoints'
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/v1/budget-items
+    uri: api/v1/budgets
     metadata:
       custom: []
-      groupName: 'Budget Items'
-      groupDescription: 'Budget item management endpoints'
+      groupName: Budgets
+      groupDescription: 'Budget management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'List budget items'
+      title: 'List budgets'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      page:
+        custom: []
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      page: 1
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -31,7 +43,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":61,"name":"Road and Bridge Maintenance","code":"INFRA-RBM-001","allocated_amount":2500000,"created_at":"2025-12-28T16:24:58.000000Z","updated_at":"2025-12-28T16:24:58.000000Z","budget":{"id":1,"name":"Barangay San Antonio Annual Budget 2026","total_amount":2089810},"category":{"id":1,"name":"Infrastructure Development"}},{"id":60,"name":"Barangay Patrol Equipment","code":"BRG6-PEACE-002","allocated_amount":134257,"created_at":"2025-12-28T16:22:52.000000Z","updated_at":"2025-12-28T16:22:52.000000Z","budget":{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941},"category":{"id":4,"name":"Peace and Order"}},{"id":59,"name":"CCTV Camera Installation","code":"BRG6-PEACE-001","allocated_amount":149597,"created_at":"2025-12-28T16:22:52.000000Z","updated_at":"2025-12-28T16:22:52.000000Z","budget":{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941},"category":{"id":4,"name":"Peace and Order"}},{"id":58,"name":"Youth Development Program","code":"BRG6-EDU-003","allocated_amount":120211,"created_at":"2025-12-28T16:22:52.000000Z","updated_at":"2025-12-28T16:22:52.000000Z","budget":{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941},"category":{"id":3,"name":"Education and Youth"}},{"id":57,"name":"Learning Materials Purchase","code":"BRG6-EDU-002","allocated_amount":214518,"created_at":"2025-12-28T16:22:52.000000Z","updated_at":"2025-12-28T16:22:52.000000Z","budget":{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941},"category":{"id":3,"name":"Education and Youth"}},{"id":53,"name":"Barangay Health Station Supplies","code":"BRG6-HEALTH-001","allocated_amount":149951,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941},"category":{"id":2,"name":"Health and Sanitation"}},{"id":32,"name":"Day Care Center Improvement","code":"BRG4-EDU-001","allocated_amount":417247,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525},"category":{"id":3,"name":"Education and Youth"}},{"id":52,"name":"Drainage System Improvement","code":"BRG6-INFRA-004","allocated_amount":459823,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941},"category":{"id":1,"name":"Infrastructure Development"}},{"id":43,"name":"Vaccination Program","code":"BRG5-HEALTH-003","allocated_amount":394141,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":2,"name":"Health and Sanitation"}},{"id":42,"name":"Medical Equipment Purchase","code":"BRG5-HEALTH-002","allocated_amount":166018,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":2,"name":"Health and Sanitation"}},{"id":41,"name":"Barangay Health Station Supplies","code":"BRG5-HEALTH-001","allocated_amount":162937,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":2,"name":"Health and Sanitation"}},{"id":40,"name":"Drainage System Improvement","code":"BRG5-INFRA-004","allocated_amount":540986,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":1,"name":"Infrastructure Development"}},{"id":39,"name":"Street Lighting Installation","code":"BRG5-INFRA-003","allocated_amount":280244,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":1,"name":"Infrastructure Development"}},{"id":38,"name":"Covered Court Construction","code":"BRG5-INFRA-002","allocated_amount":1081161,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":1,"name":"Infrastructure Development"}},{"id":37,"name":"Basketball Court Renovation","code":"BRG5-INFRA-001","allocated_amount":482262,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189},"category":{"id":1,"name":"Infrastructure Development"}},{"id":36,"name":"Barangay Patrol Equipment","code":"BRG4-PEACE-002","allocated_amount":321159,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525},"category":{"id":4,"name":"Peace and Order"}},{"id":35,"name":"CCTV Camera Installation","code":"BRG4-PEACE-001","allocated_amount":344327,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525},"category":{"id":4,"name":"Peace and Order"}},{"id":34,"name":"Youth Development Program","code":"BRG4-EDU-003","allocated_amount":364994,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525},"category":{"id":3,"name":"Education and Youth"}},{"id":33,"name":"Learning Materials Purchase","code":"BRG4-EDU-002","allocated_amount":291542,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525},"category":{"id":3,"name":"Education and Youth"}},{"id":31,"name":"Vaccination Program","code":"BRG4-HEALTH-003","allocated_amount":412973,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525},"category":{"id":2,"name":"Health and Sanitation"}}],"links":{"first":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=1","last":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=4","prev":null,"next":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=2"},"meta":{"current_page":1,"from":1,"last_page":4,"links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=1","label":"1","page":1,"active":true},{"url":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=2","label":"2","page":2,"active":false},{"url":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=3","label":"3","page":3,"active":false},{"url":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=4","label":"4","page":4,"active":false},{"url":"http:\/\/localhost:8000\/api\/v1\/budget-items?page=2","label":"Next &raquo;","page":2,"active":false}],"path":"http:\/\/localhost:8000\/api\/v1\/budget-items","per_page":20,"to":20,"total":61}}'
+        content: '{"data":[{"id":1,"name":"Barangay San Antonio Annual Budget 2026","total_amount":2089810,"government_unit":{"id":2,"name":"Barangay San Antonio","type":"barangay","parent_id":1,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"fiscal_year":{"id":1,"year":2026,"start_date":"2026-01-01T00:00:00.000000Z","end_date":"2026-12-31T00:00:00.000000Z","is_active":true,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"}},{"id":2,"name":"Barangay Santo Domingo Annual Budget 2026","total_amount":2714573,"government_unit":{"id":3,"name":"Barangay Santo Domingo","type":"barangay","parent_id":1,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"fiscal_year":{"id":1,"year":2026,"start_date":"2026-01-01T00:00:00.000000Z","end_date":"2026-12-31T00:00:00.000000Z","is_active":true,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"}},{"id":3,"name":"Barangay Bagong Pag-asa Annual Budget 2026","total_amount":1990525,"government_unit":{"id":4,"name":"Barangay Bagong Pag-asa","type":"barangay","parent_id":1,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"fiscal_year":{"id":1,"year":2026,"start_date":"2026-01-01T00:00:00.000000Z","end_date":"2026-12-31T00:00:00.000000Z","is_active":true,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"}},{"id":4,"name":"Barangay Tatalon Annual Budget 2026","total_amount":2184189,"government_unit":{"id":5,"name":"Barangay Tatalon","type":"barangay","parent_id":1,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"fiscal_year":{"id":1,"year":2026,"start_date":"2026-01-01T00:00:00.000000Z","end_date":"2026-12-31T00:00:00.000000Z","is_active":true,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"}},{"id":5,"name":"Barangay Kamuning Annual Budget 2026","total_amount":1550941,"government_unit":{"id":6,"name":"Barangay Kamuning","type":"barangay","parent_id":1,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"fiscal_year":{"id":1,"year":2026,"start_date":"2026-01-01T00:00:00.000000Z","end_date":"2026-12-31T00:00:00.000000Z","is_active":true,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"}}],"links":{"first":"http:\/\/localhost:8000\/api\/v1\/budgets?page=1","last":"http:\/\/localhost:8000\/api\/v1\/budgets?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/localhost:8000\/api\/v1\/budgets?page=1","label":"1","page":1,"active":true},{"url":null,"label":"Next &raquo;","page":null,"active":false}],"path":"http:\/\/localhost:8000\/api\/v1\/budgets","per_page":15,"to":5,"total":5}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -46,7 +58,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -54,26 +66,26 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: 'api/v1/budget-items/{id}'
+    uri: 'api/v1/budgets/{id}'
     metadata:
       custom: []
-      groupName: 'Budget Items'
-      groupDescription: 'Budget item management endpoints'
+      groupName: Budgets
+      groupDescription: 'Budget management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show budget item'
+      title: 'Show budget'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the budget item.'
+        description: 'The ID of the budget.'
         required: true
         example: 1
         type: integer
@@ -92,7 +104,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"name":"Basketball Court Renovation","code":"BRG2-INFRA-001","allocated_amount":499102,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","budget":{"id":1,"name":"Barangay San Antonio Annual Budget 2026","total_amount":2089810},"category":{"id":1,"name":"Infrastructure Development"},"spent_amount":"172365.00"}}'
+        content: '{"data":{"id":1,"name":"Barangay San Antonio Annual Budget 2026","total_amount":2089810,"government_unit":{"id":2,"name":"Barangay San Antonio","type":"barangay","parent_id":1,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"fiscal_year":{"id":1,"year":2026,"start_date":"2026-01-01T00:00:00.000000Z","end_date":"2026-12-31T00:00:00.000000Z","is_active":true,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z"},"budget_items":[{"id":1,"name":"Basketball Court Renovation","code":"BRG2-INFRA-001","allocated_amount":499102,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":1,"name":"Infrastructure Development"},"spent_amount":"172365.00"},{"id":2,"name":"Covered Court Construction","code":"BRG2-INFRA-002","allocated_amount":1126638,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":1,"name":"Infrastructure Development"},"spent_amount":"317321.00"},{"id":3,"name":"Street Lighting Installation","code":"BRG2-INFRA-003","allocated_amount":324440,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":1,"name":"Infrastructure Development"},"spent_amount":"155387.00"},{"id":4,"name":"Drainage System Improvement","code":"BRG2-INFRA-004","allocated_amount":516875,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":1,"name":"Infrastructure Development"},"spent_amount":"140509.00"},{"id":5,"name":"Barangay Health Station Supplies","code":"BRG2-HEALTH-001","allocated_amount":267063,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":2,"name":"Health and Sanitation"},"spent_amount":"132971.00"},{"id":6,"name":"Medical Equipment Purchase","code":"BRG2-HEALTH-002","allocated_amount":307509,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":2,"name":"Health and Sanitation"},"spent_amount":"152073.00"},{"id":7,"name":"Vaccination Program","code":"BRG2-HEALTH-003","allocated_amount":479252,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":2,"name":"Health and Sanitation"},"spent_amount":"203206.00"},{"id":8,"name":"Day Care Center Improvement","code":"BRG2-EDU-001","allocated_amount":88710,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":3,"name":"Education and Youth"},"spent_amount":"58251.00"},{"id":9,"name":"Learning Materials Purchase","code":"BRG2-EDU-002","allocated_amount":469074,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":3,"name":"Education and Youth"},"spent_amount":"191653.00"},{"id":10,"name":"Youth Development Program","code":"BRG2-EDU-003","allocated_amount":173125,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":3,"name":"Education and Youth"},"spent_amount":"109451.00"},{"id":11,"name":"CCTV Camera Installation","code":"BRG2-PEACE-001","allocated_amount":206725,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":4,"name":"Peace and Order"},"spent_amount":"121245.00"},{"id":12,"name":"Barangay Patrol Equipment","code":"BRG2-PEACE-002","allocated_amount":251271,"created_at":"2025-12-28T16:22:51.000000Z","updated_at":"2025-12-28T16:22:51.000000Z","category":{"id":4,"name":"Peace and Order"},"spent_amount":"162355.00"},{"id":61,"name":"Road and Bridge Maintenance","code":"INFRA-RBM-001","allocated_amount":2500000,"created_at":"2025-12-28T16:24:58.000000Z","updated_at":"2025-12-28T16:24:58.000000Z","category":{"id":1,"name":"Infrastructure Development"},"spent_amount":null}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -107,68 +119,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/v1/budget-items/{budgetItem_id}/summary'
-    metadata:
-      custom: []
-      groupName: 'Budget Items'
-      groupDescription: 'Budget item management endpoints'
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get budget item summary'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      budgetItem_id:
-        custom: []
-        name: budgetItem_id
-        description: 'The ID of the budgetItem.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      budgetItem_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 200
-        content: '{"name":"Basketball Court Renovation","code":"BRG2-INFRA-001","allocated_amount":"499102.00","spent_amount":"172365.00","utilization_percentage":34.54,"budget":{"name":"Barangay San Antonio Annual Budget 2026"}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-content-type-options: nosniff
-          x-frame-options: DENY
-          x-xss-protection: '1; mode=block'
-          referrer-policy: no-referrer
-          permissions-policy: 'geolocation=(), camera=(), microphone=()'
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -176,19 +127,19 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/v1/budget-items
+    uri: api/v1/budgets
     metadata:
       custom: []
-      groupName: 'Budget Items'
-      groupDescription: 'Budget item management endpoints'
+      groupName: Budgets
+      groupDescription: 'Budget management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create budget item'
+      title: 'Create budget'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -196,74 +147,62 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      budget_id:
+      name:
         custom: []
-        name: budget_id
-        description: 'ID of the parent budget to which this budget item belongs. The <code>id</code> of an existing record in the budgets table.'
+        name: name
+        description: 'Budget name.'
+        required: true
+        example: 'Annual Budget 2024'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      government_unit_id:
+        custom: []
+        name: government_unit_id
+        description: 'Government unit ID.'
         required: true
         example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
-      budget_category_id:
+      fiscal_year_id:
         custom: []
-        name: budget_category_id
-        description: 'ID of the budget category used to classify this budget item. The <code>id</code> of an existing record in the budget_categories table.'
+        name: fiscal_year_id
+        description: 'Fiscal year ID.'
         required: true
-        example: 3
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
-      name:
+      total_amount:
         custom: []
-        name: name
-        description: 'Human-readable name of the budget item. Must not be greater than 255 characters.'
+        name: total_amount
+        description: 'Total amount.'
         required: true
-        example: 'Road and Bridge Maintenance'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      code:
-        custom: []
-        name: code
-        description: 'Unique reference code for the budget item, used for tracking and reporting. Must not be greater than 50 characters.'
-        required: true
-        example: INFRA-RBM-001
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      allocated_amount:
-        custom: []
-        name: allocated_amount
-        description: 'Total amount allocated to this budget item. Must be a non-negative number. Must be at least 0. Must not be greater than 9999999999999.99.'
-        required: true
-        example: 2500000.0
+        example: 1000000.0
         type: number
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      budget_id: 1
-      budget_category_id: 3
-      name: 'Road and Bridge Maintenance'
-      code: INFRA-RBM-001
-      allocated_amount: 2500000.0
+      name: 'Annual Budget 2024'
+      government_unit_id: 1
+      fiscal_year_id: 1
+      total_amount: 1000000.0
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -272,26 +211,26 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/budget-items/{id}'
+    uri: 'api/v1/budgets/{id}'
     metadata:
       custom: []
-      groupName: 'Budget Items'
-      groupDescription: 'Budget item management endpoints'
+      groupName: Budgets
+      groupDescription: 'Budget management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update budget item'
+      title: 'Update budget'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the budget item.'
+        description: 'The ID of the budget.'
         required: true
         example: 1
         type: integer
@@ -304,10 +243,21 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      budget_id:
+      name:
         custom: []
-        name: budget_id
-        description: 'ID of the parent budget to which this budget item belongs. The <code>id</code> of an existing record in the budgets table.'
+        name: name
+        description: 'Updated official name of the budget. Must not be greater than 255 characters.'
+        required: false
+        example: 'Revised Infrastructure Budget 2025'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      government_unit_id:
+        custom: []
+        name: government_unit_id
+        description: 'Updated ID of the government unit responsible for this budget. The <code>id</code> of an existing record in the government_units table.'
         required: false
         example: 1
         type: integer
@@ -315,63 +265,40 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      budget_category_id:
+      fiscal_year_id:
         custom: []
-        name: budget_category_id
-        description: 'ID of the budget category used to classify this budget item. The <code>id</code> of an existing record in the budget_categories table.'
+        name: fiscal_year_id
+        description: 'Updated ID of the fiscal year to which this budget applies. The <code>id</code> of an existing record in the fiscal_years table.'
         required: false
-        example: 3
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      name:
+      total_amount:
         custom: []
-        name: name
-        description: 'Updated name of the budget item. Must not be greater than 255 characters.'
+        name: total_amount
+        description: 'Updated total approved amount for the budget. Must be a non-negative number. Must be at least 0.'
         required: false
-        example: 'Road and Bridge Rehabilitation'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      code:
-        custom: []
-        name: code
-        description: 'Updated unique reference code for the budget item. Must not be greater than 50 characters.'
-        required: false
-        example: INFRA-RBR-002
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      allocated_amount:
-        custom: []
-        name: allocated_amount
-        description: 'Updated allocated amount for this budget item. Must be a non-negative number. Must be at least 0.'
-        required: false
-        example: 3000000.0
+        example: 175000000.0
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      budget_id: 1
-      budget_category_id: 3
-      name: 'Road and Bridge Rehabilitation'
-      code: INFRA-RBR-002
-      allocated_amount: 3000000.0
+      name: 'Revised Infrastructure Budget 2025'
+      government_unit_id: 1
+      fiscal_year_id: 1
+      total_amount: 175000000.0
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null
@@ -379,26 +306,26 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/v1/budget-items/{id}'
+    uri: 'api/v1/budgets/{id}'
     metadata:
       custom: []
-      groupName: 'Budget Items'
-      groupDescription: 'Budget item management endpoints'
+      groupName: Budgets
+      groupDescription: 'Budget management endpoints'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete budget item'
+      title: 'Delete budget'
       description: ''
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
+      Authorization: '{YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the budget item.'
+        description: 'The ID of the budget.'
         required: true
         example: 1
         type: integer
@@ -418,7 +345,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|fake-docs-token'
+      - 1|fake-docs-token
     controller: null
     method: null
     route: null

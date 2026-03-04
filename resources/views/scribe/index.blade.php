@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Government Budget API Documentation</title>
+    <title>Laravel API Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
@@ -23,8 +23,6 @@
         /* starts out as display none and is replaced with js later  */
                     body .content .bash-example code { display: none; }
                     body .content .javascript-example code { display: none; }
-                    body .content .php-example code { display: none; }
-                    body .content .python-example code { display: none; }
             </style>
 
     <script>
@@ -38,7 +36,7 @@
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
 
 <a href="#" id="nav-button">
     <span>
@@ -51,8 +49,6 @@
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
-                                            <button type="button" class="lang-button" data-language-name="php">php</button>
-                                            <button type="button" class="lang-button" data-language-name="python">python</button>
                     </div>
     
     <div class="search">
@@ -70,6 +66,22 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-audit-logs" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="audit-logs">
+                    <a href="#audit-logs">Audit Logs</a>
+                </li>
+                                    <ul id="tocify-subheader-audit-logs" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="audit-logs-GETapi-v1-audit-logs">
+                                <a href="#audit-logs-GETapi-v1-audit-logs">List audit logs</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="audit-logs-GETapi-v1-audit-logs-by-date">
+                                <a href="#audit-logs-GETapi-v1-audit-logs-by-date">List audit logs for a specific date</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="audit-logs-GETapi-v1-audit-logs--auditLog_id-">
+                                <a href="#audit-logs-GETapi-v1-audit-logs--auditLog_id-">View a specific audit log</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-authentication" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="authentication">
                     <a href="#authentication">Authentication</a>
@@ -83,25 +95,25 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-budgets" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="budgets">
-                    <a href="#budgets">Budgets</a>
+                    <ul id="tocify-header-budget-categories" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="budget-categories">
+                    <a href="#budget-categories">Budget Categories</a>
                 </li>
-                                    <ul id="tocify-subheader-budgets" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="budgets-GETapi-v1-budgets">
-                                <a href="#budgets-GETapi-v1-budgets">List budgets</a>
+                                    <ul id="tocify-subheader-budget-categories" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="budget-categories-GETapi-v1-budget-categories">
+                                <a href="#budget-categories-GETapi-v1-budget-categories">List budget categories</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="budgets-GETapi-v1-budgets--id-">
-                                <a href="#budgets-GETapi-v1-budgets--id-">Show budget</a>
+                                                                                <li class="tocify-item level-2" data-unique="budget-categories-GETapi-v1-budget-categories--id-">
+                                <a href="#budget-categories-GETapi-v1-budget-categories--id-">Show budget category</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="budgets-POSTapi-v1-budgets">
-                                <a href="#budgets-POSTapi-v1-budgets">Create budget</a>
+                                                                                <li class="tocify-item level-2" data-unique="budget-categories-POSTapi-v1-budget-categories">
+                                <a href="#budget-categories-POSTapi-v1-budget-categories">Create budget category</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="budgets-PUTapi-v1-budgets--id-">
-                                <a href="#budgets-PUTapi-v1-budgets--id-">Update budget</a>
+                                                                                <li class="tocify-item level-2" data-unique="budget-categories-PUTapi-v1-budget-categories--id-">
+                                <a href="#budget-categories-PUTapi-v1-budget-categories--id-">Update budget category</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="budgets-DELETEapi-v1-budgets--id-">
-                                <a href="#budgets-DELETEapi-v1-budgets--id-">Delete budget</a>
+                                                                                <li class="tocify-item level-2" data-unique="budget-categories-DELETEapi-v1-budget-categories--id-">
+                                <a href="#budget-categories-DELETEapi-v1-budget-categories--id-">Delete budget category</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -130,6 +142,44 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-budgets" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="budgets">
+                    <a href="#budgets">Budgets</a>
+                </li>
+                                    <ul id="tocify-subheader-budgets" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="budgets-GETapi-v1-budgets">
+                                <a href="#budgets-GETapi-v1-budgets">List budgets</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="budgets-GETapi-v1-budgets--id-">
+                                <a href="#budgets-GETapi-v1-budgets--id-">Show budget</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="budgets-POSTapi-v1-budgets">
+                                <a href="#budgets-POSTapi-v1-budgets">Create budget</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="budgets-PUTapi-v1-budgets--id-">
+                                <a href="#budgets-PUTapi-v1-budgets--id-">Update budget</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="budgets-DELETEapi-v1-budgets--id-">
+                                <a href="#budgets-DELETEapi-v1-budgets--id-">Delete budget</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
+                                <a href="#endpoints-GETapi-user">GET api/user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-health">
+                                <a href="#endpoints-GETapi-v1-health">GET api/v1/health</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-_bootstrap-admin">
+                                <a href="#endpoints-POSTapi-v1-_bootstrap-admin">POST api/v1/_bootstrap/admin</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-expenses" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="expenses">
                     <a href="#expenses">Expenses</a>
@@ -152,28 +202,6 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-budget-categories" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="budget-categories">
-                    <a href="#budget-categories">Budget Categories</a>
-                </li>
-                                    <ul id="tocify-subheader-budget-categories" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="budget-categories-GETapi-v1-budget-categories">
-                                <a href="#budget-categories-GETapi-v1-budget-categories">List budget categories</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="budget-categories-POSTapi-v1-budget-categories">
-                                <a href="#budget-categories-POSTapi-v1-budget-categories">Create budget category</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="budget-categories-GETapi-v1-budget-categories--id-">
-                                <a href="#budget-categories-GETapi-v1-budget-categories--id-">Show budget category</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="budget-categories-PUTapi-v1-budget-categories--id-">
-                                <a href="#budget-categories-PUTapi-v1-budget-categories--id-">Update budget category</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="budget-categories-DELETEapi-v1-budget-categories--id-">
-                                <a href="#budget-categories-DELETEapi-v1-budget-categories--id-">Delete budget category</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
                     <ul id="tocify-header-fiscal-years" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="fiscal-years">
                     <a href="#fiscal-years">Fiscal Years</a>
@@ -182,11 +210,11 @@
                                                     <li class="tocify-item level-2" data-unique="fiscal-years-GETapi-v1-fiscal-years">
                                 <a href="#fiscal-years-GETapi-v1-fiscal-years">List fiscal years</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="fiscal-years-POSTapi-v1-fiscal-years">
-                                <a href="#fiscal-years-POSTapi-v1-fiscal-years">Create fiscal year</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="fiscal-years-GETapi-v1-fiscal-years--id-">
                                 <a href="#fiscal-years-GETapi-v1-fiscal-years--id-">Show fiscal year</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="fiscal-years-POSTapi-v1-fiscal-years">
+                                <a href="#fiscal-years-POSTapi-v1-fiscal-years">Create fiscal year</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="fiscal-years-PUTapi-v1-fiscal-years--id-">
                                 <a href="#fiscal-years-PUTapi-v1-fiscal-years--id-">Update fiscal year</a>
@@ -204,17 +232,33 @@
                                                     <li class="tocify-item level-2" data-unique="government-units-GETapi-v1-government-units">
                                 <a href="#government-units-GETapi-v1-government-units">List government units</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="government-units-POSTapi-v1-government-units">
-                                <a href="#government-units-POSTapi-v1-government-units">Create government unit</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="government-units-GETapi-v1-government-units--id-">
                                 <a href="#government-units-GETapi-v1-government-units--id-">Show government unit</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="government-units-POSTapi-v1-government-units">
+                                <a href="#government-units-POSTapi-v1-government-units">Create government unit</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="government-units-PUTapi-v1-government-units--id-">
                                 <a href="#government-units-PUTapi-v1-government-units--id-">Update government unit</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="government-units-DELETEapi-v1-government-units--id-">
                                 <a href="#government-units-DELETEapi-v1-government-units--id-">Delete government unit</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-public-analytics" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="public-analytics">
+                    <a href="#public-analytics">Public Analytics</a>
+                </li>
+                                    <ul id="tocify-subheader-public-analytics" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="public-analytics-GETapi-v1-analytics-overall-summary">
+                                <a href="#public-analytics-GETapi-v1-analytics-overall-summary">GET api/v1/analytics/overall-summary</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="public-analytics-GETapi-v1-analytics-barangay-list">
+                                <a href="#public-analytics-GETapi-v1-analytics-barangay-list">GET api/v1/analytics/barangay-list</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="public-analytics-GETapi-v1-analytics-barangay--budgetId-">
+                                <a href="#public-analytics-GETapi-v1-analytics-barangay--budgetId-">GET api/v1/analytics/barangay/{budgetId}</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -240,38 +284,6 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-audit-logs" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="audit-logs">
-                    <a href="#audit-logs">Audit Logs</a>
-                </li>
-                                    <ul id="tocify-subheader-audit-logs" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="audit-logs-GETapi-v1-audit-logs">
-                                <a href="#audit-logs-GETapi-v1-audit-logs">List audit logs</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="audit-logs-GETapi-v1-audit-logs-by-date">
-                                <a href="#audit-logs-GETapi-v1-audit-logs-by-date">List audit logs for a specific date</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="audit-logs-GETapi-v1-audit-logs--auditLog_id-">
-                                <a href="#audit-logs-GETapi-v1-audit-logs--auditLog_id-">View a specific audit log</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-public-analytics" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="public-analytics">
-                    <a href="#public-analytics">Public Analytics</a>
-                </li>
-                                    <ul id="tocify-subheader-public-analytics" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="public-analytics-GETapi-v1-analytics-overall-summary">
-                                <a href="#public-analytics-GETapi-v1-analytics-overall-summary">GET api/v1/analytics/overall-summary</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="public-analytics-GETapi-v1-analytics-barangay-list">
-                                <a href="#public-analytics-GETapi-v1-analytics-barangay-list">GET api/v1/analytics/barangay-list</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="public-analytics-GETapi-v1-analytics-barangay--budgetId-">
-                                <a href="#public-analytics-GETapi-v1-analytics-barangay--budgetId-">GET api/v1/analytics/barangay/{budgetId}</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -289,20 +301,721 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
-<p>API for managing government budgets, expenses, and analytics for government units.</p>
 <aside>
     <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
-<pre><code>This documentation provides all the information you need to work with the Government Budget API.
+<pre><code>This documentation aims to provide all the information you need to work with our API.
 
-&lt;aside&gt;As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right.&lt;/aside&gt;</code></pre>
+&lt;aside&gt;As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).&lt;/aside&gt;</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_TOKEN}"</code></strong>.</p>
+<p>To authenticate requests, include a <strong><code>Authorization</code></strong> header with the value <strong><code>"{YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>You can retrieve your token by making a POST request to <code>/api/v1/login</code> endpoint.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
-        <h1 id="authentication">Authentication</h1>
+        <h1 id="audit-logs">Audit Logs</h1>
+
+    <p>Read-only audit trail endpoints for administrators and auditors.</p>
+
+                                <h2 id="audit-logs-GETapi-v1-audit-logs">List audit logs</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Returns a paginated list of audit logs.
+Accessible to admins and auditors.</p>
+
+<span id="example-requests-GETapi-v1-audit-logs">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/audit-logs" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": 1,
+    \"resource\": \"Expense\",
+    \"action\": \"created\",
+    \"date\": \"2025-12-28\",
+    \"from\": \"2025-12-01\",
+    \"to\": \"2025-12-31\",
+    \"per_page\": 25
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/audit-logs"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 1,
+    "resource": "Expense",
+    "action": "created",
+    "date": "2025-12-28",
+    "from": "2025-12-01",
+    "to": "2025-12-31",
+    "per_page": 25
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-audit-logs">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-audit-logs" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-audit-logs"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-audit-logs"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-audit-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-audit-logs">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-audit-logs" data-method="GET"
+      data-path="api/v1/audit-logs"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-audit-logs', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-audit-logs"
+                    onclick="tryItOut('GETapi-v1-audit-logs');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-audit-logs"
+                    onclick="cancelTryOut('GETapi-v1-audit-logs');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-audit-logs"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/audit-logs</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-audit-logs"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-audit-logs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-audit-logs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="GETapi-v1-audit-logs"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter logs by the user who performed the action. The <code>id</code> of an existing record in the users table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>resource</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="resource"                data-endpoint="GETapi-v1-audit-logs"
+               value="Expense"
+               data-component="body">
+    <br>
+<p>Filter by audited resource type. Must not be greater than 255 characters. Example: <code>Expense</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>action</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="action"                data-endpoint="GETapi-v1-audit-logs"
+               value="created"
+               data-component="body">
+    <br>
+<p>Filter by action type. Example: <code>created</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>created</code></li> <li><code>updated</code></li> <li><code>deleted</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-v1-audit-logs"
+               value="2025-12-28"
+               data-component="body">
+    <br>
+<p>Filter logs for a specific date (YYYY-MM-DD). Must be a valid date. Example: <code>2025-12-28</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>from</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="from"                data-endpoint="GETapi-v1-audit-logs"
+               value="2025-12-01"
+               data-component="body">
+    <br>
+<p>Start date for date range filtering (YYYY-MM-DD). Must be a valid date. Example: <code>2025-12-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="to"                data-endpoint="GETapi-v1-audit-logs"
+               value="2025-12-31"
+               data-component="body">
+    <br>
+<p>End date for date range filtering (YYYY-MM-DD). Must be a valid date. Must be a date after or equal to <code>from</code>. Example: <code>2025-12-31</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-audit-logs"
+               value="25"
+               data-component="body">
+    <br>
+<p>Number of records per page (1–100). Must be at least 1. Must not be greater than 100. Example: <code>25</code></p>
+        </div>
+        </form>
+
+                    <h2 id="audit-logs-GETapi-v1-audit-logs-by-date">List audit logs for a specific date</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Explicit auditor-friendly endpoint.</p>
+
+<span id="example-requests-GETapi-v1-audit-logs-by-date">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/audit-logs/by-date?date=2025-12-28&amp;per_page=25" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": 1,
+    \"resource\": \"Expense\",
+    \"action\": \"created\",
+    \"date\": \"2025-12-29T10:52:19\",
+    \"from\": \"2025-12-01\",
+    \"to\": \"2025-12-31\",
+    \"per_page\": 25
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/audit-logs/by-date"
+);
+
+const params = {
+    "date": "2025-12-28",
+    "per_page": "25",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 1,
+    "resource": "Expense",
+    "action": "created",
+    "date": "2025-12-29T10:52:19",
+    "from": "2025-12-01",
+    "to": "2025-12-31",
+    "per_page": 25
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-audit-logs-by-date">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-audit-logs-by-date" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-audit-logs-by-date"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-audit-logs-by-date"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-audit-logs-by-date" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-audit-logs-by-date">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-audit-logs-by-date" data-method="GET"
+      data-path="api/v1/audit-logs/by-date"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-audit-logs-by-date', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-audit-logs-by-date"
+                    onclick="tryItOut('GETapi-v1-audit-logs-by-date');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-audit-logs-by-date"
+                    onclick="cancelTryOut('GETapi-v1-audit-logs-by-date');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-audit-logs-by-date"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/audit-logs/by-date</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="2025-12-28"
+               data-component="query">
+    <br>
+<p>date Filter audit logs by date (YYYY-MM-DD). Example: <code>2025-12-28</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="25"
+               data-component="query">
+    <br>
+<p>Number of records per page (max 100). Example: <code>25</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter logs by the user who performed the action. The <code>id</code> of an existing record in the users table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>resource</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="resource"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="Expense"
+               data-component="body">
+    <br>
+<p>Filter by audited resource type. Must not be greater than 255 characters. Example: <code>Expense</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>action</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="action"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="created"
+               data-component="body">
+    <br>
+<p>Filter by action type. Example: <code>created</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>created</code></li> <li><code>updated</code></li> <li><code>deleted</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="2025-12-29T10:52:19"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2025-12-29T10:52:19</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>from</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="from"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="2025-12-01"
+               data-component="body">
+    <br>
+<p>Start date for date range filtering (YYYY-MM-DD). Must be a valid date. Example: <code>2025-12-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="to"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="2025-12-31"
+               data-component="body">
+    <br>
+<p>End date for date range filtering (YYYY-MM-DD). Must be a valid date. Must be a date after or equal to <code>from</code>. Example: <code>2025-12-31</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-audit-logs-by-date"
+               value="25"
+               data-component="body">
+    <br>
+<p>Number of records per page (1–100). Must be at least 1. Must not be greater than 100. Example: <code>25</code></p>
+        </div>
+        </form>
+
+                    <h2 id="audit-logs-GETapi-v1-audit-logs--auditLog_id-">View a specific audit log</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-audit-logs--auditLog_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/audit-logs/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/audit-logs/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-audit-logs--auditLog_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-audit-logs--auditLog_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-audit-logs--auditLog_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-audit-logs--auditLog_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-audit-logs--auditLog_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-audit-logs--auditLog_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-audit-logs--auditLog_id-" data-method="GET"
+      data-path="api/v1/audit-logs/{auditLog_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-audit-logs--auditLog_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-audit-logs--auditLog_id-"
+                    onclick="tryItOut('GETapi-v1-audit-logs--auditLog_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-audit-logs--auditLog_id-"
+                    onclick="cancelTryOut('GETapi-v1-audit-logs--auditLog_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-audit-logs--auditLog_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/audit-logs/{auditLog_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>auditLog_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="auditLog_id"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the auditLog. Example: <code>1</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>auditLog</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="auditLog"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the audit log. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                <h1 id="authentication">Authentication</h1>
 
     <p>User authentication endpoints</p>
 
@@ -349,44 +1062,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/login';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'email' =&gt; 'admin@barangay.gov.ph',
-            'password' =&gt; 'password',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/login'
-payload = {
-    "email": "admin@barangay.gov.ph",
-    "password": "password"
-}
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -505,7 +1180,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/v1/logout" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -516,7 +1191,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -525,38 +1200,6 @@ fetch(url, {
     method: "POST",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/logout';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/logout'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -616,10 +1259,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-logout"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -647,11 +1290,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                <h1 id="budgets">Budgets</h1>
+                <h1 id="budget-categories">Budget Categories</h1>
 
-    <p>Budget management endpoints</p>
+    <p>Budget category management endpoints</p>
 
-                                <h2 id="budgets-GETapi-v1-budgets">List budgets</h2>
+                                <h2 id="budget-categories-GETapi-v1-budget-categories">List budget categories</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -659,31 +1302,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-v1-budgets">
+<span id="example-requests-GETapi-v1-budget-categories">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/budgets?page=1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --get "http://localhost:8000/api/v1/budget-categories" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budgets"
+    "http://localhost:8000/api/v1/budget-categories"
 );
 
-const params = {
-    "page": "1",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -693,47 +1330,9 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budgets';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'query' =&gt; [
-            'page' =&gt; '1',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budgets'
-params = {
-  'page': '1',
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers, params=params)
-response.json()</code></pre></div>
-
 </span>
 
-<span id="example-responses-GETapi-v1-budgets">
+<span id="example-responses-GETapi-v1-budget-categories">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -755,190 +1354,65 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2089810,
-            &quot;government_unit&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Barangay San Antonio&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;fiscal_year&quot;: {
-                &quot;id&quot;: 1,
-                &quot;year&quot;: 2026,
-                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
-                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
+            &quot;name&quot;: &quot;Infrastructure Development&quot;
         },
         {
             &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Barangay Santo Domingo Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2714573,
-            &quot;government_unit&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;fiscal_year&quot;: {
-                &quot;id&quot;: 1,
-                &quot;year&quot;: 2026,
-                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
-                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
+            &quot;name&quot;: &quot;Health and Sanitation&quot;
         },
         {
             &quot;id&quot;: 3,
-            &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 1990525,
-            &quot;government_unit&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;fiscal_year&quot;: {
-                &quot;id&quot;: 1,
-                &quot;year&quot;: 2026,
-                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
-                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
+            &quot;name&quot;: &quot;Education and Youth&quot;
         },
         {
             &quot;id&quot;: 4,
-            &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2184189,
-            &quot;government_unit&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Tatalon&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;fiscal_year&quot;: {
-                &quot;id&quot;: 1,
-                &quot;year&quot;: 2026,
-                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
-                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
+            &quot;name&quot;: &quot;Peace and Order&quot;
         },
         {
             &quot;id&quot;: 5,
-            &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 1550941,
-            &quot;government_unit&quot;: {
-                &quot;id&quot;: 6,
-                &quot;name&quot;: &quot;Barangay Kamuning&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;fiscal_year&quot;: {
-                &quot;id&quot;: 1,
-                &quot;year&quot;: 2026,
-                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
-                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
+            &quot;name&quot;: &quot;Environment and Waste Management&quot;
         }
-    ],
-    &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://localhost:8000/api/v1/budgets?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost:8000/api/v1/budgets?page=1&quot;,
-        &quot;prev&quot;: null,
-        &quot;next&quot;: null
-    },
-    &quot;meta&quot;: {
-        &quot;current_page&quot;: 1,
-        &quot;from&quot;: 1,
-        &quot;last_page&quot;: 1,
-        &quot;links&quot;: [
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
-                &quot;page&quot;: null,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost:8000/api/v1/budgets?page=1&quot;,
-                &quot;label&quot;: &quot;1&quot;,
-                &quot;page&quot;: 1,
-                &quot;active&quot;: true
-            },
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
-                &quot;page&quot;: null,
-                &quot;active&quot;: false
-            }
-        ],
-        &quot;path&quot;: &quot;http://localhost:8000/api/v1/budgets&quot;,
-        &quot;per_page&quot;: 15,
-        &quot;to&quot;: 5,
-        &quot;total&quot;: 5
-    }
+    ]
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-budgets" hidden>
+<span id="execution-results-GETapi-v1-budget-categories" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-budgets"></span>:
+                id="execution-response-status-GETapi-v1-budget-categories"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-budgets"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-budget-categories"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-budgets" hidden>
+<span id="execution-error-GETapi-v1-budget-categories" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-budgets">
+    <pre><code id="execution-error-message-GETapi-v1-budget-categories">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-v1-budgets" data-method="GET"
-      data-path="api/v1/budgets"
+<form id="form-GETapi-v1-budget-categories" data-method="GET"
+      data-path="api/v1/budget-categories"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budgets', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budget-categories', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-budgets"
-                    onclick="tryItOut('GETapi-v1-budgets');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-budget-categories"
+                    onclick="tryItOut('GETapi-v1-budget-categories');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-budgets"
-                    onclick="cancelTryOut('GETapi-v1-budgets');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-budget-categories"
+                    onclick="cancelTryOut('GETapi-v1-budget-categories');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-budgets"
+                    id="btn-executetryout-GETapi-v1-budget-categories"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -946,7 +1420,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/budgets</code></b>
+            <b><code>api/v1/budget-categories</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -955,11 +1429,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budgets"
-               value="Bearer {YOUR_TOKEN}"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-categories"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -967,7 +1441,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-budgets"
+                              name="Content-Type"                data-endpoint="GETapi-v1-budget-categories"
                value="application/json"
                data-component="header">
     <br>
@@ -979,28 +1453,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-budgets"
+                              name="Accept"                data-endpoint="GETapi-v1-budget-categories"
                value="application/json"
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="page"                data-endpoint="GETapi-v1-budgets"
-               value="1"
-               data-component="query">
-    <br>
-<p>Page number. Example: <code>1</code></p>
-            </div>
-                </form>
+                        </form>
 
-                    <h2 id="budgets-GETapi-v1-budgets--id-">Show budget</h2>
+                    <h2 id="budget-categories-GETapi-v1-budget-categories--id-">Show budget category</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1008,25 +1469,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-v1-budgets--id-">
+<span id="example-requests-GETapi-v1-budget-categories--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/budgets/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --get "http://localhost:8000/api/v1/budget-categories/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budgets/1"
+    "http://localhost:8000/api/v1/budget-categories/1"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1036,41 +1497,9 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budgets/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budgets/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
 </span>
 
-<span id="example-responses-GETapi-v1-budgets--id-">
+<span id="example-responses-GETapi-v1-budget-categories--id-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -1091,237 +1520,48 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-        &quot;total_amount&quot;: 2089810,
-        &quot;government_unit&quot;: {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Barangay San Antonio&quot;,
-            &quot;type&quot;: &quot;barangay&quot;,
-            &quot;parent_id&quot;: 1,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-        },
-        &quot;fiscal_year&quot;: {
-            &quot;id&quot;: 1,
-            &quot;year&quot;: 2026,
-            &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
-            &quot;is_active&quot;: true,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-        },
-        &quot;budget_items&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
-                &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
-                &quot;allocated_amount&quot;: 499102,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Infrastructure Development&quot;
-                },
-                &quot;spent_amount&quot;: &quot;172365.00&quot;
-            },
-            {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Covered Court Construction&quot;,
-                &quot;code&quot;: &quot;BRG2-INFRA-002&quot;,
-                &quot;allocated_amount&quot;: 1126638,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Infrastructure Development&quot;
-                },
-                &quot;spent_amount&quot;: &quot;317321.00&quot;
-            },
-            {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Street Lighting Installation&quot;,
-                &quot;code&quot;: &quot;BRG2-INFRA-003&quot;,
-                &quot;allocated_amount&quot;: 324440,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Infrastructure Development&quot;
-                },
-                &quot;spent_amount&quot;: &quot;155387.00&quot;
-            },
-            {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Drainage System Improvement&quot;,
-                &quot;code&quot;: &quot;BRG2-INFRA-004&quot;,
-                &quot;allocated_amount&quot;: 516875,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Infrastructure Development&quot;
-                },
-                &quot;spent_amount&quot;: &quot;140509.00&quot;
-            },
-            {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Health Station Supplies&quot;,
-                &quot;code&quot;: &quot;BRG2-HEALTH-001&quot;,
-                &quot;allocated_amount&quot;: 267063,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;Health and Sanitation&quot;
-                },
-                &quot;spent_amount&quot;: &quot;132971.00&quot;
-            },
-            {
-                &quot;id&quot;: 6,
-                &quot;name&quot;: &quot;Medical Equipment Purchase&quot;,
-                &quot;code&quot;: &quot;BRG2-HEALTH-002&quot;,
-                &quot;allocated_amount&quot;: 307509,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;Health and Sanitation&quot;
-                },
-                &quot;spent_amount&quot;: &quot;152073.00&quot;
-            },
-            {
-                &quot;id&quot;: 7,
-                &quot;name&quot;: &quot;Vaccination Program&quot;,
-                &quot;code&quot;: &quot;BRG2-HEALTH-003&quot;,
-                &quot;allocated_amount&quot;: 479252,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;Health and Sanitation&quot;
-                },
-                &quot;spent_amount&quot;: &quot;203206.00&quot;
-            },
-            {
-                &quot;id&quot;: 8,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG2-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 88710,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Education and Youth&quot;
-                },
-                &quot;spent_amount&quot;: &quot;58251.00&quot;
-            },
-            {
-                &quot;id&quot;: 9,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG2-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 469074,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Education and Youth&quot;
-                },
-                &quot;spent_amount&quot;: &quot;191653.00&quot;
-            },
-            {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Youth Development Program&quot;,
-                &quot;code&quot;: &quot;BRG2-EDU-003&quot;,
-                &quot;allocated_amount&quot;: 173125,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Education and Youth&quot;
-                },
-                &quot;spent_amount&quot;: &quot;109451.00&quot;
-            },
-            {
-                &quot;id&quot;: 11,
-                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
-                &quot;code&quot;: &quot;BRG2-PEACE-001&quot;,
-                &quot;allocated_amount&quot;: 206725,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 4,
-                    &quot;name&quot;: &quot;Peace and Order&quot;
-                },
-                &quot;spent_amount&quot;: &quot;121245.00&quot;
-            },
-            {
-                &quot;id&quot;: 12,
-                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
-                &quot;code&quot;: &quot;BRG2-PEACE-002&quot;,
-                &quot;allocated_amount&quot;: 251271,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 4,
-                    &quot;name&quot;: &quot;Peace and Order&quot;
-                },
-                &quot;spent_amount&quot;: &quot;162355.00&quot;
-            },
-            {
-                &quot;id&quot;: 61,
-                &quot;name&quot;: &quot;Road and Bridge Maintenance&quot;,
-                &quot;code&quot;: &quot;INFRA-RBM-001&quot;,
-                &quot;allocated_amount&quot;: 2500000,
-                &quot;created_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Infrastructure Development&quot;
-                },
-                &quot;spent_amount&quot;: null
-            }
-        ]
+        &quot;name&quot;: &quot;Infrastructure Development&quot;
     }
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-budgets--id-" hidden>
+<span id="execution-results-GETapi-v1-budget-categories--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-budgets--id-"></span>:
+                id="execution-response-status-GETapi-v1-budget-categories--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-budgets--id-"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-budget-categories--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-budgets--id-" hidden>
+<span id="execution-error-GETapi-v1-budget-categories--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-budgets--id-">
+    <pre><code id="execution-error-message-GETapi-v1-budget-categories--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-v1-budgets--id-" data-method="GET"
-      data-path="api/v1/budgets/{id}"
+<form id="form-GETapi-v1-budget-categories--id-" data-method="GET"
+      data-path="api/v1/budget-categories/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budgets--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budget-categories--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-budgets--id-"
-                    onclick="tryItOut('GETapi-v1-budgets--id-');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-budget-categories--id-"
+                    onclick="tryItOut('GETapi-v1-budget-categories--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-budgets--id-"
-                    onclick="cancelTryOut('GETapi-v1-budgets--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-budget-categories--id-"
+                    onclick="cancelTryOut('GETapi-v1-budget-categories--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-budgets--id-"
+                    id="btn-executetryout-GETapi-v1-budget-categories--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1329,7 +1569,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/budgets/{id}</code></b>
+            <b><code>api/v1/budget-categories/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1338,11 +1578,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budgets--id-"
-               value="Bearer {YOUR_TOKEN}"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-categories--id-"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1350,7 +1590,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-budgets--id-"
+                              name="Content-Type"                data-endpoint="GETapi-v1-budget-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1362,7 +1602,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-budgets--id-"
+                              name="Accept"                data-endpoint="GETapi-v1-budget-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1375,15 +1615,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-v1-budgets--id-"
+               step="any"               name="id"                data-endpoint="GETapi-v1-budget-categories--id-"
                value="1"
                data-component="url">
     <br>
-<p>The ID of the budget. Example: <code>1</code></p>
+<p>The ID of the budget category. Example: <code>1</code></p>
             </div>
                     </form>
 
-                    <h2 id="budgets-POSTapi-v1-budgets">Create budget</h2>
+                    <h2 id="budget-categories-POSTapi-v1-budget-categories">Create budget category</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1391,41 +1631,35 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-v1-budgets">
+<span id="example-requests-POSTapi-v1-budget-categories">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/budgets" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    "http://localhost:8000/api/v1/budget-categories" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"Annual Budget 2024\",
-    \"government_unit_id\": 1,
-    \"fiscal_year_id\": 1,
-    \"total_amount\": 1000000
+    \"name\": \"Office Supplies\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budgets"
+    "http://localhost:8000/api/v1/budget-categories"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "name": "Annual Budget 2024",
-    "government_unit_id": 1,
-    "fiscal_year_id": 1,
-    "total_amount": 1000000
+    "name": "Office Supplies"
 };
 
 fetch(url, {
@@ -1434,91 +1668,47 @@ fetch(url, {
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budgets';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Annual Budget 2024',
-            'government_unit_id' =&gt; 1,
-            'fiscal_year_id' =&gt; 1,
-            'total_amount' =&gt; 1000000.0,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budgets'
-payload = {
-    "name": "Annual Budget 2024",
-    "government_unit_id": 1,
-    "fiscal_year_id": 1,
-    "total_amount": 1000000
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
 </span>
 
-<span id="example-responses-POSTapi-v1-budgets">
+<span id="example-responses-POSTapi-v1-budget-categories">
 </span>
-<span id="execution-results-POSTapi-v1-budgets" hidden>
+<span id="execution-results-POSTapi-v1-budget-categories" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-budgets"></span>:
+                id="execution-response-status-POSTapi-v1-budget-categories"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-budgets"
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-budget-categories"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1-budgets" hidden>
+<span id="execution-error-POSTapi-v1-budget-categories" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-budgets">
+    <pre><code id="execution-error-message-POSTapi-v1-budget-categories">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-v1-budgets" data-method="POST"
-      data-path="api/v1/budgets"
+<form id="form-POSTapi-v1-budget-categories" data-method="POST"
+      data-path="api/v1/budget-categories"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-budgets', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-budget-categories', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-budgets"
-                    onclick="tryItOut('POSTapi-v1-budgets');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1-budget-categories"
+                    onclick="tryItOut('POSTapi-v1-budget-categories');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-budgets"
-                    onclick="cancelTryOut('POSTapi-v1-budgets');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1-budget-categories"
+                    onclick="cancelTryOut('POSTapi-v1-budget-categories');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-budgets"
+                    id="btn-executetryout-POSTapi-v1-budget-categories"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1526,7 +1716,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/v1/budgets</code></b>
+            <b><code>api/v1/budget-categories</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1535,11 +1725,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-budgets"
-               value="Bearer {YOUR_TOKEN}"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-budget-categories"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1547,7 +1737,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-budgets"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-budget-categories"
                value="application/json"
                data-component="header">
     <br>
@@ -1559,7 +1749,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-budgets"
+                              name="Accept"                data-endpoint="POSTapi-v1-budget-categories"
                value="application/json"
                data-component="header">
     <br>
@@ -1572,51 +1762,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-v1-budgets"
-               value="Annual Budget 2024"
+                              name="name"                data-endpoint="POSTapi-v1-budget-categories"
+               value="Office Supplies"
                data-component="body">
     <br>
-<p>Budget name. Example: <code>Annual Budget 2024</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>government_unit_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="government_unit_id"                data-endpoint="POSTapi-v1-budgets"
-               value="1"
-               data-component="body">
-    <br>
-<p>Government unit ID. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>fiscal_year_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="fiscal_year_id"                data-endpoint="POSTapi-v1-budgets"
-               value="1"
-               data-component="body">
-    <br>
-<p>Fiscal year ID. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>total_amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="total_amount"                data-endpoint="POSTapi-v1-budgets"
-               value="1000000"
-               data-component="body">
-    <br>
-<p>Total amount. Example: <code>1000000</code></p>
+<p>Category name. Example: <code>Office Supplies</code></p>
         </div>
         </form>
 
-                    <h2 id="budgets-PUTapi-v1-budgets--id-">Update budget</h2>
+                    <h2 id="budget-categories-PUTapi-v1-budget-categories--id-">Update budget category</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1624,41 +1778,35 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-PUTapi-v1-budgets--id-">
+<span id="example-requests-PUTapi-v1-budget-categories--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/budgets/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    "http://localhost:8000/api/v1/budget-categories/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"Revised Infrastructure Budget 2025\",
-    \"government_unit_id\": 1,
-    \"fiscal_year_id\": 1,
-    \"total_amount\": 175000000
+    \"name\": \"Office Equipment\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budgets/1"
+    "http://localhost:8000/api/v1/budget-categories/1"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "name": "Revised Infrastructure Budget 2025",
-    "government_unit_id": 1,
-    "fiscal_year_id": 1,
-    "total_amount": 175000000
+    "name": "Office Equipment"
 };
 
 fetch(url, {
@@ -1667,91 +1815,47 @@ fetch(url, {
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budgets/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Revised Infrastructure Budget 2025',
-            'government_unit_id' =&gt; 1,
-            'fiscal_year_id' =&gt; 1,
-            'total_amount' =&gt; 175000000.0,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budgets/1'
-payload = {
-    "name": "Revised Infrastructure Budget 2025",
-    "government_unit_id": 1,
-    "fiscal_year_id": 1,
-    "total_amount": 175000000
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
 </span>
 
-<span id="example-responses-PUTapi-v1-budgets--id-">
+<span id="example-responses-PUTapi-v1-budget-categories--id-">
 </span>
-<span id="execution-results-PUTapi-v1-budgets--id-" hidden>
+<span id="execution-results-PUTapi-v1-budget-categories--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-budgets--id-"></span>:
+                id="execution-response-status-PUTapi-v1-budget-categories--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-budgets--id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-budget-categories--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-PUTapi-v1-budgets--id-" hidden>
+<span id="execution-error-PUTapi-v1-budget-categories--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-budgets--id-">
+    <pre><code id="execution-error-message-PUTapi-v1-budget-categories--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-PUTapi-v1-budgets--id-" data-method="PUT"
-      data-path="api/v1/budgets/{id}"
+<form id="form-PUTapi-v1-budget-categories--id-" data-method="PUT"
+      data-path="api/v1/budget-categories/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-budgets--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-budget-categories--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-budgets--id-"
-                    onclick="tryItOut('PUTapi-v1-budgets--id-');">Try it out ⚡
+                    id="btn-tryout-PUTapi-v1-budget-categories--id-"
+                    onclick="tryItOut('PUTapi-v1-budget-categories--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-budgets--id-"
-                    onclick="cancelTryOut('PUTapi-v1-budgets--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-PUTapi-v1-budget-categories--id-"
+                    onclick="cancelTryOut('PUTapi-v1-budget-categories--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-budgets--id-"
+                    id="btn-executetryout-PUTapi-v1-budget-categories--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1759,11 +1863,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/budgets/{id}</code></b>
+            <b><code>api/v1/budget-categories/{id}</code></b>
         </p>
             <p>
             <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/budgets/{id}</code></b>
+            <b><code>api/v1/budget-categories/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1772,11 +1876,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-budgets--id-"
-               value="Bearer {YOUR_TOKEN}"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-budget-categories--id-"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1784,7 +1888,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-v1-budgets--id-"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-budget-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1796,7 +1900,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-v1-budgets--id-"
+                              name="Accept"                data-endpoint="PUTapi-v1-budget-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1809,11 +1913,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-v1-budgets--id-"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-budget-categories--id-"
                value="1"
                data-component="url">
     <br>
-<p>The ID of the budget. Example: <code>1</code></p>
+<p>The ID of the budget category. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1822,51 +1926,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="name"                data-endpoint="PUTapi-v1-budgets--id-"
-               value="Revised Infrastructure Budget 2025"
+                              name="name"                data-endpoint="PUTapi-v1-budget-categories--id-"
+               value="Office Equipment"
                data-component="body">
     <br>
-<p>Updated official name of the budget. Must not be greater than 255 characters. Example: <code>Revised Infrastructure Budget 2025</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>government_unit_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="government_unit_id"                data-endpoint="PUTapi-v1-budgets--id-"
-               value="1"
-               data-component="body">
-    <br>
-<p>Updated ID of the government unit responsible for this budget. The <code>id</code> of an existing record in the government_units table. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>fiscal_year_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="fiscal_year_id"                data-endpoint="PUTapi-v1-budgets--id-"
-               value="1"
-               data-component="body">
-    <br>
-<p>Updated ID of the fiscal year to which this budget applies. The <code>id</code> of an existing record in the fiscal_years table. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>total_amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="total_amount"                data-endpoint="PUTapi-v1-budgets--id-"
-               value="175000000"
-               data-component="body">
-    <br>
-<p>Updated total approved amount for the budget. Must be a non-negative number. Must be at least 0. Example: <code>175000000</code></p>
+<p>Category name. Example: <code>Office Equipment</code></p>
         </div>
         </form>
 
-                    <h2 id="budgets-DELETEapi-v1-budgets--id-">Delete budget</h2>
+                    <h2 id="budget-categories-DELETEapi-v1-budget-categories--id-">Delete budget category</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1874,25 +1942,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-DELETEapi-v1-budgets--id-">
+<span id="example-requests-DELETEapi-v1-budget-categories--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/budgets/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    "http://localhost:8000/api/v1/budget-categories/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budgets/1"
+    "http://localhost:8000/api/v1/budget-categories/1"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1902,79 +1970,47 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budgets/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budgets/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
-
 </span>
 
-<span id="example-responses-DELETEapi-v1-budgets--id-">
+<span id="example-responses-DELETEapi-v1-budget-categories--id-">
 </span>
-<span id="execution-results-DELETEapi-v1-budgets--id-" hidden>
+<span id="execution-results-DELETEapi-v1-budget-categories--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-budgets--id-"></span>:
+                id="execution-response-status-DELETEapi-v1-budget-categories--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-budgets--id-"
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-budget-categories--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-DELETEapi-v1-budgets--id-" hidden>
+<span id="execution-error-DELETEapi-v1-budget-categories--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-budgets--id-">
+    <pre><code id="execution-error-message-DELETEapi-v1-budget-categories--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-DELETEapi-v1-budgets--id-" data-method="DELETE"
-      data-path="api/v1/budgets/{id}"
+<form id="form-DELETEapi-v1-budget-categories--id-" data-method="DELETE"
+      data-path="api/v1/budget-categories/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-budgets--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-budget-categories--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-budgets--id-"
-                    onclick="tryItOut('DELETEapi-v1-budgets--id-');">Try it out ⚡
+                    id="btn-tryout-DELETEapi-v1-budget-categories--id-"
+                    onclick="tryItOut('DELETEapi-v1-budget-categories--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-budgets--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-budgets--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-DELETEapi-v1-budget-categories--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-budget-categories--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-budgets--id-"
+                    id="btn-executetryout-DELETEapi-v1-budget-categories--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1982,7 +2018,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/budgets/{id}</code></b>
+            <b><code>api/v1/budget-categories/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1991,11 +2027,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-budgets--id-"
-               value="Bearer {YOUR_TOKEN}"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-budget-categories--id-"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2003,7 +2039,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-budgets--id-"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-budget-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2015,7 +2051,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-budgets--id-"
+                              name="Accept"                data-endpoint="DELETEapi-v1-budget-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2028,11 +2064,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-v1-budgets--id-"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-budget-categories--id-"
                value="1"
                data-component="url">
     <br>
-<p>The ID of the budget. Example: <code>1</code></p>
+<p>The ID of the budget category. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2055,7 +2091,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/budget-items" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2066,7 +2102,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2075,38 +2111,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-items';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-items'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -2581,10 +2585,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-items"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2627,7 +2631,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/budget-items/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2638,7 +2642,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2647,38 +2651,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-items/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-items/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -2776,10 +2748,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-items--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2835,7 +2807,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/budget-items/1/summary" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2846,7 +2818,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2855,38 +2827,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-items/1/summary';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-items/1/summary'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -2974,10 +2914,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-items--budgetItem_id--summary"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3033,7 +2973,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/v1/budget-items" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3052,7 +2992,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3070,52 +3010,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-items';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'budget_id' =&gt; 1,
-            'budget_category_id' =&gt; 3,
-            'name' =&gt; 'Road and Bridge Maintenance',
-            'code' =&gt; 'INFRA-RBM-001',
-            'allocated_amount' =&gt; 2500000.0,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-items'
-payload = {
-    "budget_id": 1,
-    "budget_category_id": 3,
-    "name": "Road and Bridge Maintenance",
-    "code": "INFRA-RBM-001",
-    "allocated_amount": 2500000
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -3175,10 +3069,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-budget-items"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3282,7 +3176,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/v1/budget-items/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3301,7 +3195,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3319,52 +3213,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-items/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'budget_id' =&gt; 1,
-            'budget_category_id' =&gt; 3,
-            'name' =&gt; 'Road and Bridge Rehabilitation',
-            'code' =&gt; 'INFRA-RBR-002',
-            'allocated_amount' =&gt; 3000000.0,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-items/1'
-payload = {
-    "budget_id": 1,
-    "budget_category_id": 3,
-    "name": "Road and Bridge Rehabilitation",
-    "code": "INFRA-RBR-002",
-    "allocated_amount": 3000000
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -3428,10 +3276,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-budget-items--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3548,7 +3396,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/v1/budget-items/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3559,7 +3407,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3568,38 +3416,6 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-items/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-items/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -3659,10 +3475,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-budget-items--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3703,6 +3519,1621 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="budgets">Budgets</h1>
+
+    <p>Budget management endpoints</p>
+
+                                <h2 id="budgets-GETapi-v1-budgets">List budgets</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-budgets">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/budgets?page=1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/budgets"
+);
+
+const params = {
+    "page": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-budgets">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer
+permissions-policy: geolocation=(), camera=(), microphone=()
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 2089810,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Barangay San Antonio&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Barangay Santo Domingo Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 2714573,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 1990525,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 2184189,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Tatalon&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 1550941,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Barangay Kamuning&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            }
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost:8000/api/v1/budgets?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/v1/budgets?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;page&quot;: null,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/v1/budgets?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;page&quot;: 1,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;page&quot;: null,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost:8000/api/v1/budgets&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 5,
+        &quot;total&quot;: 5
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-budgets" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-budgets"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-budgets"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-budgets" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-budgets">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-budgets" data-method="GET"
+      data-path="api/v1/budgets"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budgets', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-budgets"
+                    onclick="tryItOut('GETapi-v1-budgets');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-budgets"
+                    onclick="cancelTryOut('GETapi-v1-budgets');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-budgets"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/budgets</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budgets"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-budgets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-budgets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi-v1-budgets"
+               value="1"
+               data-component="query">
+    <br>
+<p>Page number. Example: <code>1</code></p>
+            </div>
+                </form>
+
+                    <h2 id="budgets-GETapi-v1-budgets--id-">Show budget</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-budgets--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/budgets/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/budgets/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-budgets--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer
+permissions-policy: geolocation=(), camera=(), microphone=()
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
+        &quot;total_amount&quot;: 2089810,
+        &quot;government_unit&quot;: {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Barangay San Antonio&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        &quot;fiscal_year&quot;: {
+            &quot;id&quot;: 1,
+            &quot;year&quot;: 2026,
+            &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+            &quot;is_active&quot;: true,
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        &quot;budget_items&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
+                &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
+                &quot;allocated_amount&quot;: 499102,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Infrastructure Development&quot;
+                },
+                &quot;spent_amount&quot;: &quot;172365.00&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Covered Court Construction&quot;,
+                &quot;code&quot;: &quot;BRG2-INFRA-002&quot;,
+                &quot;allocated_amount&quot;: 1126638,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Infrastructure Development&quot;
+                },
+                &quot;spent_amount&quot;: &quot;317321.00&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Street Lighting Installation&quot;,
+                &quot;code&quot;: &quot;BRG2-INFRA-003&quot;,
+                &quot;allocated_amount&quot;: 324440,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Infrastructure Development&quot;
+                },
+                &quot;spent_amount&quot;: &quot;155387.00&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Drainage System Improvement&quot;,
+                &quot;code&quot;: &quot;BRG2-INFRA-004&quot;,
+                &quot;allocated_amount&quot;: 516875,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Infrastructure Development&quot;
+                },
+                &quot;spent_amount&quot;: &quot;140509.00&quot;
+            },
+            {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Health Station Supplies&quot;,
+                &quot;code&quot;: &quot;BRG2-HEALTH-001&quot;,
+                &quot;allocated_amount&quot;: 267063,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Health and Sanitation&quot;
+                },
+                &quot;spent_amount&quot;: &quot;132971.00&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Medical Equipment Purchase&quot;,
+                &quot;code&quot;: &quot;BRG2-HEALTH-002&quot;,
+                &quot;allocated_amount&quot;: 307509,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Health and Sanitation&quot;
+                },
+                &quot;spent_amount&quot;: &quot;152073.00&quot;
+            },
+            {
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Vaccination Program&quot;,
+                &quot;code&quot;: &quot;BRG2-HEALTH-003&quot;,
+                &quot;allocated_amount&quot;: 479252,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Health and Sanitation&quot;
+                },
+                &quot;spent_amount&quot;: &quot;203206.00&quot;
+            },
+            {
+                &quot;id&quot;: 8,
+                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
+                &quot;code&quot;: &quot;BRG2-EDU-001&quot;,
+                &quot;allocated_amount&quot;: 88710,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;Education and Youth&quot;
+                },
+                &quot;spent_amount&quot;: &quot;58251.00&quot;
+            },
+            {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
+                &quot;code&quot;: &quot;BRG2-EDU-002&quot;,
+                &quot;allocated_amount&quot;: 469074,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;Education and Youth&quot;
+                },
+                &quot;spent_amount&quot;: &quot;191653.00&quot;
+            },
+            {
+                &quot;id&quot;: 10,
+                &quot;name&quot;: &quot;Youth Development Program&quot;,
+                &quot;code&quot;: &quot;BRG2-EDU-003&quot;,
+                &quot;allocated_amount&quot;: 173125,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;Education and Youth&quot;
+                },
+                &quot;spent_amount&quot;: &quot;109451.00&quot;
+            },
+            {
+                &quot;id&quot;: 11,
+                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
+                &quot;code&quot;: &quot;BRG2-PEACE-001&quot;,
+                &quot;allocated_amount&quot;: 206725,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 4,
+                    &quot;name&quot;: &quot;Peace and Order&quot;
+                },
+                &quot;spent_amount&quot;: &quot;121245.00&quot;
+            },
+            {
+                &quot;id&quot;: 12,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG2-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 251271,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 4,
+                    &quot;name&quot;: &quot;Peace and Order&quot;
+                },
+                &quot;spent_amount&quot;: &quot;162355.00&quot;
+            },
+            {
+                &quot;id&quot;: 61,
+                &quot;name&quot;: &quot;Road and Bridge Maintenance&quot;,
+                &quot;code&quot;: &quot;INFRA-RBM-001&quot;,
+                &quot;allocated_amount&quot;: 2500000,
+                &quot;created_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Infrastructure Development&quot;
+                },
+                &quot;spent_amount&quot;: null
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-budgets--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-budgets--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-budgets--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-budgets--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-budgets--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-budgets--id-" data-method="GET"
+      data-path="api/v1/budgets/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budgets--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-budgets--id-"
+                    onclick="tryItOut('GETapi-v1-budgets--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-budgets--id-"
+                    onclick="cancelTryOut('GETapi-v1-budgets--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-budgets--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/budgets/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budgets--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-budgets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-budgets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-budgets--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the budget. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="budgets-POSTapi-v1-budgets">Create budget</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-budgets">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/budgets" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Annual Budget 2024\",
+    \"government_unit_id\": 1,
+    \"fiscal_year_id\": 1,
+    \"total_amount\": 1000000
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/budgets"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Annual Budget 2024",
+    "government_unit_id": 1,
+    "fiscal_year_id": 1,
+    "total_amount": 1000000
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-budgets">
+</span>
+<span id="execution-results-POSTapi-v1-budgets" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-budgets"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-budgets"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-budgets" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-budgets">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-budgets" data-method="POST"
+      data-path="api/v1/budgets"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-budgets', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-budgets"
+                    onclick="tryItOut('POSTapi-v1-budgets');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-budgets"
+                    onclick="cancelTryOut('POSTapi-v1-budgets');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-budgets"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/budgets</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-budgets"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-budgets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-budgets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-budgets"
+               value="Annual Budget 2024"
+               data-component="body">
+    <br>
+<p>Budget name. Example: <code>Annual Budget 2024</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>government_unit_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="government_unit_id"                data-endpoint="POSTapi-v1-budgets"
+               value="1"
+               data-component="body">
+    <br>
+<p>Government unit ID. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>fiscal_year_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="fiscal_year_id"                data-endpoint="POSTapi-v1-budgets"
+               value="1"
+               data-component="body">
+    <br>
+<p>Fiscal year ID. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>total_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="total_amount"                data-endpoint="POSTapi-v1-budgets"
+               value="1000000"
+               data-component="body">
+    <br>
+<p>Total amount. Example: <code>1000000</code></p>
+        </div>
+        </form>
+
+                    <h2 id="budgets-PUTapi-v1-budgets--id-">Update budget</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-budgets--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/v1/budgets/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Revised Infrastructure Budget 2025\",
+    \"government_unit_id\": 1,
+    \"fiscal_year_id\": 1,
+    \"total_amount\": 175000000
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/budgets/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Revised Infrastructure Budget 2025",
+    "government_unit_id": 1,
+    "fiscal_year_id": 1,
+    "total_amount": 175000000
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-budgets--id-">
+</span>
+<span id="execution-results-PUTapi-v1-budgets--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-budgets--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-budgets--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-budgets--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-budgets--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-budgets--id-" data-method="PUT"
+      data-path="api/v1/budgets/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-budgets--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-budgets--id-"
+                    onclick="tryItOut('PUTapi-v1-budgets--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-budgets--id-"
+                    onclick="cancelTryOut('PUTapi-v1-budgets--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-budgets--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/budgets/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/budgets/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-budgets--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the budget. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="Revised Infrastructure Budget 2025"
+               data-component="body">
+    <br>
+<p>Updated official name of the budget. Must not be greater than 255 characters. Example: <code>Revised Infrastructure Budget 2025</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>government_unit_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="government_unit_id"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>Updated ID of the government unit responsible for this budget. The <code>id</code> of an existing record in the government_units table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>fiscal_year_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="fiscal_year_id"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>Updated ID of the fiscal year to which this budget applies. The <code>id</code> of an existing record in the fiscal_years table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>total_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="total_amount"                data-endpoint="PUTapi-v1-budgets--id-"
+               value="175000000"
+               data-component="body">
+    <br>
+<p>Updated total approved amount for the budget. Must be a non-negative number. Must be at least 0. Example: <code>175000000</code></p>
+        </div>
+        </form>
+
+                    <h2 id="budgets-DELETEapi-v1-budgets--id-">Delete budget</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-budgets--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/v1/budgets/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/budgets/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-budgets--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-budgets--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-budgets--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-budgets--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-budgets--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-budgets--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-budgets--id-" data-method="DELETE"
+      data-path="api/v1/budgets/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-budgets--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-budgets--id-"
+                    onclick="tryItOut('DELETEapi-v1-budgets--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-budgets--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-budgets--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-budgets--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/budgets/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-budgets--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-budgets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-budgets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-budgets--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the budget. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-user">GET api/user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/user" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/user"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-user" data-method="GET"
+      data-path="api/user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user"
+                    onclick="tryItOut('GETapi-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user"
+                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-user"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-v1-health">GET api/v1/health</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-health">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/health" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/health"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-health">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer
+permissions-policy: geolocation=(), camera=(), microphone=()
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;ok&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-health" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-health"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-health"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-health" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-health">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-health" data-method="GET"
+      data-path="api/v1/health"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-health', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-health"
+                    onclick="tryItOut('GETapi-v1-health');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-health"
+                    onclick="cancelTryOut('GETapi-v1-health');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-health"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/health</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-health"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-health"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-health"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-v1-_bootstrap-admin">POST api/v1/_bootstrap/admin</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-_bootstrap-admin">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/_bootstrap/admin" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/_bootstrap/admin"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-_bootstrap-admin">
+</span>
+<span id="execution-results-POSTapi-v1-_bootstrap-admin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-_bootstrap-admin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-_bootstrap-admin"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-_bootstrap-admin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-_bootstrap-admin">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-_bootstrap-admin" data-method="POST"
+      data-path="api/v1/_bootstrap/admin"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-_bootstrap-admin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-_bootstrap-admin"
+                    onclick="tryItOut('POSTapi-v1-_bootstrap-admin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-_bootstrap-admin"
+                    onclick="cancelTryOut('POSTapi-v1-_bootstrap-admin');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-_bootstrap-admin"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/_bootstrap/admin</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-_bootstrap-admin"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-_bootstrap-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-_bootstrap-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
                 <h1 id="expenses">Expenses</h1>
 
     <p>Expense management endpoints</p>
@@ -3722,7 +5153,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/expenses" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3733,7 +5164,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3742,38 +5173,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/expenses';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/expenses'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -4241,10 +5640,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-expenses"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4287,7 +5686,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/expenses/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4298,7 +5697,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4307,38 +5706,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/expenses/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/expenses/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -4432,10 +5799,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-expenses--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4491,7 +5858,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/v1/expenses" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -4509,7 +5876,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4526,50 +5893,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/expenses';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'budget_item_id' =&gt; 1,
-            'description' =&gt; 'Office supplies purchase',
-            'amount' =&gt; 1500.0,
-            'transaction_date' =&gt; '2024-01-15',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/expenses'
-payload = {
-    "budget_item_id": 1,
-    "description": "Office supplies purchase",
-    "amount": 1500,
-    "transaction_date": "2024-01-15"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -4629,10 +5952,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-expenses"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4724,7 +6047,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/v1/expenses/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -4742,7 +6065,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4759,50 +6082,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/expenses/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'budget_item_id' =&gt; 15,
-            'description' =&gt; 'Purchase of office supplies for road maintenance',
-            'amount' =&gt; 125000.5,
-            'transaction_date' =&gt; '2025-03-15',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/expenses/1'
-payload = {
-    "budget_item_id": 15,
-    "description": "Purchase of office supplies for road maintenance",
-    "amount": 125000.5,
-    "transaction_date": "2025-03-15"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -4866,10 +6145,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-expenses--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4974,7 +6253,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/v1/expenses/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4985,7 +6264,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4994,38 +6273,6 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/expenses/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/expenses/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -5085,10 +6332,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-expenses--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -5129,11 +6376,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="budget-categories">Budget Categories</h1>
+                <h1 id="fiscal-years">Fiscal Years</h1>
 
-    <p>Budget category management endpoints</p>
+    <p>Fiscal year management endpoints</p>
 
-                                <h2 id="budget-categories-GETapi-v1-budget-categories">List budget categories</h2>
+                                <h2 id="fiscal-years-GETapi-v1-fiscal-years">List fiscal years</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5141,25 +6388,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-v1-budget-categories">
+<span id="example-requests-GETapi-v1-fiscal-years">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/budget-categories" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --get "http://localhost:8000/api/v1/fiscal-years" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budget-categories"
+    "http://localhost:8000/api/v1/fiscal-years"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5169,41 +6416,9 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-categories';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-categories'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
 </span>
 
-<span id="example-responses-GETapi-v1-budget-categories">
+<span id="example-responses-GETapi-v1-fiscal-years">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -5225,958 +6440,58 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Infrastructure Development&quot;
+            &quot;year&quot;: 2026,
+            &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+            &quot;is_active&quot;: true,
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Health and Sanitation&quot;
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;name&quot;: &quot;Education and Youth&quot;
-        },
-        {
-            &quot;id&quot;: 4,
-            &quot;name&quot;: &quot;Peace and Order&quot;
-        },
-        {
-            &quot;id&quot;: 5,
-            &quot;name&quot;: &quot;Environment and Waste Management&quot;
+            &quot;year&quot;: 2025,
+            &quot;start_date&quot;: &quot;2025-01-01T00:00:00.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-12-31T00:00:00.000000Z&quot;,
+            &quot;is_active&quot;: false,
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
         }
-    ]
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-budget-categories" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-budget-categories"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-budget-categories"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-budget-categories" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-budget-categories">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-budget-categories" data-method="GET"
-      data-path="api/v1/budget-categories"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budget-categories', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-budget-categories"
-                    onclick="tryItOut('GETapi-v1-budget-categories');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-budget-categories"
-                    onclick="cancelTryOut('GETapi-v1-budget-categories');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-budget-categories"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/budget-categories</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-categories"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-budget-categories"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-budget-categories"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="budget-categories-POSTapi-v1-budget-categories">Create budget category</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-budget-categories">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/budget-categories" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Office Supplies\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budget-categories"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "Office Supplies"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-categories';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost:8000/api/v1/fiscal-years?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/v1/fiscal-years?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;page&quot;: null,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/v1/fiscal-years?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;page&quot;: 1,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;page&quot;: null,
+                &quot;active&quot;: false
+            }
         ],
-        'json' =&gt; [
-            'name' =&gt; 'Office Supplies',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-categories'
-payload = {
-    "name": "Office Supplies"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-budget-categories">
-</span>
-<span id="execution-results-POSTapi-v1-budget-categories" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-budget-categories"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-budget-categories"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-budget-categories" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-budget-categories">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-budget-categories" data-method="POST"
-      data-path="api/v1/budget-categories"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-budget-categories', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-budget-categories"
-                    onclick="tryItOut('POSTapi-v1-budget-categories');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-budget-categories"
-                    onclick="cancelTryOut('POSTapi-v1-budget-categories');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-budget-categories"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/budget-categories</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-budget-categories"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-budget-categories"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-budget-categories"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-v1-budget-categories"
-               value="Office Supplies"
-               data-component="body">
-    <br>
-<p>Category name. Example: <code>Office Supplies</code></p>
-        </div>
-        </form>
-
-                    <h2 id="budget-categories-GETapi-v1-budget-categories--id-">Show budget category</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-budget-categories--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/budget-categories/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budget-categories/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-categories/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-categories/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-budget-categories--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-content-type-options: nosniff
-x-frame-options: DENY
-x-xss-protection: 1; mode=block
-referrer-policy: no-referrer
-permissions-policy: geolocation=(), camera=(), microphone=()
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Infrastructure Development&quot;
+        &quot;path&quot;: &quot;http://localhost:8000/api/v1/fiscal-years&quot;,
+        &quot;per_page&quot;: 20,
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-budget-categories--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-budget-categories--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-budget-categories--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-budget-categories--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-budget-categories--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-budget-categories--id-" data-method="GET"
-      data-path="api/v1/budget-categories/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-budget-categories--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-budget-categories--id-"
-                    onclick="tryItOut('GETapi-v1-budget-categories--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-budget-categories--id-"
-                    onclick="cancelTryOut('GETapi-v1-budget-categories--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-budget-categories--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/budget-categories/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-budget-categories--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-budget-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-budget-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-v1-budget-categories--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the budget category. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="budget-categories-PUTapi-v1-budget-categories--id-">Update budget category</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-PUTapi-v1-budget-categories--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/budget-categories/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Office Equipment\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budget-categories/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "Office Equipment"
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-categories/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Office Equipment',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-categories/1'
-payload = {
-    "name": "Office Equipment"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-v1-budget-categories--id-">
-</span>
-<span id="execution-results-PUTapi-v1-budget-categories--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-budget-categories--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-budget-categories--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PUTapi-v1-budget-categories--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-budget-categories--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PUTapi-v1-budget-categories--id-" data-method="PUT"
-      data-path="api/v1/budget-categories/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-budget-categories--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-budget-categories--id-"
-                    onclick="tryItOut('PUTapi-v1-budget-categories--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-budget-categories--id-"
-                    onclick="cancelTryOut('PUTapi-v1-budget-categories--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-budget-categories--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/budget-categories/{id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/budget-categories/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-budget-categories--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-v1-budget-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-v1-budget-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-v1-budget-categories--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the budget category. Example: <code>1</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="PUTapi-v1-budget-categories--id-"
-               value="Office Equipment"
-               data-component="body">
-    <br>
-<p>Category name. Example: <code>Office Equipment</code></p>
-        </div>
-        </form>
-
-                    <h2 id="budget-categories-DELETEapi-v1-budget-categories--id-">Delete budget category</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-v1-budget-categories--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/budget-categories/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/budget-categories/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/budget-categories/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/budget-categories/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-budget-categories--id-">
-</span>
-<span id="execution-results-DELETEapi-v1-budget-categories--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-budget-categories--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-budget-categories--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-budget-categories--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-budget-categories--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-budget-categories--id-" data-method="DELETE"
-      data-path="api/v1/budget-categories/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-budget-categories--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-budget-categories--id-"
-                    onclick="tryItOut('DELETEapi-v1-budget-categories--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-budget-categories--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-budget-categories--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-budget-categories--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/budget-categories/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-budget-categories--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-budget-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-budget-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-v1-budget-categories--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the budget category. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                <h1 id="fiscal-years">Fiscal Years</h1>
-
-    <p>Fiscal year management endpoints</p>
-
-                                <h2 id="fiscal-years-GETapi-v1-fiscal-years">List fiscal years</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-fiscal-years">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/fiscal-years" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/fiscal-years"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/fiscal-years';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/fiscal-years'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-fiscal-years">
-            <blockquote>
-            <p>Example response (403):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-content-type-options: nosniff
-x-frame-options: DENY
-x-xss-protection: 1; mode=block
-referrer-policy: no-referrer
-permissions-policy: geolocation=(), camera=(), microphone=()
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;This action is unauthorized.&quot;
 }</code>
  </pre>
     </span>
@@ -6234,10 +6549,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-fiscal-years"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6265,6 +6580,173 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="fiscal-years-GETapi-v1-fiscal-years--id-">Show fiscal year</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-fiscal-years--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/fiscal-years/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/fiscal-years/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-fiscal-years--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer
+permissions-policy: geolocation=(), camera=(), microphone=()
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;year&quot;: 2026,
+        &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+        &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+        &quot;is_active&quot;: true,
+        &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-fiscal-years--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-fiscal-years--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-fiscal-years--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-fiscal-years--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-fiscal-years--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-fiscal-years--id-" data-method="GET"
+      data-path="api/v1/fiscal-years/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-fiscal-years--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-fiscal-years--id-"
+                    onclick="tryItOut('GETapi-v1-fiscal-years--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-fiscal-years--id-"
+                    onclick="cancelTryOut('GETapi-v1-fiscal-years--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-fiscal-years--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/fiscal-years/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-fiscal-years--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-fiscal-years--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-fiscal-years--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-fiscal-years--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the fiscal year. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="fiscal-years-POSTapi-v1-fiscal-years">Create fiscal year</h2>
 
 <p>
@@ -6280,7 +6762,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/v1/fiscal-years" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -6298,7 +6780,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6315,50 +6797,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/fiscal-years';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'year' =&gt; 2024,
-            'start_date' =&gt; '2024-01-01',
-            'end_date' =&gt; '2024-12-31',
-            'is_active' =&gt; true,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/fiscal-years'
-payload = {
-    "year": 2024,
-    "start_date": "2024-01-01",
-    "end_date": "2024-12-31",
-    "is_active": true
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -6418,10 +6856,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-fiscal-years"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6508,197 +6946,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="fiscal-years-GETapi-v1-fiscal-years--id-">Show fiscal year</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-fiscal-years--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/fiscal-years/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/fiscal-years/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/fiscal-years/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/fiscal-years/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-fiscal-years--id-">
-            <blockquote>
-            <p>Example response (403):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-content-type-options: nosniff
-x-frame-options: DENY
-x-xss-protection: 1; mode=block
-referrer-policy: no-referrer
-permissions-policy: geolocation=(), camera=(), microphone=()
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;This action is unauthorized.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-fiscal-years--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-fiscal-years--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-fiscal-years--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-fiscal-years--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-fiscal-years--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-fiscal-years--id-" data-method="GET"
-      data-path="api/v1/fiscal-years/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-fiscal-years--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-fiscal-years--id-"
-                    onclick="tryItOut('GETapi-v1-fiscal-years--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-fiscal-years--id-"
-                    onclick="cancelTryOut('GETapi-v1-fiscal-years--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-fiscal-years--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/fiscal-years/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-fiscal-years--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-fiscal-years--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-fiscal-years--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-v1-fiscal-years--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the fiscal year. Example: <code>1</code></p>
-            </div>
-                    </form>
-
                     <h2 id="fiscal-years-PUTapi-v1-fiscal-years--id-">Update fiscal year</h2>
 
 <p>
@@ -6714,7 +6961,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/v1/fiscal-years/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -6732,7 +6979,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6749,50 +6996,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/fiscal-years/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'year' =&gt; 2025,
-            'start_date' =&gt; '2025-01-01',
-            'end_date' =&gt; '2025-12-31',
-            'is_active' =&gt; false,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/fiscal-years/1'
-payload = {
-    "year": 2025,
-    "start_date": "2025-01-01",
-    "end_date": "2025-12-31",
-    "is_active": false
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -6873,10 +7076,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-fiscal-years--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6991,7 +7194,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/v1/fiscal-years/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7002,7 +7205,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7011,38 +7214,6 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/fiscal-years/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/fiscal-years/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -7102,10 +7273,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-fiscal-years--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7165,7 +7336,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/government-units" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7176,7 +7347,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7186,43 +7357,11 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/government-units';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/government-units'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-v1-government-units">
             <blockquote>
-            <p>Example response (403):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -7239,7 +7378,132 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;This action is unauthorized.&quot;
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Quezon City&quot;,
+            &quot;type&quot;: &quot;city&quot;,
+            &quot;parent_id&quot;: null,
+            &quot;parent&quot;: null,
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Barangay San Antonio&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;Barangay Tatalon&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;Barangay Kamuning&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost:8000/api/v1/government-units?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/v1/government-units?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;page&quot;: null,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/v1/government-units?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;page&quot;: 1,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;page&quot;: null,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost:8000/api/v1/government-units&quot;,
+        &quot;per_page&quot;: 20,
+        &quot;to&quot;: 6,
+        &quot;total&quot;: 6
+    }
 }</code>
  </pre>
     </span>
@@ -7297,10 +7561,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-government-units"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7328,6 +7592,215 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="government-units-GETapi-v1-government-units--id-">Show government unit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-government-units--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/government-units/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/government-units/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-government-units--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer
+permissions-policy: geolocation=(), camera=(), microphone=()
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Quezon City&quot;,
+        &quot;type&quot;: &quot;city&quot;,
+        &quot;parent_id&quot;: null,
+        &quot;parent&quot;: null,
+        &quot;children&quot;: [
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Barangay San Antonio&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Tatalon&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Barangay Kamuning&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            }
+        ],
+        &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-government-units--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-government-units--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-government-units--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-government-units--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-government-units--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-government-units--id-" data-method="GET"
+      data-path="api/v1/government-units/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-government-units--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-government-units--id-"
+                    onclick="tryItOut('GETapi-v1-government-units--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-government-units--id-"
+                    onclick="cancelTryOut('GETapi-v1-government-units--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-government-units--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/government-units/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-government-units--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-government-units--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-government-units--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-government-units--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the government unit. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="government-units-POSTapi-v1-government-units">Create government unit</h2>
 
 <p>
@@ -7343,7 +7816,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/v1/government-units" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7360,7 +7833,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7376,48 +7849,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/government-units';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Barangay Commonwealth',
-            'type' =&gt; 'Barangay',
-            'parent_id' =&gt; 1,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/government-units'
-payload = {
-    "name": "Barangay Commonwealth",
-    "type": "Barangay",
-    "parent_id": 1
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -7477,10 +7908,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-government-units"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7545,197 +7976,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="government-units-GETapi-v1-government-units--id-">Show government unit</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-government-units--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/government-units/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/government-units/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/government-units/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/government-units/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-government-units--id-">
-            <blockquote>
-            <p>Example response (403):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-content-type-options: nosniff
-x-frame-options: DENY
-x-xss-protection: 1; mode=block
-referrer-policy: no-referrer
-permissions-policy: geolocation=(), camera=(), microphone=()
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;This action is unauthorized.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-government-units--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-government-units--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-government-units--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-government-units--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-government-units--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-government-units--id-" data-method="GET"
-      data-path="api/v1/government-units/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-government-units--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-government-units--id-"
-                    onclick="tryItOut('GETapi-v1-government-units--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-government-units--id-"
-                    onclick="cancelTryOut('GETapi-v1-government-units--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-government-units--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/government-units/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-government-units--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-government-units--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-government-units--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-v1-government-units--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the government unit. Example: <code>1</code></p>
-            </div>
-                    </form>
-
                     <h2 id="government-units-PUTapi-v1-government-units--id-">Update government unit</h2>
 
 <p>
@@ -7751,7 +7991,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/v1/government-units/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7768,7 +8008,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7784,48 +8024,6 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/government-units/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Department of Transportation',
-            'type' =&gt; 'Department',
-            'parent_id' =&gt; 1,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/government-units/1'
-payload = {
-    "name": "Department of Transportation",
-    "type": "Department",
-    "parent_id": 1
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
 
 </span>
 
@@ -7889,10 +8087,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-government-units--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7985,7 +8183,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/v1/government-units/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7996,7 +8194,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8005,38 +8203,6 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/government-units/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/government-units/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -8096,10 +8262,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-government-units--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8140,1937 +8306,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="users">Users</h1>
-
-    <p>User management endpoints</p>
-
-                                <h2 id="users-GETapi-v1-users">List users</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-users">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/users" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/users"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/users';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/users'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-users">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 64,
-            &quot;name&quot;: &quot;Morgan Hirthe&quot;,
-            &quot;email&quot;: &quot;dare.emelie@example.com&quot;,
-            &quot;role&quot;: &quot;user&quot;,
-            &quot;created_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 65,
-            &quot;name&quot;: &quot;Prof. Mina Bauch&quot;,
-            &quot;email&quot;: &quot;okeefe.isidro@example.org&quot;,
-            &quot;role&quot;: &quot;user&quot;,
-            &quot;created_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;
-        }
-    ]
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-users" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-users" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-users" data-method="GET"
-      data-path="api/v1/users"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users"
-                    onclick="tryItOut('GETapi-v1-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users"
-                    onclick="cancelTryOut('GETapi-v1-users');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="users-POSTapi-v1-users">Create user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-users">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/users" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Juan Dela Cruz\",
-    \"email\": \"juan.delacruz@gov.ph\",
-    \"password\": \"StrongP@ssw0rd\",
-    \"role\": \"budget-officer\",
-    \"password_confirmation\": \"StrongP@ssw0rd\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/users"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@gov.ph",
-    "password": "StrongP@ssw0rd",
-    "role": "budget-officer",
-    "password_confirmation": "StrongP@ssw0rd"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/users';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Juan Dela Cruz',
-            'email' =&gt; 'juan.delacruz@gov.ph',
-            'password' =&gt; 'StrongP@ssw0rd',
-            'role' =&gt; 'budget-officer',
-            'password_confirmation' =&gt; 'StrongP@ssw0rd',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/users'
-payload = {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@gov.ph",
-    "password": "StrongP@ssw0rd",
-    "role": "budget-officer",
-    "password_confirmation": "StrongP@ssw0rd"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-users">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 66,
-        &quot;name&quot;: &quot;Ms. Audra Crooks II&quot;,
-        &quot;email&quot;: &quot;gulgowski.asia@example.com&quot;,
-        &quot;role&quot;: &quot;user&quot;,
-        &quot;created_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-users" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-users"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-users"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-users" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-users">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-users" data-method="POST"
-      data-path="api/v1/users"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-users', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-users"
-                    onclick="tryItOut('POSTapi-v1-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-users"
-                    onclick="cancelTryOut('POSTapi-v1-users');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-users"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/users</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-users"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-users"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-users"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-v1-users"
-               value="Juan Dela Cruz"
-               data-component="body">
-    <br>
-<p>Full name of the user. Example: <code>Juan Dela Cruz</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-v1-users"
-               value="juan.delacruz@gov.ph"
-               data-component="body">
-    <br>
-<p>Unique email address. Example: <code>juan.delacruz@gov.ph</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-v1-users"
-               value="StrongP@ssw0rd"
-               data-component="body">
-    <br>
-<p>Account password. Example: <code>StrongP@ssw0rd</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="role"                data-endpoint="POSTapi-v1-users"
-               value="budget-officer"
-               data-component="body">
-    <br>
-<p>User role. Example: <code>budget-officer</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password_confirmation"                data-endpoint="POSTapi-v1-users"
-               value="StrongP@ssw0rd"
-               data-component="body">
-    <br>
-<p>Must match the password. Example: <code>StrongP@ssw0rd</code></p>
-        </div>
-        </form>
-
-                    <h2 id="users-GETapi-v1-users--id-">Show user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-users--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/users/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/users/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/users/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/users/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-users--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 67,
-        &quot;name&quot;: &quot;Morgan Hirthe&quot;,
-        &quot;email&quot;: &quot;imclaughlin@example.org&quot;,
-        &quot;role&quot;: &quot;user&quot;,
-        &quot;created_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-users--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-users--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-users--id-" data-method="GET"
-      data-path="api/v1/users/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users--id-"
-                    onclick="tryItOut('GETapi-v1-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users--id-"
-                    onclick="cancelTryOut('GETapi-v1-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-v1-users--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the user. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="users-PUTapi-v1-users--id-">Update user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-PUTapi-v1-users--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/users/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Juan Dela Cruz\",
-    \"email\": \"juan.delacruz@gov.ph\",
-    \"password\": \"StrongP@ssw0rd\",
-    \"role\": \"budget-officer\",
-    \"password_confirmation\": \"StrongP@ssw0rd\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/users/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@gov.ph",
-    "password": "StrongP@ssw0rd",
-    "role": "budget-officer",
-    "password_confirmation": "StrongP@ssw0rd"
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/users/1';
-$response = $client-&gt;put(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'Juan Dela Cruz',
-            'email' =&gt; 'juan.delacruz@gov.ph',
-            'password' =&gt; 'StrongP@ssw0rd',
-            'role' =&gt; 'budget-officer',
-            'password_confirmation' =&gt; 'StrongP@ssw0rd',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/users/1'
-payload = {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@gov.ph",
-    "password": "StrongP@ssw0rd",
-    "role": "budget-officer",
-    "password_confirmation": "StrongP@ssw0rd"
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-v1-users--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 68,
-        &quot;name&quot;: &quot;Ms. Audra Crooks II&quot;,
-        &quot;email&quot;: &quot;idickens@example.org&quot;,
-        &quot;role&quot;: &quot;user&quot;,
-        &quot;created_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-29T06:09:38.000000Z&quot;
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-PUTapi-v1-users--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-users--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-users--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PUTapi-v1-users--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-users--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PUTapi-v1-users--id-" data-method="PUT"
-      data-path="api/v1/users/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-users--id-"
-                    onclick="tryItOut('PUTapi-v1-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-users--id-"
-                    onclick="cancelTryOut('PUTapi-v1-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/users/{id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/users/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-users--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-v1-users--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-v1-users--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-v1-users--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the user. Example: <code>1</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="PUTapi-v1-users--id-"
-               value="Juan Dela Cruz"
-               data-component="body">
-    <br>
-<p>Full name of the user. Example: <code>Juan Dela Cruz</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="email"                data-endpoint="PUTapi-v1-users--id-"
-               value="juan.delacruz@gov.ph"
-               data-component="body">
-    <br>
-<p>Unique email address. Example: <code>juan.delacruz@gov.ph</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password"                data-endpoint="PUTapi-v1-users--id-"
-               value="StrongP@ssw0rd"
-               data-component="body">
-    <br>
-<p>New account password (optional). Example: <code>StrongP@ssw0rd</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="role"                data-endpoint="PUTapi-v1-users--id-"
-               value="budget-officer"
-               data-component="body">
-    <br>
-<p>User role. Example: <code>budget-officer</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password_confirmation"                data-endpoint="PUTapi-v1-users--id-"
-               value="StrongP@ssw0rd"
-               data-component="body">
-    <br>
-<p>Required if password is present. Must match the password. Example: <code>StrongP@ssw0rd</code></p>
-        </div>
-        </form>
-
-                    <h2 id="users-DELETEapi-v1-users--id-">Delete user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-v1-users--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/users/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/users/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/users/1';
-$response = $client-&gt;delete(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/users/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-users--id-">
-</span>
-<span id="execution-results-DELETEapi-v1-users--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-users--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-users--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-users--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-users--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-users--id-" data-method="DELETE"
-      data-path="api/v1/users/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-users--id-"
-                    onclick="tryItOut('DELETEapi-v1-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-users--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/users/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-users--id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-users--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-users--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-v1-users--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the user. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                <h1 id="audit-logs">Audit Logs</h1>
-
-    <p>Read-only audit trail endpoints for administrators and auditors.</p>
-
-                                <h2 id="audit-logs-GETapi-v1-audit-logs">List audit logs</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Returns a paginated list of audit logs.
-Accessible to admins and auditors.</p>
-
-<span id="example-requests-GETapi-v1-audit-logs">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/audit-logs" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"user_id\": 1,
-    \"resource\": \"Expense\",
-    \"action\": \"created\",
-    \"date\": \"2025-12-28\",
-    \"from\": \"2025-12-01\",
-    \"to\": \"2025-12-31\",
-    \"per_page\": 25
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/audit-logs"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "user_id": 1,
-    "resource": "Expense",
-    "action": "created",
-    "date": "2025-12-28",
-    "from": "2025-12-01",
-    "to": "2025-12-31",
-    "per_page": 25
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/audit-logs';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'user_id' =&gt; 1,
-            'resource' =&gt; 'Expense',
-            'action' =&gt; 'created',
-            'date' =&gt; '2025-12-28',
-            'from' =&gt; '2025-12-01',
-            'to' =&gt; '2025-12-31',
-            'per_page' =&gt; 25,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/audit-logs'
-payload = {
-    "user_id": 1,
-    "resource": "Expense",
-    "action": "created",
-    "date": "2025-12-28",
-    "from": "2025-12-01",
-    "to": "2025-12-31",
-    "per_page": 25
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-audit-logs">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-audit-logs" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-audit-logs"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-audit-logs"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-audit-logs" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-audit-logs">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-audit-logs" data-method="GET"
-      data-path="api/v1/audit-logs"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-audit-logs', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-audit-logs"
-                    onclick="tryItOut('GETapi-v1-audit-logs');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-audit-logs"
-                    onclick="cancelTryOut('GETapi-v1-audit-logs');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-audit-logs"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/audit-logs</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-audit-logs"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-audit-logs"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-audit-logs"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="user_id"                data-endpoint="GETapi-v1-audit-logs"
-               value="1"
-               data-component="body">
-    <br>
-<p>Filter logs by the user who performed the action. The <code>id</code> of an existing record in the users table. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>resource</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="resource"                data-endpoint="GETapi-v1-audit-logs"
-               value="Expense"
-               data-component="body">
-    <br>
-<p>Filter by audited resource type. Must not be greater than 255 characters. Example: <code>Expense</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>action</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="action"                data-endpoint="GETapi-v1-audit-logs"
-               value="created"
-               data-component="body">
-    <br>
-<p>Filter by action type. Example: <code>created</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>created</code></li> <li><code>updated</code></li> <li><code>deleted</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="date"                data-endpoint="GETapi-v1-audit-logs"
-               value="2025-12-28"
-               data-component="body">
-    <br>
-<p>Filter logs for a specific date (YYYY-MM-DD). Must be a valid date. Example: <code>2025-12-28</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>from</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="from"                data-endpoint="GETapi-v1-audit-logs"
-               value="2025-12-01"
-               data-component="body">
-    <br>
-<p>Start date for date range filtering (YYYY-MM-DD). Must be a valid date. Example: <code>2025-12-01</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="to"                data-endpoint="GETapi-v1-audit-logs"
-               value="2025-12-31"
-               data-component="body">
-    <br>
-<p>End date for date range filtering (YYYY-MM-DD). Must be a valid date. Must be a date after or equal to <code>from</code>. Example: <code>2025-12-31</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-audit-logs"
-               value="25"
-               data-component="body">
-    <br>
-<p>Number of records per page (1–100). Must be at least 1. Must not be greater than 100. Example: <code>25</code></p>
-        </div>
-        </form>
-
-                    <h2 id="audit-logs-GETapi-v1-audit-logs-by-date">List audit logs for a specific date</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Explicit auditor-friendly endpoint.</p>
-
-<span id="example-requests-GETapi-v1-audit-logs-by-date">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/audit-logs/by-date?date=2025-12-28&amp;per_page=25" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"user_id\": 1,
-    \"resource\": \"Expense\",
-    \"action\": \"created\",
-    \"date\": \"2025-12-29T06:09:38\",
-    \"from\": \"2025-12-01\",
-    \"to\": \"2025-12-31\",
-    \"per_page\": 25
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/audit-logs/by-date"
-);
-
-const params = {
-    "date": "2025-12-28",
-    "per_page": "25",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "user_id": 1,
-    "resource": "Expense",
-    "action": "created",
-    "date": "2025-12-29T06:09:38",
-    "from": "2025-12-01",
-    "to": "2025-12-31",
-    "per_page": 25
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/audit-logs/by-date';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'query' =&gt; [
-            'date' =&gt; '2025-12-28',
-            'per_page' =&gt; '25',
-        ],
-        'json' =&gt; [
-            'user_id' =&gt; 1,
-            'resource' =&gt; 'Expense',
-            'action' =&gt; 'created',
-            'date' =&gt; '2025-12-29T06:09:38',
-            'from' =&gt; '2025-12-01',
-            'to' =&gt; '2025-12-31',
-            'per_page' =&gt; 25,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/audit-logs/by-date'
-payload = {
-    "user_id": 1,
-    "resource": "Expense",
-    "action": "created",
-    "date": "2025-12-29T06:09:38",
-    "from": "2025-12-01",
-    "to": "2025-12-31",
-    "per_page": 25
-}
-params = {
-  'date': '2025-12-28',
-  'per_page': '25',
-}
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers, json=payload, params=params)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-audit-logs-by-date">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-audit-logs-by-date" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-audit-logs-by-date"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-audit-logs-by-date"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-audit-logs-by-date" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-audit-logs-by-date">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-audit-logs-by-date" data-method="GET"
-      data-path="api/v1/audit-logs/by-date"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-audit-logs-by-date', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-audit-logs-by-date"
-                    onclick="tryItOut('GETapi-v1-audit-logs-by-date');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-audit-logs-by-date"
-                    onclick="cancelTryOut('GETapi-v1-audit-logs-by-date');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-audit-logs-by-date"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/audit-logs/by-date</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="date"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="2025-12-28"
-               data-component="query">
-    <br>
-<p>date Filter audit logs by date (YYYY-MM-DD). Example: <code>2025-12-28</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="25"
-               data-component="query">
-    <br>
-<p>Number of records per page (max 100). Example: <code>25</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="user_id"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="1"
-               data-component="body">
-    <br>
-<p>Filter logs by the user who performed the action. The <code>id</code> of an existing record in the users table. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>resource</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="resource"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="Expense"
-               data-component="body">
-    <br>
-<p>Filter by audited resource type. Must not be greater than 255 characters. Example: <code>Expense</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>action</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="action"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="created"
-               data-component="body">
-    <br>
-<p>Filter by action type. Example: <code>created</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>created</code></li> <li><code>updated</code></li> <li><code>deleted</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="date"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="2025-12-29T06:09:38"
-               data-component="body">
-    <br>
-<p>Must be a valid date. Example: <code>2025-12-29T06:09:38</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>from</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="from"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="2025-12-01"
-               data-component="body">
-    <br>
-<p>Start date for date range filtering (YYYY-MM-DD). Must be a valid date. Example: <code>2025-12-01</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="to"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="2025-12-31"
-               data-component="body">
-    <br>
-<p>End date for date range filtering (YYYY-MM-DD). Must be a valid date. Must be a date after or equal to <code>from</code>. Example: <code>2025-12-31</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="25"
-               data-component="body">
-    <br>
-<p>Number of records per page (1–100). Must be at least 1. Must not be greater than 100. Example: <code>25</code></p>
-        </div>
-        </form>
-
-                    <h2 id="audit-logs-GETapi-v1-audit-logs--auditLog_id-">View a specific audit log</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-audit-logs--auditLog_id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/audit-logs/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/audit-logs/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/audit-logs/1';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/audit-logs/1'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-audit-logs--auditLog_id-">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-audit-logs--auditLog_id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-audit-logs--auditLog_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-audit-logs--auditLog_id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-audit-logs--auditLog_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-audit-logs--auditLog_id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-audit-logs--auditLog_id-" data-method="GET"
-      data-path="api/v1/audit-logs/{auditLog_id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-audit-logs--auditLog_id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-audit-logs--auditLog_id-"
-                    onclick="tryItOut('GETapi-v1-audit-logs--auditLog_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-audit-logs--auditLog_id-"
-                    onclick="cancelTryOut('GETapi-v1-audit-logs--auditLog_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-audit-logs--auditLog_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/audit-logs/{auditLog_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>auditLog_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="auditLog_id"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the auditLog. Example: <code>1</code></p>
-            </div>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>auditLog</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="auditLog"                data-endpoint="GETapi-v1-audit-logs--auditLog_id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the audit log. Example: <code>1</code></p>
-            </div>
-                    </form>
-
                 <h1 id="public-analytics">Public Analytics</h1>
 
     <p>Read-only analytics endpoints for public budget transparency.</p>
@@ -10090,7 +8325,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/analytics/overall-summary" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -10101,7 +8336,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10110,38 +8345,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/analytics/overall-summary';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/analytics/overall-summary'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -10235,10 +8438,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-analytics-overall-summary"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10281,7 +8484,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/analytics/barangay-list" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -10292,7 +8495,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10301,38 +8504,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/analytics/barangay-list';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/analytics/barangay-list'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -10459,10 +8630,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-analytics-barangay-list"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10505,7 +8676,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/v1/analytics/barangay/architecto" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -10516,7 +8687,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "{YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10525,38 +8696,6 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/v1/analytics/barangay/architecto';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8000/api/v1/analytics/barangay/architecto'
-headers = {
-  'Authorization': 'Bearer {YOUR_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
 
 </span>
 
@@ -10639,10 +8778,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-analytics-barangay--budgetId-"
-               value="Bearer {YOUR_TOKEN}"
+               value="{YOUR_AUTH_KEY}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10683,6 +8822,908 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="users">Users</h1>
+
+    <p>User management endpoints</p>
+
+                                <h2 id="users-GETapi-v1-users">List users</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/users" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/users"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 69,
+            &quot;name&quot;: &quot;Morgan Hirthe&quot;,
+            &quot;email&quot;: &quot;dare.emelie@example.com&quot;,
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 70,
+            &quot;name&quot;: &quot;Prof. Mina Bauch&quot;,
+            &quot;email&quot;: &quot;okeefe.isidro@example.org&quot;,
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-users" data-method="GET"
+      data-path="api/v1/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users"
+                    onclick="tryItOut('GETapi-v1-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users"
+                    onclick="cancelTryOut('GETapi-v1-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="users-POSTapi-v1-users">Create user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/users" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Juan Dela Cruz\",
+    \"email\": \"juan.delacruz@gov.ph\",
+    \"password\": \"StrongP@ssw0rd\",
+    \"role\": \"budget-officer\",
+    \"password_confirmation\": \"StrongP@ssw0rd\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/users"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@gov.ph",
+    "password": "StrongP@ssw0rd",
+    "role": "budget-officer",
+    "password_confirmation": "StrongP@ssw0rd"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-users">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 71,
+        &quot;name&quot;: &quot;Ms. Audra Crooks II&quot;,
+        &quot;email&quot;: &quot;gulgowski.asia@example.com&quot;,
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-users" data-method="POST"
+      data-path="api/v1/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-users"
+                    onclick="tryItOut('POSTapi-v1-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-users"
+                    onclick="cancelTryOut('POSTapi-v1-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-users"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-users"
+               value="Juan Dela Cruz"
+               data-component="body">
+    <br>
+<p>Full name of the user. Example: <code>Juan Dela Cruz</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v1-users"
+               value="juan.delacruz@gov.ph"
+               data-component="body">
+    <br>
+<p>Unique email address. Example: <code>juan.delacruz@gov.ph</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-v1-users"
+               value="StrongP@ssw0rd"
+               data-component="body">
+    <br>
+<p>Account password. Example: <code>StrongP@ssw0rd</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="POSTapi-v1-users"
+               value="budget-officer"
+               data-component="body">
+    <br>
+<p>User role. Example: <code>budget-officer</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password_confirmation"                data-endpoint="POSTapi-v1-users"
+               value="StrongP@ssw0rd"
+               data-component="body">
+    <br>
+<p>Must match the password. Example: <code>StrongP@ssw0rd</code></p>
+        </div>
+        </form>
+
+                    <h2 id="users-GETapi-v1-users--id-">Show user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/users/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/users/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 72,
+        &quot;name&quot;: &quot;Morgan Hirthe&quot;,
+        &quot;email&quot;: &quot;imclaughlin@example.org&quot;,
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-users--id-" data-method="GET"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users--id-"
+                    onclick="tryItOut('GETapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users--id-"
+                    onclick="cancelTryOut('GETapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-users--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="users-PUTapi-v1-users--id-">Update user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/v1/users/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Juan Dela Cruz\",
+    \"email\": \"juan.delacruz@gov.ph\",
+    \"password\": \"StrongP@ssw0rd\",
+    \"role\": \"budget-officer\",
+    \"password_confirmation\": \"StrongP@ssw0rd\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/users/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@gov.ph",
+    "password": "StrongP@ssw0rd",
+    "role": "budget-officer",
+    "password_confirmation": "StrongP@ssw0rd"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-users--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 73,
+        &quot;name&quot;: &quot;Ms. Audra Crooks II&quot;,
+        &quot;email&quot;: &quot;idickens@example.org&quot;,
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-users--id-" data-method="PUT"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-users--id-"
+                    onclick="tryItOut('PUTapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-users--id-"
+                    onclick="cancelTryOut('PUTapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-users--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-users--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-v1-users--id-"
+               value="Juan Dela Cruz"
+               data-component="body">
+    <br>
+<p>Full name of the user. Example: <code>Juan Dela Cruz</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi-v1-users--id-"
+               value="juan.delacruz@gov.ph"
+               data-component="body">
+    <br>
+<p>Unique email address. Example: <code>juan.delacruz@gov.ph</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="PUTapi-v1-users--id-"
+               value="StrongP@ssw0rd"
+               data-component="body">
+    <br>
+<p>New account password (optional). Example: <code>StrongP@ssw0rd</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="PUTapi-v1-users--id-"
+               value="budget-officer"
+               data-component="body">
+    <br>
+<p>User role. Example: <code>budget-officer</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password_confirmation"                data-endpoint="PUTapi-v1-users--id-"
+               value="StrongP@ssw0rd"
+               data-component="body">
+    <br>
+<p>Required if password is present. Must match the password. Example: <code>StrongP@ssw0rd</code></p>
+        </div>
+        </form>
+
+                    <h2 id="users-DELETEapi-v1-users--id-">Delete user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/v1/users/1" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/users/1"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-users--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-users--id-" data-method="DELETE"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-users--id-"
+                    onclick="tryItOut('DELETEapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-users--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-users--id-"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-users--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                    </form>
+
             
 
         
@@ -10691,8 +9732,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
                     <div class="lang-selector">
                                                         <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                                         <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
-                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
-                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
                             </div>
             </div>
 </div>

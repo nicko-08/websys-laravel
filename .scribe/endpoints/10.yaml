@@ -1,0 +1,367 @@
+name: 'Audit Logs'
+description: |-
+
+  Read-only audit trail endpoints for administrators and auditors.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/audit-logs
+    metadata:
+      custom: []
+      groupName: 'Audit Logs'
+      groupDescription: |-
+
+        Read-only audit trail endpoints for administrators and auditors.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List audit logs'
+      description: |-
+        Returns a paginated list of audit logs.
+        Accessible to admins and auditors.
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'Filter logs by the user who performed the action. The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      resource:
+        custom: []
+        name: resource
+        description: 'Filter by audited resource type. Must not be greater than 255 characters.'
+        required: false
+        example: Expense
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      action:
+        custom: []
+        name: action
+        description: 'Filter by action type.'
+        required: false
+        example: created
+        type: string
+        enumValues:
+          - created
+          - updated
+          - deleted
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Filter logs for a specific date (YYYY-MM-DD). Must be a valid date.'
+        required: false
+        example: '2025-12-28'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      from:
+        custom: []
+        name: from
+        description: 'Start date for date range filtering (YYYY-MM-DD). Must be a valid date.'
+        required: false
+        example: '2025-12-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      to:
+        custom: []
+        name: to
+        description: 'End date for date range filtering (YYYY-MM-DD). Must be a valid date. Must be a date after or equal to <code>from</code>.'
+        required: false
+        example: '2025-12-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of records per page (1–100). Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 25
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      user_id: 1
+      resource: Expense
+      action: created
+      date: '2025-12-28'
+      from: '2025-12-01'
+      to: '2025-12-31'
+      per_page: 25
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 1|fake-docs-token
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/audit-logs/by-date
+    metadata:
+      custom: []
+      groupName: 'Audit Logs'
+      groupDescription: |-
+
+        Read-only audit trail endpoints for administrators and auditors.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List audit logs for a specific date'
+      description: 'Explicit auditor-friendly endpoint.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      date:
+        custom: []
+        name: date
+        description: 'date Filter audit logs by date (YYYY-MM-DD).'
+        required: true
+        example: '2025-12-28'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of records per page (max 100).'
+        required: false
+        example: 25
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      date: '2025-12-28'
+      per_page: 25
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'Filter logs by the user who performed the action. The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      resource:
+        custom: []
+        name: resource
+        description: 'Filter by audited resource type. Must not be greater than 255 characters.'
+        required: false
+        example: Expense
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      action:
+        custom: []
+        name: action
+        description: 'Filter by action type.'
+        required: false
+        example: created
+        type: string
+        enumValues:
+          - created
+          - updated
+          - deleted
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2025-12-29T10:52:19'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      from:
+        custom: []
+        name: from
+        description: 'Start date for date range filtering (YYYY-MM-DD). Must be a valid date.'
+        required: false
+        example: '2025-12-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      to:
+        custom: []
+        name: to
+        description: 'End date for date range filtering (YYYY-MM-DD). Must be a valid date. Must be a date after or equal to <code>from</code>.'
+        required: false
+        example: '2025-12-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of records per page (1–100). Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 25
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      user_id: 1
+      resource: Expense
+      action: created
+      date: '2025-12-29T10:52:19'
+      from: '2025-12-01'
+      to: '2025-12-31'
+      per_page: 25
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 1|fake-docs-token
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/audit-logs/{auditLog_id}'
+    metadata:
+      custom: []
+      groupName: 'Audit Logs'
+      groupDescription: |-
+
+        Read-only audit trail endpoints for administrators and auditors.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'View a specific audit log'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      auditLog_id:
+        custom: []
+        name: auditLog_id
+        description: 'The ID of the auditLog.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      auditLog:
+        custom: []
+        name: auditLog
+        description: 'The ID of the audit log.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      auditLog_id: 1
+      auditLog: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 1|fake-docs-token
+    controller: null
+    method: null
+    route: null
