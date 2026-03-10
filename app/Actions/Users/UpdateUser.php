@@ -2,6 +2,7 @@
 
 namespace App\Actions\Users;
 
+use App\Events\UserModified;
 use App\Models\User;
 
 final class UpdateUser
@@ -13,6 +14,13 @@ final class UpdateUser
         }
 
         $user->update($data);
+
+        // Fire audit event
+        event(new UserModified(
+            model: $user,
+            user: request()->user(),
+            action: 'updated'
+        ));
 
         return $user->refresh();
     }

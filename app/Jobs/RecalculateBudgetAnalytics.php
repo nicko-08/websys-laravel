@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\DB;
 
 final class RecalculateBudgetAnalytics implements ShouldQueue, ShouldBeUnique
 {
@@ -29,13 +30,25 @@ final class RecalculateBudgetAnalytics implements ShouldQueue, ShouldBeUnique
 
     public function handle(BudgetAnalyticsCalculator $calculator): void
     {
+        // Recalculate the analytics
         $calculator->recalculate(
             $this->governmentUnitId,
             $this->fiscalYearId
         );
 
+        // Clear all related caches
+        Cache::forget("analytics:overall-summary:{$this->fiscalYearId}");
+        Cache::forget("analytics:barangay-list:{$this->fiscalYearId}");
         Cache::forget("analytics:barangay:{$this->governmentUnitId}");
-        Cache::forget('analytics:barangay-list');
-        Cache::forget('analytics:overall-summary');
+
+        // Also clear cache for all budgets under this government unit
+        $budgetIds = DB::table('budgets')
+            ->where('government_unit_id', $this->governmentUnitId)
+            ->where('fiscal_year_id', $this->fiscalYearId)
+            ->pluck('id');
+
+        foreach ($budgetIds as $budgetId) {
+            Cache::forget("analytics:barangay:{$budgetId}");
+        }
     }
 }

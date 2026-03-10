@@ -30,6 +30,12 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
 
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'active' => \App\Http\Middleware\EnsureUserIsActive::class,
+        ]);
+    })
+
     ->withSchedule(function (Schedule $schedule) {
         $schedule->command('app:calculate-budget-summaries')
             ->daily()

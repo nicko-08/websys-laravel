@@ -46,6 +46,9 @@ Route::prefix('v1')->group(function () {
     Route::get('/budget-items/{budgetItem}/summary', [BudgetItemController::class, 'summary'])
         ->name('api.v1.public.budget-items.summary');
 
+    Route::get('/expenses/summary', [ExpenseController::class, 'summary'])  // ← ADD HERE
+        ->name('api.v1.public.expenses.summary');
+
     Route::apiResource('/expenses', ExpenseController::class)
         ->only(['index', 'show'])
         ->names('api.v1.public.expenses');

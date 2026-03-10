@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\Budget;
+use App\Models\BudgetItem;
 
 class StoreBudgetItemRequest extends FormRequest
 {
@@ -34,6 +36,50 @@ class StoreBudgetItemRequest extends FormRequest
                 'max:9999999999999.99'
             ],
         ];
+    }
+
+    /**
+     * Configure the validator instance.
+     */
+    public function withValidator($validator): void
+    {
+        $validator->after(function ($validator) {
+            if ($validator->errors()->isEmpty()) {
+                $this->validateTotalAllocation($validator);
+            }
+        });
+    }
+
+    /**
+     * Validate that total allocated doesn't exceed budget total
+     */
+    private function validateTotalAllocation($validator): void
+    {
+        $budgetId = $this->input('budget_id');
+        $newAllocation = $this->input('allocated_amount');
+
+        $budget = Budget::find($budgetId);
+        if (!$budget) {
+            return;
+        }
+
+        // Calculate current total allocation for this budget
+        $currentTotalAllocation = BudgetItem::where('budget_id', $budgetId)
+            ->sum('allocated_amount');
+
+        // Add the new allocation
+        $projectedTotal = $currentTotalAllocation + $newAllocation;
+
+        if ($projectedTotal > $budget->total_amount) {
+            $remaining = $budget->total_amount - $currentTotalAllocation;
+            $validator->errors()->add(
+                'allocated_amount',
+                "The allocated amount exceeds the remaining budget. " .
+                    "Budget total: " . number_format($budget->total_amount, 2) . ", " .
+                    "Currently allocated: " . number_format($currentTotalAllocation, 2) . ", " .
+                    "Remaining: " . number_format($remaining, 2) . "."
+            );
+        }
     }
 
     public function messages(): array

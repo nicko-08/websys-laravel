@@ -14,9 +14,23 @@ final class AuthenticateUser
             ->where('email', $credentials['email'])
             ->first();
 
-        if (! $user || ! Hash::check($credentials['password'], $user->password)) {
+        if (!$user || !Hash::check($credentials['password'], $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
+            ]);
+        }
+
+        // Check if user is active
+        if (!$user->isActive()) {
+            throw ValidationException::withMessages([
+                'email' => ['Your account is pending activation. Please check your email for the activation link.'],
+            ]);
+        }
+
+        // Check if email is verified
+        if (!$user->hasVerifiedEmail()) {
+            throw ValidationException::withMessages([
+                'email' => ['Please verify your email address before logging in.'],
             ]);
         }
 

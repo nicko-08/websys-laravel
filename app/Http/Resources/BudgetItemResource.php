@@ -14,6 +14,8 @@ class BudgetItemResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $spentAmount = (float) ($this->expenses_sum_amount ?? 0);
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -21,11 +23,14 @@ class BudgetItemResource extends JsonResource
             'allocated_amount' => (float) $this->allocated_amount,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            // Budget category ID for forms
+            'budget_category_id' => $this->budget_category_id,
             // Conditionally load relationships to prevent N+1 problems
             'budget' => new BudgetResource($this->whenLoaded('budget')),
             'category' => new BudgetCategoryResource($this->whenLoaded('category')),
-            // Conditionally load aggregated sums
-            'spent_amount' => $this->whenAggregated('expenses', 'amount', 'sum'),
+            // Return both for backwards compatibility
+            'spent_amount' => $spentAmount,
+            'expenses_sum_amount' => $spentAmount,
         ];
     }
 }
