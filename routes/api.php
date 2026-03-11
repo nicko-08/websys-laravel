@@ -8,4 +8,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // V1 API routes for API Versioning
-require __DIR__.'/api/v1.php';
+require __DIR__ . '/api/v1.php';

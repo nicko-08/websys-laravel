@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
+use App\Events\UserModified;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -118,14 +119,27 @@ class UserController extends Controller
      *
      * @authenticated
      */
-    public function destroy(User $user): Response
+    public function destroy(User $user): JsonResponse
     {
         $this->authorize('delete', $user);
 
-        DB::transaction(function () use ($user) {
-            $user->delete();
-        });
+        // Prevent self-deletion
+        if ($user->id === request()->user()->id) {
+            return response()->json(
+                ['message' => 'You cannot delete your own account.'],
+                Response::HTTP_FORBIDDEN
+            );
+        }
 
-        return response()->noContent();
+        // Fire audit event BEFORE deleting
+        event(new UserModified(
+            model: $user,
+            user: request()->user(),
+            action: 'deleted'
+        ));
+
+        $user->delete();
+
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }

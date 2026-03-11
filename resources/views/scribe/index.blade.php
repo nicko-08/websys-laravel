@@ -293,7 +293,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 29, 2025</li>
+        <li>Last updated: March 9, 2026</li>
     </ul>
 </div>
 
@@ -590,7 +590,7 @@ Must be one of:
     \"user_id\": 1,
     \"resource\": \"Expense\",
     \"action\": \"created\",
-    \"date\": \"2025-12-29T10:52:19\",
+    \"date\": \"2026-03-09T09:11:24\",
     \"from\": \"2025-12-01\",
     \"to\": \"2025-12-31\",
     \"per_page\": 25
@@ -620,7 +620,7 @@ let body = {
     "user_id": 1,
     "resource": "Expense",
     "action": "created",
-    "date": "2025-12-29T10:52:19",
+    "date": "2026-03-09T09:11:24",
     "from": "2025-12-01",
     "to": "2025-12-31",
     "per_page": 25
@@ -806,10 +806,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-v1-audit-logs-by-date"
-               value="2025-12-29T10:52:19"
+               value="2026-03-09T09:11:24"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-29T10:52:19</code></p>
+<p>Must be a valid date. Example: <code>2026-03-09T09:11:24</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>from</code></b>&nbsp;&nbsp;
@@ -1352,6 +1352,10 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
+        {
+            &quot;id&quot;: 7,
+            &quot;name&quot;: &quot;Office Supplies&quot;
+        },
         {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Infrastructure Development&quot;
@@ -2135,101 +2139,16 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 61,
-            &quot;name&quot;: &quot;Road and Bridge Maintenance&quot;,
-            &quot;code&quot;: &quot;INFRA-RBM-001&quot;,
-            &quot;allocated_amount&quot;: 2500000,
-            &quot;created_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
-            &quot;budget&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2089810
-            },
-            &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Infrastructure Development&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 60,
-            &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
-            &quot;code&quot;: &quot;BRG6-PEACE-002&quot;,
-            &quot;allocated_amount&quot;: 134257,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;budget&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1550941
-            },
-            &quot;category&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Peace and Order&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 59,
-            &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
-            &quot;code&quot;: &quot;BRG6-PEACE-001&quot;,
-            &quot;allocated_amount&quot;: 149597,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;budget&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1550941
-            },
-            &quot;category&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Peace and Order&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 58,
-            &quot;name&quot;: &quot;Youth Development Program&quot;,
-            &quot;code&quot;: &quot;BRG6-EDU-003&quot;,
-            &quot;allocated_amount&quot;: 120211,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;budget&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1550941
-            },
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Education and Youth&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 57,
-            &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-            &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-            &quot;allocated_amount&quot;: 214518,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-            &quot;budget&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1550941
-            },
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Education and Youth&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 53,
+            &quot;id&quot;: 41,
             &quot;name&quot;: &quot;Barangay Health Station Supplies&quot;,
-            &quot;code&quot;: &quot;BRG6-HEALTH-001&quot;,
-            &quot;allocated_amount&quot;: 149951,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;code&quot;: &quot;BRG5-HEALTH-001&quot;,
+            &quot;allocated_amount&quot;: 172854,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1550941
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 2,
@@ -2237,16 +2156,33 @@ access-control-allow-origin: *
             }
         },
         {
-            &quot;id&quot;: 32,
-            &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-            &quot;code&quot;: &quot;BRG4-EDU-001&quot;,
-            &quot;allocated_amount&quot;: 417247,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;id&quot;: 59,
+            &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
+            &quot;code&quot;: &quot;BRG6-PEACE-001&quot;,
+            &quot;allocated_amount&quot;: 117222,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1990525
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 1891266
+            },
+            &quot;category&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Peace and Order&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 56,
+            &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
+            &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
+            &quot;allocated_amount&quot;: 129114,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;budget&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 1891266
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 3,
@@ -2254,33 +2190,101 @@ access-control-allow-origin: *
             }
         },
         {
-            &quot;id&quot;: 52,
-            &quot;name&quot;: &quot;Drainage System Improvement&quot;,
-            &quot;code&quot;: &quot;BRG6-INFRA-004&quot;,
-            &quot;allocated_amount&quot;: 459823,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;id&quot;: 55,
+            &quot;name&quot;: &quot;Vaccination Program&quot;,
+            &quot;code&quot;: &quot;BRG6-HEALTH-003&quot;,
+            &quot;allocated_amount&quot;: 305709,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1550941
+                &quot;total_amount&quot;: 1891266
             },
             &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Infrastructure Development&quot;
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Health and Sanitation&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 54,
+            &quot;name&quot;: &quot;Medical Equipment Purchase&quot;,
+            &quot;code&quot;: &quot;BRG6-HEALTH-002&quot;,
+            &quot;allocated_amount&quot;: 459589,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;budget&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 1891266
+            },
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Health and Sanitation&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 57,
+            &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
+            &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
+            &quot;allocated_amount&quot;: 352325,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;budget&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 1891266
+            },
+            &quot;category&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Education and Youth&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 45,
+            &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
+            &quot;code&quot;: &quot;BRG5-EDU-002&quot;,
+            &quot;allocated_amount&quot;: 95668,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;budget&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 2544160
+            },
+            &quot;category&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Education and Youth&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 44,
+            &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
+            &quot;code&quot;: &quot;BRG5-EDU-001&quot;,
+            &quot;allocated_amount&quot;: 99122,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;budget&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
+                &quot;total_amount&quot;: 2544160
+            },
+            &quot;category&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Education and Youth&quot;
             }
         },
         {
             &quot;id&quot;: 43,
             &quot;name&quot;: &quot;Vaccination Program&quot;,
             &quot;code&quot;: &quot;BRG5-HEALTH-003&quot;,
-            &quot;allocated_amount&quot;: 394141,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 361186,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 2,
@@ -2291,13 +2295,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 42,
             &quot;name&quot;: &quot;Medical Equipment Purchase&quot;,
             &quot;code&quot;: &quot;BRG5-HEALTH-002&quot;,
-            &quot;allocated_amount&quot;: 166018,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 154998,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 2,
@@ -2305,33 +2309,33 @@ access-control-allow-origin: *
             }
         },
         {
-            &quot;id&quot;: 41,
-            &quot;name&quot;: &quot;Barangay Health Station Supplies&quot;,
-            &quot;code&quot;: &quot;BRG5-HEALTH-001&quot;,
-            &quot;allocated_amount&quot;: 162937,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;id&quot;: 46,
+            &quot;name&quot;: &quot;Youth Development Program&quot;,
+            &quot;code&quot;: &quot;BRG5-EDU-003&quot;,
+            &quot;allocated_amount&quot;: 243740,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Health and Sanitation&quot;
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Education and Youth&quot;
             }
         },
         {
             &quot;id&quot;: 40,
             &quot;name&quot;: &quot;Drainage System Improvement&quot;,
             &quot;code&quot;: &quot;BRG5-INFRA-004&quot;,
-            &quot;allocated_amount&quot;: 540986,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 518262,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
@@ -2342,13 +2346,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 39,
             &quot;name&quot;: &quot;Street Lighting Installation&quot;,
             &quot;code&quot;: &quot;BRG5-INFRA-003&quot;,
-            &quot;allocated_amount&quot;: 280244,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 224445,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
@@ -2359,13 +2363,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 38,
             &quot;name&quot;: &quot;Covered Court Construction&quot;,
             &quot;code&quot;: &quot;BRG5-INFRA-002&quot;,
-            &quot;allocated_amount&quot;: 1081161,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 1136483,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
@@ -2376,13 +2380,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 37,
             &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
             &quot;code&quot;: &quot;BRG5-INFRA-001&quot;,
-            &quot;allocated_amount&quot;: 482262,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 459435,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 2184189
+                &quot;total_amount&quot;: 2544160
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
@@ -2393,13 +2397,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 36,
             &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
             &quot;code&quot;: &quot;BRG4-PEACE-002&quot;,
-            &quot;allocated_amount&quot;: 321159,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 235578,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1990525
+                &quot;total_amount&quot;: 1876231
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 4,
@@ -2410,13 +2414,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 35,
             &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
             &quot;code&quot;: &quot;BRG4-PEACE-001&quot;,
-            &quot;allocated_amount&quot;: 344327,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 271187,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1990525
+                &quot;total_amount&quot;: 1876231
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 4,
@@ -2427,13 +2431,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 34,
             &quot;name&quot;: &quot;Youth Development Program&quot;,
             &quot;code&quot;: &quot;BRG4-EDU-003&quot;,
-            &quot;allocated_amount&quot;: 364994,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 231623,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1990525
+                &quot;total_amount&quot;: 1876231
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 3,
@@ -2444,13 +2448,13 @@ access-control-allow-origin: *
             &quot;id&quot;: 33,
             &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
             &quot;code&quot;: &quot;BRG4-EDU-002&quot;,
-            &quot;allocated_amount&quot;: 291542,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;allocated_amount&quot;: 197300,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1990525
+                &quot;total_amount&quot;: 1876231
             },
             &quot;category&quot;: {
                 &quot;id&quot;: 3,
@@ -2458,33 +2462,33 @@ access-control-allow-origin: *
             }
         },
         {
-            &quot;id&quot;: 31,
-            &quot;name&quot;: &quot;Vaccination Program&quot;,
-            &quot;code&quot;: &quot;BRG4-HEALTH-003&quot;,
-            &quot;allocated_amount&quot;: 412973,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+            &quot;id&quot;: 32,
+            &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
+            &quot;code&quot;: &quot;BRG4-EDU-001&quot;,
+            &quot;allocated_amount&quot;: 107384,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
             &quot;budget&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-                &quot;total_amount&quot;: 1990525
+                &quot;total_amount&quot;: 1876231
             },
             &quot;category&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Health and Sanitation&quot;
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Education and Youth&quot;
             }
         }
     ],
     &quot;links&quot;: {
         &quot;first&quot;: &quot;http://localhost:8000/api/v1/budget-items?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost:8000/api/v1/budget-items?page=4&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/v1/budget-items?page=3&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: &quot;http://localhost:8000/api/v1/budget-items?page=2&quot;
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
         &quot;from&quot;: 1,
-        &quot;last_page&quot;: 4,
+        &quot;last_page&quot;: 3,
         &quot;links&quot;: [
             {
                 &quot;url&quot;: null,
@@ -2511,12 +2515,6 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://localhost:8000/api/v1/budget-items?page=4&quot;,
-                &quot;label&quot;: &quot;4&quot;,
-                &quot;page&quot;: 4,
-                &quot;active&quot;: false
-            },
-            {
                 &quot;url&quot;: &quot;http://localhost:8000/api/v1/budget-items?page=2&quot;,
                 &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
                 &quot;page&quot;: 2,
@@ -2526,7 +2524,7 @@ access-control-allow-origin: *
         &quot;path&quot;: &quot;http://localhost:8000/api/v1/budget-items&quot;,
         &quot;per_page&quot;: 20,
         &quot;to&quot;: 20,
-        &quot;total&quot;: 61
+        &quot;total&quot;: 60
     }
 }</code>
  </pre>
@@ -2677,19 +2675,19 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
         &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
-        &quot;allocated_amount&quot;: 499102,
-        &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+        &quot;allocated_amount&quot;: 407551,
+        &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
         &quot;budget&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2089810
+            &quot;total_amount&quot;: 1933107
         },
         &quot;category&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Infrastructure Development&quot;
         },
-        &quot;spent_amount&quot;: &quot;172365.00&quot;
+        &quot;spent_amount&quot;: &quot;204244.00&quot;
     }
 }</code>
  </pre>
@@ -2851,9 +2849,9 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
     &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
-    &quot;allocated_amount&quot;: &quot;499102.00&quot;,
-    &quot;spent_amount&quot;: &quot;172365.00&quot;,
-    &quot;utilization_percentage&quot;: 34.54,
+    &quot;allocated_amount&quot;: &quot;407551.00&quot;,
+    &quot;spent_amount&quot;: &quot;204244.00&quot;,
+    &quot;utilization_percentage&quot;: 50.11,
     &quot;budget&quot;: {
         &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;
     }
@@ -3588,16 +3586,16 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2089810,
+            &quot;id&quot;: 7,
+            &quot;name&quot;: &quot;Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 1000000,
             &quot;government_unit&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Barangay San Antonio&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
             &quot;fiscal_year&quot;: {
                 &quot;id&quot;: 1,
@@ -3605,21 +3603,21 @@ access-control-allow-origin: *
                 &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
                 &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Barangay Santo Domingo Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2714573,
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;Annual Budget 2024&quot;,
+            &quot;total_amount&quot;: 1000000,
             &quot;government_unit&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
-                &quot;type&quot;: &quot;barangay&quot;,
-                &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
             &quot;fiscal_year&quot;: {
                 &quot;id&quot;: 1,
@@ -3627,21 +3625,21 @@ access-control-allow-origin: *
                 &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
                 &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
             &quot;id&quot;: 3,
             &quot;name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 1990525,
+            &quot;total_amount&quot;: 1876231,
             &quot;government_unit&quot;: {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             },
             &quot;fiscal_year&quot;: {
                 &quot;id&quot;: 1,
@@ -3649,21 +3647,21 @@ access-control-allow-origin: *
                 &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
                 &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
             &quot;id&quot;: 4,
             &quot;name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 2184189,
+            &quot;total_amount&quot;: 2544160,
             &quot;government_unit&quot;: {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;Barangay Tatalon&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             },
             &quot;fiscal_year&quot;: {
                 &quot;id&quot;: 1,
@@ -3671,21 +3669,21 @@ access-control-allow-origin: *
                 &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
                 &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
             &quot;id&quot;: 5,
             &quot;name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-            &quot;total_amount&quot;: 1550941,
+            &quot;total_amount&quot;: 1891266,
             &quot;government_unit&quot;: {
                 &quot;id&quot;: 6,
                 &quot;name&quot;: &quot;Barangay Kamuning&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             },
             &quot;fiscal_year&quot;: {
                 &quot;id&quot;: 1,
@@ -3693,8 +3691,52 @@ access-control-allow-origin: *
                 &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
                 &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 1933107,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Barangay San Antonio&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Barangay Santo Domingo Annual Budget 2026&quot;,
+            &quot;total_amount&quot;: 2219821,
+            &quot;government_unit&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
+                &quot;type&quot;: &quot;barangay&quot;,
+                &quot;parent_id&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            },
+            &quot;fiscal_year&quot;: {
+                &quot;id&quot;: 1,
+                &quot;year&quot;: 2026,
+                &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
+                &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         }
     ],
@@ -3730,8 +3772,8 @@ access-control-allow-origin: *
         ],
         &quot;path&quot;: &quot;http://localhost:8000/api/v1/budgets&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: 5,
-        &quot;total&quot;: 5
+        &quot;to&quot;: 7,
+        &quot;total&quot;: 7
     }
 }</code>
  </pre>
@@ -3894,14 +3936,14 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-        &quot;total_amount&quot;: 2089810,
+        &quot;total_amount&quot;: 1933107,
         &quot;government_unit&quot;: {
             &quot;id&quot;: 2,
             &quot;name&quot;: &quot;Barangay San Antonio&quot;,
             &quot;type&quot;: &quot;barangay&quot;,
             &quot;parent_id&quot;: 1,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
         },
         &quot;fiscal_year&quot;: {
             &quot;id&quot;: 1,
@@ -3909,178 +3951,165 @@ access-control-allow-origin: *
             &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
             &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
             &quot;is_active&quot;: true,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
         },
         &quot;budget_items&quot;: [
             {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
                 &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
-                &quot;allocated_amount&quot;: 499102,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 407551,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 1,
                     &quot;name&quot;: &quot;Infrastructure Development&quot;
                 },
-                &quot;spent_amount&quot;: &quot;172365.00&quot;
+                &quot;spent_amount&quot;: &quot;204244.00&quot;
             },
             {
                 &quot;id&quot;: 2,
                 &quot;name&quot;: &quot;Covered Court Construction&quot;,
                 &quot;code&quot;: &quot;BRG2-INFRA-002&quot;,
-                &quot;allocated_amount&quot;: 1126638,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 978276,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 1,
                     &quot;name&quot;: &quot;Infrastructure Development&quot;
                 },
-                &quot;spent_amount&quot;: &quot;317321.00&quot;
+                &quot;spent_amount&quot;: &quot;530767.00&quot;
             },
             {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Street Lighting Installation&quot;,
                 &quot;code&quot;: &quot;BRG2-INFRA-003&quot;,
-                &quot;allocated_amount&quot;: 324440,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 388419,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 1,
                     &quot;name&quot;: &quot;Infrastructure Development&quot;
                 },
-                &quot;spent_amount&quot;: &quot;155387.00&quot;
+                &quot;spent_amount&quot;: &quot;246459.00&quot;
             },
             {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Drainage System Improvement&quot;,
                 &quot;code&quot;: &quot;BRG2-INFRA-004&quot;,
-                &quot;allocated_amount&quot;: 516875,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 400702,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 1,
                     &quot;name&quot;: &quot;Infrastructure Development&quot;
                 },
-                &quot;spent_amount&quot;: &quot;140509.00&quot;
+                &quot;spent_amount&quot;: &quot;181580.00&quot;
             },
             {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;Barangay Health Station Supplies&quot;,
                 &quot;code&quot;: &quot;BRG2-HEALTH-001&quot;,
-                &quot;allocated_amount&quot;: 267063,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 330431,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 2,
                     &quot;name&quot;: &quot;Health and Sanitation&quot;
                 },
-                &quot;spent_amount&quot;: &quot;132971.00&quot;
+                &quot;spent_amount&quot;: &quot;151898.00&quot;
             },
             {
                 &quot;id&quot;: 6,
                 &quot;name&quot;: &quot;Medical Equipment Purchase&quot;,
                 &quot;code&quot;: &quot;BRG2-HEALTH-002&quot;,
-                &quot;allocated_amount&quot;: 307509,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 444664,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 2,
                     &quot;name&quot;: &quot;Health and Sanitation&quot;
                 },
-                &quot;spent_amount&quot;: &quot;152073.00&quot;
+                &quot;spent_amount&quot;: &quot;204536.00&quot;
             },
             {
                 &quot;id&quot;: 7,
                 &quot;name&quot;: &quot;Vaccination Program&quot;,
                 &quot;code&quot;: &quot;BRG2-HEALTH-003&quot;,
-                &quot;allocated_amount&quot;: 479252,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 308924,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 2,
                     &quot;name&quot;: &quot;Health and Sanitation&quot;
                 },
-                &quot;spent_amount&quot;: &quot;203206.00&quot;
+                &quot;spent_amount&quot;: &quot;108964.00&quot;
             },
             {
                 &quot;id&quot;: 8,
                 &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
                 &quot;code&quot;: &quot;BRG2-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 88710,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 189102,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 3,
                     &quot;name&quot;: &quot;Education and Youth&quot;
                 },
-                &quot;spent_amount&quot;: &quot;58251.00&quot;
+                &quot;spent_amount&quot;: &quot;85228.00&quot;
             },
             {
                 &quot;id&quot;: 9,
                 &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
                 &quot;code&quot;: &quot;BRG2-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 469074,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 188049,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 3,
                     &quot;name&quot;: &quot;Education and Youth&quot;
                 },
-                &quot;spent_amount&quot;: &quot;191653.00&quot;
+                &quot;spent_amount&quot;: &quot;93921.00&quot;
             },
             {
                 &quot;id&quot;: 10,
                 &quot;name&quot;: &quot;Youth Development Program&quot;,
                 &quot;code&quot;: &quot;BRG2-EDU-003&quot;,
-                &quot;allocated_amount&quot;: 173125,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 203521,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 3,
                     &quot;name&quot;: &quot;Education and Youth&quot;
                 },
-                &quot;spent_amount&quot;: &quot;109451.00&quot;
+                &quot;spent_amount&quot;: &quot;106312.00&quot;
             },
             {
                 &quot;id&quot;: 11,
                 &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
                 &quot;code&quot;: &quot;BRG2-PEACE-001&quot;,
-                &quot;allocated_amount&quot;: 206725,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 360578,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 4,
                     &quot;name&quot;: &quot;Peace and Order&quot;
                 },
-                &quot;spent_amount&quot;: &quot;121245.00&quot;
+                &quot;spent_amount&quot;: &quot;157047.00&quot;
             },
             {
                 &quot;id&quot;: 12,
                 &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
                 &quot;code&quot;: &quot;BRG2-PEACE-002&quot;,
-                &quot;allocated_amount&quot;: 251271,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
+                &quot;allocated_amount&quot;: 283522,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
                 &quot;category&quot;: {
                     &quot;id&quot;: 4,
                     &quot;name&quot;: &quot;Peace and Order&quot;
                 },
-                &quot;spent_amount&quot;: &quot;162355.00&quot;
-            },
-            {
-                &quot;id&quot;: 61,
-                &quot;name&quot;: &quot;Road and Bridge Maintenance&quot;,
-                &quot;code&quot;: &quot;INFRA-RBM-001&quot;,
-                &quot;allocated_amount&quot;: 2500000,
-                &quot;created_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:24:58.000000Z&quot;,
-                &quot;category&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Infrastructure Development&quot;
-                },
-                &quot;spent_amount&quot;: null
+                &quot;spent_amount&quot;: &quot;150224.00&quot;
             }
         ]
     }
@@ -5197,296 +5226,296 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 332,
-            &quot;description&quot;: &quot;Office supplies purchase&quot;,
-            &quot;amount&quot;: 2000,
-            &quot;transaction_date&quot;: &quot;2026-01-15T00:00:00.000000Z&quot;,
+            &quot;id&quot;: 122,
+            &quot;description&quot;: &quot;Transportation for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 20171,
+            &quot;transaction_date&quot;: &quot;2026-04-01T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
-                &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
-                &quot;allocated_amount&quot;: 499102,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 320,
-            &quot;description&quot;: &quot;Equipment Rental for Youth Development Program&quot;,
-            &quot;amount&quot;: 15761,
-            &quot;transaction_date&quot;: &quot;2026-07-28T00:00:00.000000Z&quot;,
+            &quot;id&quot;: 107,
+            &quot;description&quot;: &quot;Labor Cost for Youth Development Program&quot;,
+            &quot;amount&quot;: 7825,
+            &quot;transaction_date&quot;: &quot;2026-11-14T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 58,
+                &quot;id&quot;: 22,
                 &quot;name&quot;: &quot;Youth Development Program&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-003&quot;,
-                &quot;allocated_amount&quot;: 120211,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
+                &quot;code&quot;: &quot;BRG3-EDU-003&quot;,
+                &quot;allocated_amount&quot;: 367896,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 305,
-            &quot;description&quot;: &quot;Equipment Rental for Day Care Center Improvement&quot;,
-            &quot;amount&quot;: 12858,
-            &quot;transaction_date&quot;: &quot;2026-10-06T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 479124,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 306,
-            &quot;description&quot;: &quot;Professional Services for Day Care Center Improvement&quot;,
-            &quot;amount&quot;: 36955,
-            &quot;transaction_date&quot;: &quot;2026-05-26T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 479124,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 314,
-            &quot;description&quot;: &quot;Equipment Rental for Learning Materials Purchase&quot;,
-            &quot;amount&quot;: 8567,
-            &quot;transaction_date&quot;: &quot;2026-11-07T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 214518,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 315,
-            &quot;description&quot;: &quot;Transportation for Learning Materials Purchase&quot;,
-            &quot;amount&quot;: 12482,
-            &quot;transaction_date&quot;: &quot;2026-04-14T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 214518,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 307,
-            &quot;description&quot;: &quot;Professional Services for Day Care Center Improvement&quot;,
-            &quot;amount&quot;: 21945,
-            &quot;transaction_date&quot;: &quot;2026-10-20T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 479124,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 311,
-            &quot;description&quot;: &quot;Equipment Rental for Learning Materials Purchase&quot;,
-            &quot;amount&quot;: 17954,
-            &quot;transaction_date&quot;: &quot;2026-03-08T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 214518,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 313,
-            &quot;description&quot;: &quot;Professional Services for Learning Materials Purchase&quot;,
-            &quot;amount&quot;: 9724,
-            &quot;transaction_date&quot;: &quot;2026-09-13T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 214518,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 319,
+            &quot;id&quot;: 108,
             &quot;description&quot;: &quot;Materials Purchase for Youth Development Program&quot;,
-            &quot;amount&quot;: 22606,
-            &quot;transaction_date&quot;: &quot;2026-12-15T00:00:00.000000Z&quot;,
+            &quot;amount&quot;: 36914,
+            &quot;transaction_date&quot;: &quot;2026-02-15T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 58,
+                &quot;id&quot;: 22,
                 &quot;name&quot;: &quot;Youth Development Program&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-003&quot;,
-                &quot;allocated_amount&quot;: 120211,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
+                &quot;code&quot;: &quot;BRG3-EDU-003&quot;,
+                &quot;allocated_amount&quot;: 367896,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 323,
-            &quot;description&quot;: &quot;Transportation for CCTV Camera Installation&quot;,
-            &quot;amount&quot;: 10059,
-            &quot;transaction_date&quot;: &quot;2026-03-08T00:00:00.000000Z&quot;,
+            &quot;id&quot;: 116,
+            &quot;description&quot;: &quot;Materials Purchase for CCTV Camera Installation&quot;,
+            &quot;amount&quot;: 9319,
+            &quot;transaction_date&quot;: &quot;2026-09-01T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 59,
+                &quot;id&quot;: 23,
                 &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
-                &quot;code&quot;: &quot;BRG6-PEACE-001&quot;,
-                &quot;allocated_amount&quot;: 149597,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
+                &quot;code&quot;: &quot;BRG3-PEACE-001&quot;,
+                &quot;allocated_amount&quot;: 355525,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 309,
-            &quot;description&quot;: &quot;Materials Purchase for Day Care Center Improvement&quot;,
-            &quot;amount&quot;: 34004,
-            &quot;transaction_date&quot;: &quot;2026-09-22T00:00:00.000000Z&quot;,
+            &quot;id&quot;: 117,
+            &quot;description&quot;: &quot;Equipment Rental for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 5202,
+            &quot;transaction_date&quot;: &quot;2026-04-04T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 479124,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 109,
+            &quot;description&quot;: &quot;Transportation for Youth Development Program&quot;,
+            &quot;amount&quot;: 23614,
+            &quot;transaction_date&quot;: &quot;2026-07-26T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 22,
+                &quot;name&quot;: &quot;Youth Development Program&quot;,
+                &quot;code&quot;: &quot;BRG3-EDU-003&quot;,
+                &quot;allocated_amount&quot;: 367896,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 113,
+            &quot;description&quot;: &quot;Equipment Rental for CCTV Camera Installation&quot;,
+            &quot;amount&quot;: 7230,
+            &quot;transaction_date&quot;: &quot;2026-09-21T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 23,
+                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-001&quot;,
+                &quot;allocated_amount&quot;: 355525,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 115,
+            &quot;description&quot;: &quot;Labor Cost for CCTV Camera Installation&quot;,
+            &quot;amount&quot;: 19661,
+            &quot;transaction_date&quot;: &quot;2026-03-04T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 23,
+                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-001&quot;,
+                &quot;allocated_amount&quot;: 355525,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 121,
+            &quot;description&quot;: &quot;Professional Services for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 14078,
+            &quot;transaction_date&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 125,
+            &quot;description&quot;: &quot;Equipment Rental for Basketball Court Renovation&quot;,
+            &quot;amount&quot;: 30345,
+            &quot;transaction_date&quot;: &quot;2026-07-22T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 25,
+                &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
+                &quot;code&quot;: &quot;BRG4-INFRA-001&quot;,
+                &quot;allocated_amount&quot;: 353632,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             }
         },
         {
             &quot;id&quot;: 308,
-            &quot;description&quot;: &quot;Labor Cost for Day Care Center Improvement&quot;,
-            &quot;amount&quot;: 30113,
-            &quot;transaction_date&quot;: &quot;2026-05-10T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 479124,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 317,
-            &quot;description&quot;: &quot;Materials Purchase for Youth Development Program&quot;,
-            &quot;amount&quot;: 5390,
-            &quot;transaction_date&quot;: &quot;2026-12-04T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 58,
-                &quot;name&quot;: &quot;Youth Development Program&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-003&quot;,
-                &quot;allocated_amount&quot;: 120211,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 318,
-            &quot;description&quot;: &quot;Professional Services for Youth Development Program&quot;,
-            &quot;amount&quot;: 8986,
-            &quot;transaction_date&quot;: &quot;2026-02-23T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 58,
-                &quot;name&quot;: &quot;Youth Development Program&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-003&quot;,
-                &quot;allocated_amount&quot;: 120211,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 310,
-            &quot;description&quot;: &quot;Transportation for Day Care Center Improvement&quot;,
-            &quot;amount&quot;: 43720,
-            &quot;transaction_date&quot;: &quot;2026-06-21T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;Day Care Center Improvement&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-001&quot;,
-                &quot;allocated_amount&quot;: 479124,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 322,
-            &quot;description&quot;: &quot;Materials Purchase for CCTV Camera Installation&quot;,
-            &quot;amount&quot;: 12035,
-            &quot;transaction_date&quot;: &quot;2026-07-18T00:00:00.000000Z&quot;,
-            &quot;budget_item&quot;: {
-                &quot;id&quot;: 59,
-                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
-                &quot;code&quot;: &quot;BRG6-PEACE-001&quot;,
-                &quot;allocated_amount&quot;: 149597,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 324,
             &quot;description&quot;: &quot;Materials Purchase for Barangay Patrol Equipment&quot;,
-            &quot;amount&quot;: 11318,
-            &quot;transaction_date&quot;: &quot;2026-01-13T00:00:00.000000Z&quot;,
+            &quot;amount&quot;: 45086,
+            &quot;transaction_date&quot;: &quot;2026-02-02T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
                 &quot;id&quot;: 60,
                 &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
                 &quot;code&quot;: &quot;BRG6-PEACE-002&quot;,
-                &quot;allocated_amount&quot;: 134257,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
+                &quot;allocated_amount&quot;: 197750,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 312,
-            &quot;description&quot;: &quot;Professional Services for Learning Materials Purchase&quot;,
-            &quot;amount&quot;: 26599,
-            &quot;transaction_date&quot;: &quot;2026-03-27T00:00:00.000000Z&quot;,
+            &quot;id&quot;: 111,
+            &quot;description&quot;: &quot;Labor Cost for Youth Development Program&quot;,
+            &quot;amount&quot;: 11484,
+            &quot;transaction_date&quot;: &quot;2026-07-29T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 214518,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
+                &quot;id&quot;: 22,
+                &quot;name&quot;: &quot;Youth Development Program&quot;,
+                &quot;code&quot;: &quot;BRG3-EDU-003&quot;,
+                &quot;allocated_amount&quot;: 367896,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 316,
-            &quot;description&quot;: &quot;Professional Services for Learning Materials Purchase&quot;,
-            &quot;amount&quot;: 22796,
-            &quot;transaction_date&quot;: &quot;2026-11-02T00:00:00.000000Z&quot;,
+            &quot;id&quot;: 110,
+            &quot;description&quot;: &quot;Materials Purchase for Youth Development Program&quot;,
+            &quot;amount&quot;: 10829,
+            &quot;transaction_date&quot;: &quot;2026-05-25T00:00:00.000000Z&quot;,
             &quot;budget_item&quot;: {
-                &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;Learning Materials Purchase&quot;,
-                &quot;code&quot;: &quot;BRG6-EDU-002&quot;,
-                &quot;allocated_amount&quot;: 214518,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:52.000000Z&quot;
+                &quot;id&quot;: 22,
+                &quot;name&quot;: &quot;Youth Development Program&quot;,
+                &quot;code&quot;: &quot;BRG3-EDU-003&quot;,
+                &quot;allocated_amount&quot;: 367896,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 119,
+            &quot;description&quot;: &quot;Labor Cost for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 14827,
+            &quot;transaction_date&quot;: &quot;2026-11-26T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 120,
+            &quot;description&quot;: &quot;Equipment Rental for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 13908,
+            &quot;transaction_date&quot;: &quot;2026-08-16T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 112,
+            &quot;description&quot;: &quot;Materials Purchase for CCTV Camera Installation&quot;,
+            &quot;amount&quot;: 5132,
+            &quot;transaction_date&quot;: &quot;2026-02-24T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 23,
+                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-001&quot;,
+                &quot;allocated_amount&quot;: 355525,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 124,
+            &quot;description&quot;: &quot;Transportation for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 9136,
+            &quot;transaction_date&quot;: &quot;2026-05-13T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 126,
+            &quot;description&quot;: &quot;Materials Purchase for Basketball Court Renovation&quot;,
+            &quot;amount&quot;: 13766,
+            &quot;transaction_date&quot;: &quot;2026-12-15T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 25,
+                &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
+                &quot;code&quot;: &quot;BRG4-INFRA-001&quot;,
+                &quot;allocated_amount&quot;: 353632,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 114,
+            &quot;description&quot;: &quot;Labor Cost for CCTV Camera Installation&quot;,
+            &quot;amount&quot;: 15255,
+            &quot;transaction_date&quot;: &quot;2026-02-16T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 23,
+                &quot;name&quot;: &quot;CCTV Camera Installation&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-001&quot;,
+                &quot;allocated_amount&quot;: 355525,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 118,
+            &quot;description&quot;: &quot;Professional Services for Barangay Patrol Equipment&quot;,
+            &quot;amount&quot;: 14232,
+            &quot;transaction_date&quot;: &quot;2026-05-12T00:00:00.000000Z&quot;,
+            &quot;budget_item&quot;: {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Barangay Patrol Equipment&quot;,
+                &quot;code&quot;: &quot;BRG3-PEACE-002&quot;,
+                &quot;allocated_amount&quot;: 210807,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             }
         }
     ],
     &quot;links&quot;: {
         &quot;first&quot;: &quot;http://localhost:8000/api/v1/expenses?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost:8000/api/v1/expenses?page=17&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/v1/expenses?page=16&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: &quot;http://localhost:8000/api/v1/expenses?page=2&quot;
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
         &quot;from&quot;: 1,
-        &quot;last_page&quot;: 17,
+        &quot;last_page&quot;: 16,
         &quot;links&quot;: [
             {
                 &quot;url&quot;: null,
@@ -5560,15 +5589,15 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://localhost:8000/api/v1/expenses?page=16&quot;,
-                &quot;label&quot;: &quot;16&quot;,
-                &quot;page&quot;: 16,
+                &quot;url&quot;: &quot;http://localhost:8000/api/v1/expenses?page=15&quot;,
+                &quot;label&quot;: &quot;15&quot;,
+                &quot;page&quot;: 15,
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://localhost:8000/api/v1/expenses?page=17&quot;,
-                &quot;label&quot;: &quot;17&quot;,
-                &quot;page&quot;: 17,
+                &quot;url&quot;: &quot;http://localhost:8000/api/v1/expenses?page=16&quot;,
+                &quot;label&quot;: &quot;16&quot;,
+                &quot;page&quot;: 16,
                 &quot;active&quot;: false
             },
             {
@@ -5581,7 +5610,7 @@ access-control-allow-origin: *
         &quot;path&quot;: &quot;http://localhost:8000/api/v1/expenses&quot;,
         &quot;per_page&quot;: 20,
         &quot;to&quot;: 20,
-        &quot;total&quot;: 332
+        &quot;total&quot;: 308
     }
 }</code>
  </pre>
@@ -5730,16 +5759,16 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;description&quot;: &quot;Labor Cost for Basketball Court Renovation&quot;,
-        &quot;amount&quot;: 15137,
-        &quot;transaction_date&quot;: &quot;2026-08-31T00:00:00.000000Z&quot;,
+        &quot;description&quot;: &quot;Transportation for Basketball Court Renovation&quot;,
+        &quot;amount&quot;: 22369,
+        &quot;transaction_date&quot;: &quot;2026-05-20T00:00:00.000000Z&quot;,
         &quot;budget_item&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Basketball Court Renovation&quot;,
             &quot;code&quot;: &quot;BRG2-INFRA-001&quot;,
-            &quot;allocated_amount&quot;: 499102,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;allocated_amount&quot;: 407551,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
         }
     }
 }</code>
@@ -6444,8 +6473,8 @@ access-control-allow-origin: *
             &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
             &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
             &quot;is_active&quot;: true,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -6453,8 +6482,8 @@ access-control-allow-origin: *
             &quot;start_date&quot;: &quot;2025-01-01T00:00:00.000000Z&quot;,
             &quot;end_date&quot;: &quot;2025-12-31T00:00:00.000000Z&quot;,
             &quot;is_active&quot;: false,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
@@ -6643,8 +6672,8 @@ access-control-allow-origin: *
         &quot;start_date&quot;: &quot;2026-01-01T00:00:00.000000Z&quot;,
         &quot;end_date&quot;: &quot;2026-12-31T00:00:00.000000Z&quot;,
         &quot;is_active&quot;: true,
-        &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
     }
 }</code>
  </pre>
@@ -7380,47 +7409,6 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Quezon City&quot;,
-            &quot;type&quot;: &quot;city&quot;,
-            &quot;parent_id&quot;: null,
-            &quot;parent&quot;: null,
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Barangay San Antonio&quot;,
-            &quot;type&quot;: &quot;barangay&quot;,
-            &quot;parent_id&quot;: 1,
-            &quot;parent&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Quezon City&quot;,
-                &quot;type&quot;: &quot;city&quot;,
-                &quot;parent_id&quot;: null,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
-            &quot;type&quot;: &quot;barangay&quot;,
-            &quot;parent_id&quot;: 1,
-            &quot;parent&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Quezon City&quot;,
-                &quot;type&quot;: &quot;city&quot;,
-                &quot;parent_id&quot;: null,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-            },
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
-        },
-        {
             &quot;id&quot;: 4,
             &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
             &quot;type&quot;: &quot;barangay&quot;,
@@ -7430,11 +7418,11 @@ access-control-allow-origin: *
                 &quot;name&quot;: &quot;Quezon City&quot;,
                 &quot;type&quot;: &quot;city&quot;,
                 &quot;parent_id&quot;: null,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
@@ -7446,11 +7434,11 @@ access-control-allow-origin: *
                 &quot;name&quot;: &quot;Quezon City&quot;,
                 &quot;type&quot;: &quot;city&quot;,
                 &quot;parent_id&quot;: null,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
@@ -7462,11 +7450,52 @@ access-control-allow-origin: *
                 &quot;name&quot;: &quot;Quezon City&quot;,
                 &quot;type&quot;: &quot;city&quot;,
                 &quot;parent_id&quot;: null,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
-            &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Quezon City&quot;,
+            &quot;type&quot;: &quot;city&quot;,
+            &quot;parent_id&quot;: null,
+            &quot;parent&quot;: null,
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Barangay San Antonio&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
+            &quot;type&quot;: &quot;barangay&quot;,
+            &quot;parent_id&quot;: 1,
+            &quot;parent&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Quezon City&quot;,
+                &quot;type&quot;: &quot;city&quot;,
+                &quot;parent_id&quot;: null,
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
@@ -7661,44 +7690,44 @@ access-control-allow-origin: *
                 &quot;name&quot;: &quot;Barangay San Antonio&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
             {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Barangay Santo Domingo&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
             },
             {
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             },
             {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;Barangay Tatalon&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             },
             {
                 &quot;id&quot;: 6,
                 &quot;name&quot;: &quot;Barangay Kamuning&quot;,
                 &quot;type&quot;: &quot;barangay&quot;,
                 &quot;parent_id&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-12-29T10:52:45.000000Z&quot;
             }
         ],
-        &quot;created_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-28T16:22:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-12-29T10:52:44.000000Z&quot;
     }
 }</code>
  </pre>
@@ -8370,15 +8399,15 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;total_allocated&quot;: 7209784,
-        &quot;total_spent&quot;: 1916787,
-        &quot;utilization_rate&quot;: 26.59,
-        &quot;remaining_budget&quot;: 5292997,
+        &quot;total_allocated&quot;: 21754766,
+        &quot;total_spent&quot;: 8326243,
+        &quot;utilization_rate&quot;: 38.27,
+        &quot;remaining_budget&quot;: 13428523,
         &quot;spending_by_category&quot;: {
-            &quot;Infrastructure Development&quot;: 785582,
-            &quot;Health and Sanitation&quot;: 488250,
-            &quot;Education and Youth&quot;: 359355,
-            &quot;Peace and Order&quot;: 283600
+            &quot;Infrastructure Development&quot;: 3623494,
+            &quot;Health and Sanitation&quot;: 2139714,
+            &quot;Education and Youth&quot;: 1567419,
+            &quot;Peace and Order&quot;: 995616
         }
     }
 }</code>
@@ -8529,48 +8558,66 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">[
     {
+        &quot;budget_id&quot;: 7,
+        &quot;barangay_name&quot;: &quot;Quezon City&quot;,
+        &quot;budget_name&quot;: &quot;Annual Budget 2026&quot;,
+        &quot;total_allocated&quot;: 0,
+        &quot;total_spent&quot;: 0,
+        &quot;utilization_rate&quot;: 0,
+        &quot;status&quot;: &quot;Under Budget&quot;
+    },
+    {
+        &quot;budget_id&quot;: 6,
+        &quot;barangay_name&quot;: &quot;Quezon City&quot;,
+        &quot;budget_name&quot;: &quot;Annual Budget 2024&quot;,
+        &quot;total_allocated&quot;: 0,
+        &quot;total_spent&quot;: 0,
+        &quot;utilization_rate&quot;: 0,
+        &quot;status&quot;: &quot;Under Budget&quot;
+    },
+    {
         &quot;budget_id&quot;: 1,
         &quot;barangay_name&quot;: &quot;Barangay San Antonio&quot;,
         &quot;budget_name&quot;: &quot;Barangay San Antonio Annual Budget 2026&quot;,
-        &quot;total_allocated&quot;: 7209784,
-        &quot;total_spent&quot;: 1916787,
-        &quot;utilization_rate&quot;: 26.59,
+        &quot;total_allocated&quot;: 4483739,
+        &quot;total_spent&quot;: 2221180,
+        &quot;utilization_rate&quot;: 49.54,
         &quot;status&quot;: &quot;Under Budget&quot;
     },
     {
         &quot;budget_id&quot;: 2,
         &quot;barangay_name&quot;: &quot;Barangay Santo Domingo&quot;,
         &quot;budget_name&quot;: &quot;Barangay Santo Domingo Annual Budget 2026&quot;,
-        &quot;total_allocated&quot;: 0,
-        &quot;total_spent&quot;: 0,
-        &quot;utilization_rate&quot;: 0,
+        &quot;total_allocated&quot;: 4467920,
+        &quot;total_spent&quot;: 1622414,
+        &quot;utilization_rate&quot;: 36.31,
         &quot;status&quot;: &quot;Under Budget&quot;
     },
     {
         &quot;budget_id&quot;: 3,
         &quot;barangay_name&quot;: &quot;Barangay Bagong Pag-asa&quot;,
         &quot;budget_name&quot;: &quot;Barangay Bagong Pag-asa Annual Budget 2026&quot;,
-        &quot;total_allocated&quot;: 0,
-        &quot;total_spent&quot;: 0,
-        &quot;utilization_rate&quot;: 0,
+        &quot;total_allocated&quot;: 4244707,
+        &quot;total_spent&quot;: 1670014,
+        &quot;utilization_rate&quot;: 39.34,
         &quot;status&quot;: &quot;Under Budget&quot;
     },
     {
         &quot;budget_id&quot;: 4,
         &quot;barangay_name&quot;: &quot;Barangay Tatalon&quot;,
         &quot;budget_name&quot;: &quot;Barangay Tatalon Annual Budget 2026&quot;,
-        &quot;total_allocated&quot;: 0,
-        &quot;total_spent&quot;: 0,
-        &quot;utilization_rate&quot;: 0,
+        &quot;total_allocated&quot;: 3856064,
+        &quot;total_spent&quot;: 1181631,
+        &quot;utilization_rate&quot;: 30.64,
         &quot;status&quot;: &quot;Under Budget&quot;
     },
     {
         &quot;budget_id&quot;: 5,
         &quot;barangay_name&quot;: &quot;Barangay Kamuning&quot;,
         &quot;budget_name&quot;: &quot;Barangay Kamuning Annual Budget 2026&quot;,
-        &quot;total_allocated&quot;: 0,
-        &quot;total_spent&quot;: 0,
-        &quot;utilization_rate&quot;: 0,
+        &quot;total_allocated&quot;: 4702336,
+        &quot;total_spent&quot;: 1631004,
+        &quot;utilization_rate&quot;: 34.68,
         &quot;status&quot;: &quot;Under Budget&quot;
     }
 ]</code>
@@ -8873,20 +8920,20 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 69,
+            &quot;id&quot;: 14,
             &quot;name&quot;: &quot;Morgan Hirthe&quot;,
             &quot;email&quot;: &quot;dare.emelie@example.com&quot;,
             &quot;role&quot;: &quot;user&quot;,
-            &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;
         },
         {
-            &quot;id&quot;: 70,
+            &quot;id&quot;: 15,
             &quot;name&quot;: &quot;Prof. Mina Bauch&quot;,
             &quot;email&quot;: &quot;okeefe.isidro@example.org&quot;,
             &quot;role&quot;: &quot;user&quot;,
-            &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;
         }
     ]
 }</code>
@@ -9040,12 +9087,12 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 71,
+        &quot;id&quot;: 16,
         &quot;name&quot;: &quot;Ms. Audra Crooks II&quot;,
         &quot;email&quot;: &quot;gulgowski.asia@example.com&quot;,
         &quot;role&quot;: &quot;user&quot;,
-        &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9242,12 +9289,12 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 72,
+        &quot;id&quot;: 17,
         &quot;name&quot;: &quot;Morgan Hirthe&quot;,
         &quot;email&quot;: &quot;imclaughlin@example.org&quot;,
         &quot;role&quot;: &quot;user&quot;,
-        &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9413,12 +9460,12 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 73,
+        &quot;id&quot;: 18,
         &quot;name&quot;: &quot;Ms. Audra Crooks II&quot;,
         &quot;email&quot;: &quot;idickens@example.org&quot;,
         &quot;role&quot;: &quot;user&quot;,
-        &quot;created_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-12-29T10:52:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-03-09T09:11:24.000000Z&quot;
     }
 }</code>
  </pre>

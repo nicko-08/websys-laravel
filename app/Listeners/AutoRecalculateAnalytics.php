@@ -33,8 +33,8 @@ final class AutoRecalculateAnalytics implements ShouldQueue
                 );
             });
 
-            Cache::forget('analytics:overall-summary');
-            Cache::forget('analytics:barangay-list');
+            Cache::forget("analytics:overall-summary:{$fiscalYear->id}");
+            Cache::forget("analytics:barangay-list:{$fiscalYear->id}");
 
             return;
         }
@@ -43,7 +43,7 @@ final class AutoRecalculateAnalytics implements ShouldQueue
          * Only react to CREATE / UPDATE
          * Deletes are handled explicitly in controllers
          */
-        if (! in_array($event->action, ['created', 'updated'], true)) {
+        if (! in_array($event->action, ['created', 'updated', 'deleted'], true)) {
             return;
         }
 

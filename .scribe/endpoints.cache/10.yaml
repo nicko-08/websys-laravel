@@ -231,7 +231,7 @@ endpoints:
         name: date
         description: 'Must be a valid date.'
         required: true
-        example: '2025-12-29T10:52:19'
+        example: '2026-03-09T09:11:24'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -274,7 +274,7 @@ endpoints:
       user_id: 1
       resource: Expense
       action: created
-      date: '2025-12-29T10:52:19'
+      date: '2026-03-09T09:11:24'
       from: '2025-12-01'
       to: '2025-12-31'
       per_page: 25

@@ -6,6 +6,7 @@ use App\Events\BudgetItemModified;
 use App\Events\BudgetModified;
 use App\Events\ExpenseModified;
 use App\Events\FiscalYearModified;
+use App\Events\UserModified;
 use App\Events\GovernmentUnitModified;
 use App\Listeners\LogModelModification;
 use App\Listeners\AutoRecalculateAnalytics;
@@ -37,6 +38,9 @@ class EventServiceProvider extends ServiceProvider
         FiscalYearModified::class => [
             LogModelModification::class,
             AutoRecalculateAnalytics::class,
+        ],
+        UserModified::class => [
+            LogModelModification::class,
         ],
     ];
 

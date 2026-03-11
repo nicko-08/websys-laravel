@@ -79,11 +79,16 @@ final class LogModelModification
     private function getDetails(Model $model, string $action): ?array
     {
         return match ($action) {
+            'created' => [
+                'attributes' => $this->sanitize($model->toArray(), $model),
+            ],
             'updated' => [
                 'before' => $this->sanitize($model->getOriginal(), $model),
                 'after' => $this->sanitize($model->getChanges(), $model),
             ],
-            'deleted' => $this->sanitize($model->toArray(), $model),
+            'deleted' => [
+                'attributes' => $this->sanitize($model->toArray(), $model),
+            ],
             default => null,
         };
     }

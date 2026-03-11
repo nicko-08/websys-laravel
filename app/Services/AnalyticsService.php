@@ -19,9 +19,10 @@ final class AnalyticsService
         $this->ensureSummariesExist($fiscalYearId);
 
         return Cache::remember(
-            'analytics:overall-summary',
+            "analytics:overall-summary:{$fiscalYearId}",
             now()->addMinutes(15),
             function () use ($fiscalYearId) {
+
                 $summaries = DB::table('budget_summaries')
                     ->where('fiscal_year_id', $fiscalYearId)
                     ->get([
@@ -40,6 +41,7 @@ final class AnalyticsService
                 $categoryTotals = [];
 
                 foreach ($summaries as $summary) {
+
                     $decoded = json_decode($summary->spending_by_category, true);
 
                     if (! is_array($decoded)) {
@@ -47,6 +49,7 @@ final class AnalyticsService
                     }
 
                     foreach ($decoded as $key => $value) {
+
                         if (is_string($key)) {
                             $categoryTotals[$key] =
                                 ($categoryTotals[$key] ?? 0) + (float) $value;
@@ -75,17 +78,18 @@ final class AnalyticsService
 
     public function barangayList(): array
     {
+        $fiscalYear = FiscalYear::where('is_active', true)->first();
+
+        if (! $fiscalYear) {
+            return [];
+        }
+
+        $this->ensureSummariesExist($fiscalYear->id);
+
         return Cache::remember(
-            'analytics:barangay-list',
+            "analytics:barangay-list:{$fiscalYear->id}",
             now()->addMinutes(10),
-            function () {
-                $fiscalYear = FiscalYear::where('is_active', true)->first();
-
-                if (! $fiscalYear) {
-                    return [];
-                }
-
-                $this->ensureSummariesExist($fiscalYear->id);
+            function () use ($fiscalYear) {
 
                 return DB::table('budgets')
                     ->join('government_units', 'budgets.government_unit_id', '=', 'government_units.id')
@@ -102,26 +106,25 @@ final class AnalyticsService
                         'budget_summaries.total_spent',
                         'budget_summaries.utilization_rate',
                     ])
-
                     ->map(function ($row) {
-                        $rate = (float) $row->utilization_rate;
+
+                        $rate = (float) ($row->utilization_rate ?? 0);
 
                         return [
                             'budget_id' => $row->budget_id,
                             'barangay_name' => $row->barangay_name,
                             'budget_name' => $row->budget_name,
-                            'total_allocated' => (float) $row->total_allocated,
-                            'total_spent' => (float) $row->total_spent,
+                            'total_allocated' => (float) ($row->total_allocated ?? 0),
+                            'total_spent' => (float) ($row->total_spent ?? 0),
                             'utilization_rate' => $rate,
-                            'status' => $rate > 100
-                                ? 'Over Budget'
-                                : ($rate > 80 ? 'Near Limit' : 'Under Budget'),
+                            'status' => $this->determineStatus($rate),
                         ];
                     })
                     ->all();
             }
         );
     }
+
 
     public function barangayAnalytics(int $budgetId): ?array
     {
@@ -137,6 +140,7 @@ final class AnalyticsService
             "analytics:barangay:{$budgetId}",
             now()->addMinutes(10),
             function () use ($budgetId) {
+
                 $barangay = DB::table('budgets')
                     ->join('government_units', 'budgets.government_unit_id', '=', 'government_units.id')
                     ->leftJoin('budget_summaries', function ($join) {
@@ -144,7 +148,12 @@ final class AnalyticsService
                             ->on('budgets.fiscal_year_id', '=', 'budget_summaries.fiscal_year_id');
                     })
                     ->where('budgets.id', $budgetId)
-                    ->first();
+                    ->first([
+                        'government_units.name as barangay_name',
+                        'budget_summaries.total_allocated',
+                        'budget_summaries.total_spent',
+                        'budget_summaries.utilization_rate',
+                    ]);
 
                 if (! $barangay) {
                     return null;
@@ -158,9 +167,10 @@ final class AnalyticsService
                         'budget_items.id',
                         'budget_items.name',
                         'budget_items.allocated_amount',
-                        DB::raw('COALESCE(SUM(expenses.amount), 0) as spent_amount'),
+                        DB::raw('COALESCE(SUM(expenses.amount),0) as spent_amount'),
                     ])
                     ->map(function ($project) {
+
                         $rate = $project->allocated_amount > 0
                             ? ($project->spent_amount / $project->allocated_amount) * 100
                             : 0;
@@ -171,19 +181,40 @@ final class AnalyticsService
                             'allocated_amount' => (float) $project->allocated_amount,
                             'spent_amount' => (float) $project->spent_amount,
                             'utilization_rate' => round($rate, 2),
-                            'status' => $rate > 100
-                                ? 'Over Budget'
-                                : ($rate > 80 ? 'Near Limit' : 'Under Budget'),
+                            'status' => $this->determineStatus($rate),
                         ];
-                    });
+                    })
+                    ->all();
 
                 return [
-                    'barangay_info' => $barangay,
+                    'barangay_name' => $barangay->barangay_name,
+                    'total_allocated' => (float) ($barangay->total_allocated ?? 0),
+                    'total_spent' => (float) ($barangay->total_spent ?? 0),
+                    'utilization_rate' => (float) ($barangay->utilization_rate ?? 0),
                     'projects' => $projects,
                 ];
             }
         );
     }
+
+
+    private function determineStatus(float $rate): string
+    {
+        if ($rate > 100) {
+            return 'Over Budget';
+        }
+
+        if ($rate >= 100) {
+            return 'At Limit';
+        }
+
+        if ($rate >= 80) {
+            return 'Near Limit';
+        }
+
+        return 'Under Budget';
+    }
+
 
     private function ensureSummariesExist(int $fiscalYearId): void
     {
