@@ -26,21 +26,23 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        $this->command->info('✓ Super admin created: admin@barangay.gov.ph / password');
+        $this->command->info('Super admin created: admin@barangay.gov.ph / password');
 
-        // Create standard budget categories (Philippine government budget structure)
         $categories = [
-            ['name' => 'Personnel Services'],
-            ['name' => 'Maintenance and Other Operating Expenses'],
-            ['name' => 'Capital Outlay'],
-            ['name' => 'Financial Expenses'],
-            ['name' => 'Special Purpose Fund'],
+            'Personnel Services',
+            'Maintenance and Other Operating Expenses',
+            'Capital Outlay',
+            'Financial Expenses',
+            'Special Purpose Funds',
+            'Development Projects',
         ];
 
         foreach ($categories as $category) {
-            BudgetCategory::updateOrCreate(['name' => $category['name']]);
+            BudgetCategory::updateOrCreate([
+                'name' => $category
+            ]);
         }
 
-        $this->command->info('✓ Budget categories created: ' . count($categories) . ' categories');
+        $this->command->info('Budget categories created: ' . count($categories) . ' categories');
     }
 }

@@ -1,89 +1,101 @@
 <x-layout title="Expenses" page="expense/index">
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 font-sans" x-data="expenseManager()">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 font-sans text-gray-800" x-data="expenseManager()">
 
         {{-- Page Header --}}
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900">Expense Tracking</h1>
-            <p class="text-sm text-gray-600 mt-1">Monitor and manage all expenses across budgets.</p>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Expense Tracking</h1>
+                <p class="text-sm text-gray-500 mt-1">Monitor and manage all expenses across budgets.</p>
+            </div>
+
+            {{-- Primary Action --}}
+            <button @click="openModal()" id="create-btn"
+                class="hidden px-5 py-2.5 bg-[#0d6efd] hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2 w-full sm:w-auto">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                Record Expense
+            </button>
         </div>
 
-        {{-- Summary Cards with Icons --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {{-- Summary Cards --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
             {{-- Total Expenses --}}
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="p-2 bg-red-50 rounded-lg">
-                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
+            <div
+                class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 group">
+                <div class="flex items-center gap-3 mb-3">
+                    <div
+                        class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
                     </div>
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Expenses</h3>
                 </div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Total Expenses</p>
-                <p id="total-expenses" class="text-3xl font-bold text-gray-900">₱0.00</p>
+                <p id="total-expenses" class="text-3xl font-black text-gray-900 tracking-tight">₱0.00</p>
+                <p class="text-xs font-medium text-gray-400 mt-2">All-time recorded expenses</p>
             </div>
 
             {{-- This Month --}}
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="p-2 bg-blue-50 rounded-lg">
-                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
+            <div
+                class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 group">
+                <div class="flex items-center gap-3 mb-3">
+                    <div
+                        class="w-2.5 h-2.5 rounded-full bg-[#128a43] ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
                     </div>
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">This Month</h3>
                 </div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">This Month</p>
-                <p id="month-expenses" class="text-3xl font-bold text-blue-600">₱0.00</p>
+                <p id="month-expenses" class="text-3xl font-black text-gray-900 tracking-tight">₱0.00</p>
+                <p class="text-xs font-medium text-gray-400 mt-2">Current month spending</p>
             </div>
 
             {{-- Transactions --}}
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="p-2 bg-purple-50 rounded-lg">
-                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
-                            </path>
-                        </svg>
+            <div
+                class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 group">
+                <div class="flex items-center gap-3 mb-3">
+                    <div
+                        class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
                     </div>
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Transactions</h3>
                 </div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Transactions</p>
-                <p id="transaction-count" class="text-3xl font-bold text-gray-900">0</p>
+                <p id="transaction-count" class="text-3xl font-black text-gray-900 tracking-tight">0</p>
+                <p class="text-xs font-medium text-gray-400 mt-2">Total number of records</p>
             </div>
 
             {{-- Average Amount --}}
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="p-2 bg-green-50 rounded-lg">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
-                            </path>
-                        </svg>
+            <div
+                class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 group">
+                <div class="flex items-center gap-3 mb-3">
+                    <div
+                        class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
                     </div>
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Avg. Amount</h3>
                 </div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Avg. Amount</p>
-                <p id="avg-expenses" class="text-3xl font-bold text-gray-900">₱0.00</p>
+                <p id="avg-expenses" class="text-3xl font-black text-gray-900 tracking-tight">₱0.00</p>
+                <p class="text-xs font-medium text-gray-400 mt-2">Per transaction average</p>
             </div>
+
         </div>
 
         {{-- Filters Section --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-6">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-sm font-bold text-gray-700 uppercase tracking-wide">Filters</h2>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 sm:p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    Filter Records
+                </h2>
                 <button @click="clearFilters()"
-                    class="text-sm font-medium text-[#0d6efd] hover:text-blue-700 hover:underline transition">
+                    class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
                     Clear All
                 </button>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-2">Budget</label>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Budget</label>
                     <select x-model="filters.budget_id" @change="applyFilters()"
-                        class="w-full h-10 border border-gray-300 rounded-sm px-3 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow">
                         <option value="">All Budgets</option>
                         <template x-for="budget in budgets" :key="budget.id">
                             <option :value="budget.id" x-text="budget.name"></option>
@@ -91,67 +103,77 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-2">Budget Item</label>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Budget
+                        Item</label>
                     <select x-model="filters.budget_item_id" @change="applyFilters()"
-                        class="w-full h-10 border border-gray-300 rounded-sm px-3 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow">
                         <option value="">All Items</option>
                         <template x-for="item in budgetItems" :key="item.id">
                             <option :value="item.id"
-                                x-text="item.name + ' (' + (item.budget?.name || 'N/A') + ')'">
-                            </option>
+                                x-text="item.name + ' (' + (item.budget?.name || 'N/A') + ')'"></option>
                         </template>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-2">From Date</label>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">From
+                        Date</label>
                     <input type="date" x-model="filters.from_date" @change="applyFilters()"
-                        class="w-full h-10 border border-gray-300 rounded-sm px-3 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow">
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 mb-2">To Date</label>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">To
+                        Date</label>
                     <input type="date" x-model="filters.to_date" @change="applyFilters()"
-                        class="w-full h-10 border border-gray-300 rounded-sm px-3 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow">
                 </div>
             </div>
         </div>
 
         {{-- Loading Spinner --}}
-        <div id="loading" class="text-center py-12">
-            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#128a43]"></div>
+        <div id="loading" class="flex justify-center items-center py-20" x-transition>
+            <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-100 border-t-[#0d6efd]">
+            </div>
         </div>
 
         {{-- Main Content --}}
-        <div id="content" class="hidden">
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-6">
-                <div class="bg-[#128a43] px-6 py-4 flex items-center justify-between">
-                    <h2 class="text-lg font-bold text-white tracking-wide">Expense Records</h2>
-                    <button @click="openModal()" id="create-btn"
-                        class="hidden px-4 py-2 bg-white text-[#128a43] hover:bg-gray-50 text-sm font-medium rounded-sm transition shadow-sm flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 4v16m8-8H4" />
-                        </svg>
-                        Record Expense
-                    </button>
+        <div id="content" class="hidden" x-transition.opacity.duration.500ms>
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden mb-6">
+                <div class="px-6 py-5 border-b border-gray-100 bg-gray-50/50 flex items-center justify-between">
+                    <h2 class="text-base font-bold text-gray-900">Recent Transactions</h2>
                 </div>
                 <div id="expenses-table" class="overflow-x-auto"></div>
             </div>
-            <div id="pagination" class="flex justify-center"></div>
+            <div id="pagination" class="flex justify-center mt-6"></div>
         </div>
 
         {{-- Create Modal --}}
         <div x-show="showModal" x-cloak @keydown.escape.window="showModal = false"
             class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
 
-            <div class="flex items-center justify-center min-h-screen px-4">
-                <div @click="showModal = false" class="fixed inset-0 bg-gray-900/40 backdrop-blur-sm"></div>
+            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
 
-                <div
-                    class="relative bg-white rounded-sm overflow-hidden shadow-xl border border-gray-200 w-full max-w-2xl">
-                    <div class="bg-[#128a43] px-6 py-4 flex justify-between items-center">
-                        <h2 class="text-lg font-bold text-white tracking-wide">Record New Expense</h2>
+                {{-- Backdrop --}}
+                <div x-show="showModal" x-transition:enter="ease-out duration-300"
+                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                    x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0" @click="showModal = false"
+                    class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity">
+                </div>
+
+                {{-- Modal Panel --}}
+                <div x-show="showModal" x-transition:enter="ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    class="relative bg-white rounded-xl text-left overflow-hidden shadow-2xl border border-gray-100 w-full max-w-2xl transform transition-all my-8">
+
+                    {{-- Header --}}
+                    <div class="border-b border-gray-100 px-6 py-5 flex justify-between items-center bg-gray-50/50">
+                        <h2 class="text-lg font-bold text-gray-900">Record New Expense</h2>
                         <button @click="showModal = false" type="button"
-                            class="text-white/80 hover:text-white transition">
+                            class="text-gray-400 hover:text-gray-600 transition-colors rounded-full p-1 hover:bg-gray-100">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
@@ -159,12 +181,14 @@
                         </button>
                     </div>
 
-                    <form @submit.prevent="saveExpense()" class="px-6 py-6 space-y-5">
+                    {{-- Form --}}
+                    <form @submit.prevent="saveExpense()" class="px-6 py-6 sm:p-8 space-y-6">
+
                         <div>
-                            <label class="block text-sm text-gray-700 mb-1">Budget Item <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1.5">Budget Item <span
+                                    class="text-[#0d6efd]">*</span></label>
                             <select x-model="form.budget_item_id" required
-                                class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white">
+                                class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow">
                                 <option value="" disabled>Select Budget Item...</option>
                                 <template x-for="item in budgetItems" :key="item.id">
                                     <option :value="item.id"
@@ -175,42 +199,43 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm text-gray-700 mb-1">Description <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1.5">Description <span
+                                    class="text-[#0d6efd]">*</span></label>
                             <textarea x-model="form.description" required rows="3"
-                                class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white"
+                                class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow resize-none"
                                 placeholder="e.g., Office supplies purchase for Q1"></textarea>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm text-gray-700 mb-1">Amount (PHP) <span
-                                        class="text-red-500">*</span></label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 sm:text-sm">₱</span>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1.5">Amount (PHP) <span
+                                        class="text-[#0d6efd]">*</span></label>
+                                <div class="relative rounded-lg">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <span class="text-gray-500 sm:text-sm font-medium">₱</span>
                                     </div>
                                     <input type="number" x-model="form.amount" step="0.01" min="0.01"
                                         required
-                                        class="w-full border border-gray-300 rounded-sm pl-7 pr-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white">
+                                        class="w-full border border-gray-200 rounded-lg pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white text-gray-900 font-bold transition-shadow">
                                 </div>
                             </div>
 
                             <div>
-                                <label class="block text-sm text-gray-700 mb-1">Transaction Date <span
-                                        class="text-red-500">*</span></label>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1.5">Transaction Date <span
+                                        class="text-[#0d6efd]">*</span></label>
                                 <input type="date" x-model="form.transaction_date" required
-                                    class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white">
+                                    class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] bg-white transition-shadow">
                             </div>
                         </div>
 
-                        <div class="pt-6 mt-6 border-t border-gray-100 flex justify-end gap-3">
+                        {{-- Actions --}}
+                        <div class="pt-6 mt-4 flex justify-end gap-3">
                             <button type="button" @click="showModal = false"
-                                class="px-5 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-sm transition">
+                                class="px-5 py-2.5 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold rounded-lg transition-colors">
                                 Cancel
                             </button>
                             <button type="submit" :disabled="saving"
-                                class="px-5 py-2 bg-[#0d6efd] hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white text-sm font-medium rounded-sm transition flex items-center gap-2">
+                                class="px-5 py-2.5 bg-[#0d6efd] hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white text-sm font-semibold rounded-lg transition-colors flex items-center gap-2 shadow-sm">
                                 <svg x-show="saving" class="animate-spin w-4 h-4 text-white" fill="none"
                                     viewBox="0 0 24 24" style="display: none;">
                                     <circle cx="12" cy="12" r="10" stroke="currentColor"

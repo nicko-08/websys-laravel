@@ -6,19 +6,26 @@ import { Chart, registerables } from "chart.js";
 // Register Chart.js components
 Chart.register(...registerables);
 
-// eALLOC THEME GLOBAL CHART.JS OVERRIDES
+// GLOBAL CHART THEME
 Chart.defaults.font.family =
     "Inter, ui-sans-serif, system-ui, -apple-system, sans-serif";
-Chart.defaults.color = "#6B7280";
-Chart.defaults.scale.grid.color = "#F3F4F6";
-Chart.defaults.plugins.tooltip.backgroundColor = "#FFFFFF";
-Chart.defaults.plugins.tooltip.titleColor = "#111827";
-Chart.defaults.plugins.tooltip.bodyColor = "#4B5563";
-Chart.defaults.plugins.tooltip.borderColor = "#E5E7EB";
+Chart.defaults.color = "#64748b";
+Chart.defaults.scale.grid.color = "rgba(148, 163, 184, 0.06)";
+Chart.defaults.scale.grid.lineWidth = 1;
+Chart.defaults.plugins.tooltip.backgroundColor = "rgba(255, 255, 255, 0.98)";
+Chart.defaults.plugins.tooltip.titleColor = "#1e293b";
+Chart.defaults.plugins.tooltip.bodyColor = "#475569";
+Chart.defaults.plugins.tooltip.borderColor = "#e2e8f0";
 Chart.defaults.plugins.tooltip.borderWidth = 1;
-Chart.defaults.plugins.tooltip.padding = 10;
-Chart.defaults.plugins.tooltip.boxPadding = 4;
+Chart.defaults.plugins.tooltip.padding = 12;
+Chart.defaults.plugins.tooltip.boxPadding = 6;
 Chart.defaults.plugins.tooltip.usePointStyle = true;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.caretSize = 6;
+Chart.defaults.plugins.tooltip.displayColors = true;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.padding = 16;
+Chart.defaults.plugins.legend.labels.font = { size: 12, weight: "500" };
 
 if (!isLoggedIn()) {
     window.location.replace("/login");
@@ -46,15 +53,15 @@ window.analyticsPage = function () {
             comparison: null,
         },
 
-        // eAlloc Brand Palette for Charts
+        // Palette
         brandColors: [
-            "#0d6efd",
             "#128a43",
-            "#f59e0b",
-            "#6366f1",
-            "#ec4899",
-            "#14b8a6",
-            "#f43f5e",
+            "#16a34a",
+            "#22c55e",
+            "#4ade80",
+            "#86efac",
+            "#bbf7d0",
+            "#d1fae5",
         ],
 
         init() {
@@ -156,7 +163,7 @@ window.analyticsPage = function () {
             return document.getElementById(id);
         },
 
-        // Doughnut
+        // Doughnut Chart
         createAllocationDoughnut() {
             const canvas = this.getCanvas("allocation-doughnut");
             if (!canvas) return;
@@ -178,18 +185,29 @@ window.analyticsPage = function () {
                             data: data,
                             backgroundColor: this.brandColors,
                             borderWidth: 0,
-                            hoverOffset: 4,
+                            hoverOffset: 6,
+                            borderRadius: 3,
                         },
                     ],
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: "75%",
+                    cutout: "72%",
                     plugins: {
                         legend: {
                             position: "bottom",
-                            labels: { usePointStyle: true, padding: 20 },
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 16,
+                                font: {
+                                    size: 12,
+                                    weight: "500",
+                                    family: "Inter, sans-serif",
+                                },
+                                color: "#64748b",
+                            },
                         },
                         tooltip: {
                             callbacks: {
@@ -205,7 +223,7 @@ window.analyticsPage = function () {
                                                   100
                                               ).toFixed(1)
                                             : 0;
-                                    return ` ${formatCurrencyUtil(context.parsed)} (${percent}%)`;
+                                    return ` ${context.label}: ${formatCurrencyUtil(context.parsed)} (${percent}%)`;
                                 },
                             },
                         },
@@ -222,8 +240,8 @@ window.analyticsPage = function () {
 
             const ctx = canvas.getContext("2d");
             const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(0, "rgba(13, 110, 253, 0.15)");
-            gradient.addColorStop(1, "rgba(13, 110, 253, 0)");
+            gradient.addColorStop(0, "rgba(18, 138, 67, 0.08)");
+            gradient.addColorStop(1, "rgba(18, 138, 67, 0)");
 
             const labels = this.barangays.map(
                 (b) => b.barangay_name || "Unknown",
@@ -232,7 +250,6 @@ window.analyticsPage = function () {
                 (b) => parseFloat(b.utilization_rate) || 0,
             );
 
-            // Find max utilization to set appropriate scale
             const maxUtil = Math.max(...data);
             const yMax = maxUtil > 100 ? Math.ceil(maxUtil / 100) * 100 : 100;
 
@@ -244,17 +261,17 @@ window.analyticsPage = function () {
                         {
                             label: "Utilization Rate",
                             data: data,
-                            borderColor: "#0d6efd",
+                            borderColor: "#128a43",
                             backgroundColor: gradient,
-                            borderWidth: 2.5,
+                            borderWidth: 2,
                             fill: true,
                             tension: 0.4,
-                            pointRadius: 4,
-                            pointHoverRadius: 7,
+                            pointRadius: 0,
+                            pointHoverRadius: 5,
                             pointBackgroundColor: "#ffffff",
-                            pointBorderColor: "#0d6efd",
-                            pointBorderWidth: 2.5,
-                            pointHoverBackgroundColor: "#0d6efd",
+                            pointBorderColor: "#128a43",
+                            pointBorderWidth: 2,
+                            pointHoverBackgroundColor: "#128a43",
                             pointHoverBorderColor: "#ffffff",
                             pointHoverBorderWidth: 2,
                         },
@@ -270,23 +287,10 @@ window.analyticsPage = function () {
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            backgroundColor: "rgba(255, 255, 255, 0.95)",
-                            titleColor: "#111827",
-                            bodyColor: "#4B5563",
-                            borderColor: "#E5E7EB",
-                            borderWidth: 1,
-                            padding: 12,
-                            titleFont: {
-                                size: 13,
-                                weight: "600",
-                            },
-                            bodyFont: {
-                                size: 12,
-                            },
                             displayColors: false,
                             callbacks: {
                                 label: (context) =>
-                                    ` ${context.parsed.y.toFixed(2)}% utilized`,
+                                    `${context.parsed.y.toFixed(2)}% utilized`,
                             },
                         },
                     },
@@ -295,10 +299,10 @@ window.analyticsPage = function () {
                             grid: { display: false },
                             border: { display: false },
                             ticks: {
-                                color: "#6B7280",
+                                color: "#94a3b8",
                                 font: {
-                                    size: 12,
-                                    weight: "500",
+                                    size: 11,
+                                    weight: "400",
                                 },
                             },
                         },
@@ -306,15 +310,16 @@ window.analyticsPage = function () {
                             beginAtZero: true,
                             max: yMax,
                             grid: {
-                                color: "#F3F4F6",
+                                color: "rgba(148, 163, 184, 0.06)",
                                 drawBorder: false,
                             },
                             ticks: {
                                 callback: (value) => value + "%",
                                 maxTicksLimit: 6,
-                                color: "#6B7280",
+                                color: "#94a3b8",
                                 font: {
                                     size: 11,
+                                    weight: "400",
                                 },
                             },
                             border: { display: false },
@@ -324,7 +329,7 @@ window.analyticsPage = function () {
             });
         },
 
-        // Radar
+        // Radar Chart
         createPerformanceRadar() {
             const canvas = this.getCanvas("performance-radar");
             if (!canvas) return;
@@ -341,6 +346,12 @@ window.analyticsPage = function () {
 
             if (maxAllocated === 0 && maxSpent === 0) return;
 
+            const classicColors = [
+                { border: "rgb(54, 162, 235)", bg: "rgba(54, 162, 235, 0.2)" },
+                { border: "rgb(255, 99, 132)", bg: "rgba(255, 99, 132, 0.2)" },
+                { border: "rgb(75, 192, 192)", bg: "rgba(75, 192, 192, 0.2)" },
+            ];
+
             const datasets = this.barangays.slice(0, 3).map((b, i) => {
                 const utilization = parseFloat(b.utilization_rate) || 0;
 
@@ -353,6 +364,8 @@ window.analyticsPage = function () {
                         100 - Math.pow((utilization - 100) / 100, 0.8) * 50,
                     );
                 }
+
+                const colorTheme = classicColors[i % classicColors.length];
 
                 return {
                     label: b.barangay_name || "Unknown",
@@ -375,16 +388,16 @@ window.analyticsPage = function () {
                                 ? 50
                                 : 20,
                     ],
-                    borderColor: this.brandColors[i],
-                    backgroundColor: this.brandColors[i] + "1A",
-                    borderWidth: 2.5,
-                    pointRadius: 3,
+                    borderColor: colorTheme.border,
+                    backgroundColor: colorTheme.bg,
+                    borderWidth: 2,
+                    pointRadius: 4,
                     pointHoverRadius: 6,
-                    pointBackgroundColor: "#FFFFFF",
-                    pointBorderColor: this.brandColors[i],
-                    pointBorderWidth: 2,
-                    pointHoverBackgroundColor: this.brandColors[i],
-                    pointHoverBorderColor: "#FFFFFF",
+                    pointBackgroundColor: colorTheme.border,
+                    pointBorderColor: "#FFFFFF",
+                    pointBorderWidth: 1,
+                    pointHoverBackgroundColor: "#FFFFFF",
+                    pointHoverBorderColor: colorTheme.border,
                     pointHoverBorderWidth: 2,
                 };
             });
@@ -408,37 +421,15 @@ window.analyticsPage = function () {
                             position: "bottom",
                             labels: {
                                 usePointStyle: true,
-                                pointStyle: "circle",
                                 padding: 20,
                                 font: {
-                                    size: 13,
+                                    size: 12,
                                     weight: "500",
-                                    family: "Inter, sans-serif",
                                 },
-                                color: "#374151",
+                                color: "#64748b",
                             },
                         },
                         tooltip: {
-                            backgroundColor: "rgba(255, 255, 255, 0.95)",
-                            titleColor: "#111827",
-                            bodyColor: "#4B5563",
-                            borderColor: "#E5E7EB",
-                            borderWidth: 1,
-                            padding: 12,
-                            bodySpacing: 6,
-                            titleFont: {
-                                size: 13,
-                                weight: "600",
-                            },
-                            bodyFont: {
-                                size: 12,
-                                weight: "400",
-                            },
-                            displayColors: true,
-                            boxWidth: 10,
-                            boxHeight: 10,
-                            boxPadding: 6,
-                            usePointStyle: true,
                             callbacks: {
                                 title: (context) => context[0].dataset.label,
                                 label: (context) => {
@@ -461,32 +452,29 @@ window.analyticsPage = function () {
                             max: 100,
                             ticks: {
                                 display: true,
-                                stepSize: 25,
+                                stepSize: 20,
                                 backdropColor: "transparent",
-                                color: "#9CA3AF",
+                                color: "#94a3b8",
                                 font: {
-                                    size: 11,
-                                    weight: "400",
+                                    size: 10,
                                 },
-                                callback: (value) => value,
                             },
                             grid: {
-                                color: "#E5E7EB",
-                                circular: true,
+                                color: "rgba(148, 163, 184, 0.15)",
+
                                 lineWidth: 1,
                             },
                             angleLines: {
-                                color: "#E5E7EB",
+                                color: "rgba(148, 163, 184, 0.15)",
                                 lineWidth: 1,
                             },
                             pointLabels: {
                                 font: {
-                                    size: 13,
-                                    weight: "600",
-                                    family: "Inter, sans-serif",
+                                    size: 12,
+                                    weight: "500",
                                 },
-                                color: "#374151",
-                                padding: 8,
+                                color: "#475569",
+                                padding: 10,
                             },
                         },
                     },
@@ -498,7 +486,7 @@ window.analyticsPage = function () {
             });
         },
 
-        // Horizontal Bar
+        // Horizontal Bar Chart
         createCategoryHorizontal() {
             const canvas = this.getCanvas("category-horizontal");
             if (!canvas) return;
@@ -533,10 +521,11 @@ window.analyticsPage = function () {
                         {
                             label: "Spending",
                             data: entries.map(([, value]) => value),
-                            backgroundColor: "#f59e0b",
-                            borderRadius: 4,
+                            backgroundColor: "#94a3b8",
+                            hoverBackgroundColor: "#64748b",
+                            borderRadius: 6,
                             borderSkipped: false,
-                            barThickness: 24,
+                            barThickness: 22,
                         },
                     ],
                 },
@@ -544,22 +533,36 @@ window.analyticsPage = function () {
                     indexAxis: "y",
                     responsive: true,
                     maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 0,
+                            right: 30,
+                            top: 10,
+                            bottom: 10,
+                        },
+                    },
                     plugins: {
                         legend: { display: false },
                         tooltip: {
+                            displayColors: false,
                             callbacks: {
                                 label: (ctx) =>
-                                    ` ${formatCurrencyUtil(ctx.parsed.x)}`,
+                                    `${formatCurrencyUtil(ctx.parsed.x)}`,
                             },
                         },
                     },
                     scales: {
                         x: {
                             beginAtZero: true,
-                            grid: { borderDash: [4, 4], drawBorder: false },
+                            grid: {
+                                color: "rgba(148, 163, 184, 0.06)",
+                                drawBorder: false,
+                            },
                             border: { display: false },
                             ticks: {
                                 maxTicksLimit: 5,
+                                color: "#94a3b8",
+                                font: { size: 11, weight: "400" },
                                 callback: (v) =>
                                     "₱" + (v / 1000000).toFixed(1) + "M",
                             },
@@ -567,13 +570,27 @@ window.analyticsPage = function () {
                         y: {
                             grid: { display: false },
                             border: { display: false },
+                            ticks: {
+                                color: "#64748b",
+                                font: {
+                                    size: 12,
+                                    weight: "500",
+                                },
+                                callback: function (value) {
+                                    let label =
+                                        this.getLabelForValue(value) || "";
+                                    return label.length > 22
+                                        ? label.substring(0, 22) + "..."
+                                        : label;
+                                },
+                            },
                         },
                     },
                 },
             });
         },
 
-        // Comparison Bar
+        // Comparison Bar Chart
         createComparisonChart() {
             const canvas = this.getCanvas("comparison-chart");
             if (!canvas) return;
@@ -591,28 +608,39 @@ window.analyticsPage = function () {
                             data: this.barangays.map(
                                 (b) => parseFloat(b.total_allocated) || 0,
                             ),
-                            backgroundColor: "#0d6efd",
-                            borderRadius: 6,
+                            backgroundColor: "#128a43",
+                            hoverBackgroundColor: "#0f7236",
+                            borderRadius: 8,
                             borderSkipped: false,
                             barThickness: "flex",
-                            maxBarThickness: 40,
+                            maxBarThickness: 32,
                         },
                         {
                             label: "Spent",
                             data: this.barangays.map(
                                 (b) => parseFloat(b.total_spent) || 0,
                             ),
-                            backgroundColor: "#128a43",
-                            borderRadius: 6,
+                            backgroundColor: "#94a3b8",
+                            hoverBackgroundColor: "#64748b",
+                            borderRadius: 8,
                             borderSkipped: false,
                             barThickness: "flex",
-                            maxBarThickness: 40,
+                            maxBarThickness: 32,
                         },
                     ],
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            top: 20,
+                            bottom: 0,
+                        },
+                    },
                     plugins: {
                         legend: {
                             position: "bottom",
@@ -621,31 +649,13 @@ window.analyticsPage = function () {
                                 pointStyle: "circle",
                                 padding: 20,
                                 font: {
-                                    size: 13,
+                                    size: 12,
                                     weight: "500",
                                 },
-                                color: "#374151",
+                                color: "#64748b",
                             },
                         },
                         tooltip: {
-                            backgroundColor: "rgba(255, 255, 255, 0.95)",
-                            titleColor: "#111827",
-                            bodyColor: "#4B5563",
-                            borderColor: "#E5E7EB",
-                            borderWidth: 1,
-                            padding: 12,
-                            bodySpacing: 6,
-                            titleFont: {
-                                size: 13,
-                                weight: "600",
-                            },
-                            bodyFont: {
-                                size: 12,
-                            },
-                            displayColors: true,
-                            boxWidth: 10,
-                            boxHeight: 10,
-                            usePointStyle: true,
                             callbacks: {
                                 label: (ctx) =>
                                     ` ${ctx.dataset.label}: ${formatCurrencyUtil(ctx.parsed.y)}`,
@@ -657,25 +667,35 @@ window.analyticsPage = function () {
                             grid: { display: false },
                             border: { display: false },
                             ticks: {
-                                color: "#6B7280",
+                                color: "#94a3b8",
                                 font: {
-                                    size: 12,
-                                    weight: "500",
+                                    size: 11,
+                                    weight: "400",
+                                },
+                                maxRotation: 0,
+                                minRotation: 0,
+                                callback: function (value) {
+                                    let label =
+                                        this.getLabelForValue(value) || "";
+                                    return label.length > 12
+                                        ? label.substring(0, 12) + "..."
+                                        : label;
                                 },
                             },
                         },
                         y: {
                             beginAtZero: true,
                             grid: {
-                                color: "#F3F4F6",
+                                color: "rgba(148, 163, 184, 0.06)",
                                 drawBorder: false,
                             },
                             border: { display: false },
                             ticks: {
                                 maxTicksLimit: 6,
-                                color: "#6B7280",
+                                color: "#94a3b8",
                                 font: {
                                     size: 11,
+                                    weight: "400",
                                 },
                                 callback: (v) => {
                                     if (v >= 1000000)

@@ -14,6 +14,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 use App\Jobs\RecalculateBudgetAnalytics;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * @group Budgets
@@ -106,6 +107,7 @@ class BudgetController extends Controller
      *
      * @authenticated
      */
+
     public function destroy(Request $request, Budget $budget): Response
     {
         $this->authorize('delete', $budget);
@@ -113,19 +115,27 @@ class BudgetController extends Controller
         DB::transaction(function () use ($budget, $request) {
             $governmentUnitId = $budget->government_unit_id;
             $fiscalYearId = $budget->fiscal_year_id;
+            $budgetId = $budget->id;
 
             $budget->delete();
+
+            // Clear cache IMMEDIATELY for instant UI update
+            Cache::forget("analytics:overall-summary:{$fiscalYearId}");
+            Cache::forget("analytics:barangay-list:{$fiscalYearId}");
+            Cache::forget("analytics:barangay:{$budgetId}");
+            Cache::forget("budget:{$budgetId}");
+
+            // Dispatch job for background recalculation
+            RecalculateBudgetAnalytics::dispatch(
+                $governmentUnitId,
+                $fiscalYearId
+            );
 
             event(new BudgetModified(
                 $budget,
                 $request->user(),
                 'deleted'
             ));
-
-            RecalculateBudgetAnalytics::dispatch(
-                $governmentUnitId,
-                $fiscalYearId
-            );
         });
 
         return response()->noContent();

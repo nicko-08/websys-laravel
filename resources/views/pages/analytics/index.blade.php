@@ -1,57 +1,50 @@
 <x-layout title="Analytics" page="analytics/index">
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 font-sans" x-data="analyticsPage()">
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 font-sans" x-data="analyticsPage()">
 
         {{-- Header --}}
-        <div class="mb-8 border-b border-gray-200 pb-4">
-            <h1 class="text-2xl font-bold text-gray-900">Budget Analytics</h1>
-            <p class="text-sm text-gray-500 mt-1">Comprehensive barangay budget performance and utilization analytics.
-            </p>
+        <div class="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">Budget Analytics</h1>
+                <p class="text-sm text-gray-500 mt-2">Comprehensive budget performance and utilization
+                    analytics.</p>
+            </div>
         </div>
 
         {{-- Loading State --}}
-        <div x-show="isLoading" x-cloak class="flex items-center justify-center py-20">
-            <div class="text-center">
-                <div class="inline-block animate-spin rounded-full h-10 w-10 border-b-2 border-[#128a43] mb-4"></div>
-                <p class="text-sm text-gray-600 font-medium tracking-wide uppercase">Processing Analytics...</p>
+        <div x-show="isLoading" x-cloak class="flex flex-col items-center justify-center min-h-[400px]">
+            <div class="relative w-10 h-10 mb-4">
+                <div class="absolute inset-0 rounded-full border-[3px] border-gray-100"></div>
+                {{-- Spinning indicator --}}
+                <div
+                    class="absolute inset-0 rounded-full border-[3px] border-[#128a43] border-t-transparent animate-spin">
+                </div>
             </div>
+            <p class="text-sm font-medium text-gray-500 animate-pulse">Loading analytics...</p>
         </div>
 
         {{-- Error State --}}
         <div x-show="hasError && !isLoading" x-cloak
-            class="bg-white border-l-4 border-l-red-600 border-y border-r border-gray-200 rounded-sm p-8 text-center shadow-sm">
-            <svg class="w-12 h-12 text-red-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            <h3 class="text-lg font-bold text-gray-900 mb-1">Analytics Failed to Load</h3>
-            <p x-text="errorMessage" class="text-sm text-gray-600 mb-6"></p>
+            class="max-w-xl mx-auto mt-12 bg-white border border-red-100 rounded-xl shadow-sm p-8 text-center">
+
+            <div
+                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-50 ring-8 ring-red-50/50 mb-5">
+                <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Analytics Failed to Load</h3>
+            <p x-text="errorMessage" class="text-sm text-gray-500 mb-6"></p>
+
             <button @click="retryLoad()"
-                class="px-5 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-sm transition flex items-center justify-center mx-auto gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-900 text-gray-700 text-sm font-medium rounded-lg transition-colors shadow-sm gap-2 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
-                Retry Connection
+                No Data Available
             </button>
-        </div>
-
-        {{-- Empty State --}}
-        <div x-show="isEmpty && !isLoading && !hasError" x-cloak
-            class="bg-gray-50 border border-gray-200 rounded-sm p-16 text-center">
-            <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            <h3 class="text-lg font-bold text-gray-900 mb-1">No Data Available</h3>
-            <p class="text-sm text-gray-600 mb-6">There are no barangay budgets to analyze yet.</p>
-            <a href="/budgets"
-                class="inline-flex items-center px-5 py-2 bg-[#0d6efd] hover:bg-blue-700 text-white text-sm font-medium rounded-sm transition shadow-sm gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                Create First Budget
-            </a>
         </div>
 
         {{-- Main Content --}}
@@ -61,34 +54,54 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
                 <div
-                    class="bg-white border-y border-r border-gray-200 border-l-4 border-l-[#0d6efd] rounded-sm p-5 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Total Allocated</p>
+                    class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-[#128a43]/30 hover:shadow-md transition-all duration-200 group">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div
+                            class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
+                        </div>
+                        <h3 class="text-sm font-medium text-gray-500">Total Allocated</h3>
+                    </div>
                     <p x-text="formatCurrency(stats.totalAllocated)"
-                        class="text-2xl font-black text-[#0d6efd] tracking-tight">₱0</p>
-                    <p class="text-xs text-gray-400 mt-2 font-medium">Across all barangays</p>
+                        class="text-3xl font-bold text-gray-900 tracking-tight">₱0</p>
+                    <p class="text-xs text-gray-400 mt-2">Across all barangays</p>
                 </div>
 
                 <div
-                    class="bg-white border-y border-r border-gray-200 border-l-4 border-l-red-600 rounded-sm p-5 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Total Spent</p>
+                    class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-[#128a43]/30 hover:shadow-md transition-all duration-200 group">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div
+                            class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
+                        </div>
+                        <h3 class="text-sm font-medium text-gray-500">Total Spent</h3>
+                    </div>
                     <p x-text="formatCurrency(stats.totalSpent)"
-                        class="text-2xl font-black text-red-600 tracking-tight">₱0</p>
-                    <p class="text-xs text-gray-400 mt-2 font-medium">Total expenses recorded</p>
+                        class="text-3xl font-bold text-gray-900 tracking-tight">₱0</p>
+                    <p class="text-xs text-gray-400 mt-2">Total expenses recorded</p>
                 </div>
 
                 <div
-                    class="bg-white border-y border-r border-gray-200 border-l-4 border-l-[#128a43] rounded-sm p-5 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Avg Utilization</p>
+                    class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-[#128a43]/30 hover:shadow-md transition-all duration-200 group">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div
+                            class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
+                        </div>
+                        <h3 class="text-sm font-medium text-gray-500">Avg Utilization</h3>
+                    </div>
                     <p x-text="stats.avgUtilization.toFixed(2) + '%'"
-                        class="text-2xl font-black text-gray-800 tracking-tight">0%</p>
-                    <p class="text-xs text-gray-400 mt-2 font-medium">System-wide average</p>
+                        class="text-3xl font-bold text-gray-900 tracking-tight">0%</p>
+                    <p class="text-xs text-gray-400 mt-2">System-wide average</p>
                 </div>
 
                 <div
-                    class="bg-white border-y border-r border-gray-200 border-l-4 border-l-gray-500 rounded-sm p-5 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Barangays</p>
-                    <p x-text="stats.barangayCount" class="text-2xl font-black text-gray-800 tracking-tight">0</p>
-                    <p class="text-xs text-gray-400 mt-2 font-medium">Active budget programs</p>
+                    class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-[#128a43]/30 hover:shadow-md transition-all duration-200 group">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div
+                            class="w-2.5 h-2.5 rounded-full bg-[#128a43]/90 ring-4 ring-[#128a43]/10 group-hover:ring-green-500/20 transition-all">
+                        </div>
+                        <h3 class="text-sm font-medium text-gray-500">Barangays</h3>
+                    </div>
+                    <p x-text="stats.barangayCount" class="text-3xl font-bold text-gray-900 tracking-tight">0</p>
+                    <p class="text-xs text-gray-400 mt-2">Active budget programs</p>
                 </div>
 
             </div>
@@ -96,25 +109,39 @@
             {{-- Charts Grid --}}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-                {{-- Budget Allocation Doughnut --}}
-                <div class="bg-white rounded-sm border border-gray-200 shadow-sm p-6">
-                    <h3
-                        class="text-sm font-bold uppercase tracking-wide text-gray-700 mb-6 border-b border-gray-100 pb-2">
-                        Allocation Distribution
-                    </h3>
-                    <div class="relative" style="height: 300px;">
-                        <canvas id="allocation-doughnut"></canvas>
+                {{-- Utilization Line Chart --}}
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-900">Utilization Rate</h3>
+                            <p class="text-sm text-gray-500 mt-1">Budget utilization across barangays</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span
+                                class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#128a43]/10 text-[#128a43] ring-1 ring-inset ring-[#128a43]/20 rounded-md text-xs font-medium">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                                Active
+                            </span>
+                        </div>
+                    </div>
+                    <div style="height: 280px;" class="w-full relative">
+                        <canvas id="utilization-line"></canvas>
                     </div>
                 </div>
 
-                {{-- Utilization Line Chart --}}
-                <div class="bg-white rounded-sm border border-gray-200 shadow-sm p-6">
-                    <h3
-                        class="text-sm font-bold uppercase tracking-wide text-gray-700 mb-6 border-b border-gray-100 pb-2">
-                        Utilization Rates
-                    </h3>
-                    <div style="height: 300px;">
-                        <canvas id="utilization-line"></canvas>
+                {{-- Budget Allocation Doughnut --}}
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-900">Budget Allocation</h3>
+                            <p class="text-sm text-gray-500 mt-1">Distribution across barangays</p>
+                        </div>
+                    </div>
+                    <div class="relative w-full" style="height: 280px;">
+                        <canvas id="allocation-doughnut"></canvas>
                     </div>
                 </div>
 
@@ -124,23 +151,27 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                 {{-- Spending Horizontal Bar --}}
-                <div class="bg-white rounded-sm border border-gray-200 shadow-sm p-6">
-                    <h3
-                        class="text-sm font-bold uppercase tracking-wide text-gray-700 mb-6 border-b border-gray-100 pb-2">
-                        Spending by Category
-                    </h3>
-                    <div style="height: 350px;">
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-900">Category Spending</h3>
+                            <p class="text-sm text-gray-500 mt-1">Expenses by budget category</p>
+                        </div>
+                    </div>
+                    <div class="relative w-full" style="height: 320px;">
                         <canvas id="category-horizontal"></canvas>
                     </div>
                 </div>
 
                 {{-- Budget Comparison Bar --}}
-                <div class="bg-white rounded-sm border border-gray-200 shadow-sm p-6">
-                    <h3
-                        class="text-sm font-bold uppercase tracking-wide text-gray-700 mb-6 border-b border-gray-100 pb-2">
-                        Budget vs. Spending
-                    </h3>
-                    <div style="height: 350px;">
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-900">Budget vs Spending</h3>
+                            <p class="text-sm text-gray-500 mt-1">Allocated budget and actual spending</p>
+                        </div>
+                    </div>
+                    <div class="relative w-full" style="height: 320px;">
                         <canvas id="comparison-chart"></canvas>
                     </div>
                 </div>
@@ -148,87 +179,106 @@
             </div>
 
             {{-- Performance Radar --}}
-            <div class="bg-white rounded-sm border border-gray-200 shadow-sm p-6">
-                <h3 class="text-sm font-bold uppercase tracking-wide text-gray-700 mb-6 border-b border-gray-100 pb-2">
-                    Barangay Performance Radar
-                </h3>
-                <div style="height: 400px; max-width: 800px; margin: 0 auto;">
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900">Performance Radar</h3>
+                        <p class="text-sm text-gray-500 mt-1">Multi-dimensional performance analysis of top barangays
+                        </p>
+                    </div>
+                    <button type="button"
+                        class="text-gray-400 hover:text-gray-600 bg-transparent hover:bg-gray-50 rounded-lg p-1.5 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative w-full mx-auto" style="height: 420px; max-width: 900px;">
                     <canvas id="performance-radar"></canvas>
                 </div>
             </div>
 
             {{-- Detailed Table --}}
-            <div class="bg-white rounded-sm border border-gray-200 shadow-sm overflow-hidden mt-8">
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden mt-8">
 
                 {{-- Table Header --}}
-                <div class="bg-[#128a43] px-6 py-4">
-                    <h3 class="text-lg font-bold text-white tracking-wide">Detailed Barangay Summary</h3>
+                <div class="px-6 py-5 border-b border-gray-200 bg-white">
+                    <h3 class="text-base font-semibold text-gray-900">Detailed Barangay Summary</h3>
+                    <p class="text-sm text-gray-500 mt-1">Complete budget performance breakdown</p>
                 </div>
 
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-gray-50/50">
                             <tr>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Barangay</th>
                                 <th
-                                    class="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Allocated</th>
                                 <th
-                                    class="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Spent</th>
                                 <th
-                                    class="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Remaining</th>
                                 <th
-                                    class="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Utilization</th>
                                 <th
-                                    class="px-6 py-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Status</th>
                                 <th
-                                    class="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                    class="px-6 py-4 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Action</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-white divide-y divide-gray-100">
                             <template x-for="(barangay, index) in barangays" :key="index">
-                                <tr class="hover:bg-gray-50 transition cursor-pointer group"
+                                <tr class="hover:bg-gray-50/80 transition-colors group cursor-pointer"
                                     @click="window.location.href = '/budgets/' + barangay.budget_id">
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-bold text-gray-900" x-text="barangay.barangay_name">
-                                        </div>
-                                        <div class="text-xs text-gray-500 mt-0.5" x-text="barangay.budget_name"></div>
+                                        <div class="text-sm font-medium text-gray-900"
+                                            x-text="barangay.barangay_name"></div>
+                                        <div class="text-xs text-gray-500 mt-1" x-text="barangay.budget_name"></div>
                                     </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold text-[#0d6efd]"
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900"
                                         x-text="formatCurrency(barangay.total_allocated)"></td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold text-red-600"
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-500"
                                         x-text="formatCurrency(barangay.total_spent)"></td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold text-gray-900"
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900"
                                         x-text="formatCurrency(barangay.total_allocated - barangay.total_spent)"></td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-bold text-gray-700"
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900"
                                         x-text="barangay.utilization_rate.toFixed(2) + '%'"></td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <span x-text="barangay.status"
                                             :class="{
-                                                'bg-green-100 text-green-800': barangay.status === 'Under Budget',
-                                                'bg-yellow-100 text-yellow-800': barangay.status === 'Near Limit' ||
-                                                    barangay.status === 'At Limit',
-                                                'bg-red-100 text-red-800': barangay.status === 'Over Budget'
+                                                'bg-[#128a43]/10 text-[#128a43] ring-[#128a43]/20': barangay
+                                                    .status === 'Under Budget',
+                                                'bg-yellow-50 text-yellow-700 ring-yellow-600/20': barangay
+                                                    .status === 'Near Limit' || barangay.status === 'At Limit',
+                                                'bg-red-50 text-red-700 ring-red-600/10': barangay
+                                                    .status === 'Over Budget'
                                             }"
-                                            class="px-2 py-1 text-xs font-semibold rounded uppercase"></span>
+                                            class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-md ring-1 ring-inset"></span>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <a :href="'/budgets/' + barangay.budget_id"
-                                            class="text-[#0d6efd] hover:text-blue-800 transition opacity-0 group-hover:opacity-100">
+                                            class="inline-flex items-center text-[#128a43] hover:text-[#0f7236] transition-opacity opacity-0 group-hover:opacity-100">
                                             View
+                                            <svg class="w-4 h-4 ms-1" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 5l7 7-7 7" />
+                                            </svg>
                                         </a>
                                     </td>
                                 </tr>

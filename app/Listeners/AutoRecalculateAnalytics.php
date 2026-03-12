@@ -19,6 +19,13 @@ final class AutoRecalculateAnalytics implements ShouldQueue
         /**
          * Fiscal year activation, recalc everything
          */
+        if ($event->action === 'deleted') {
+            return;
+        }
+
+        /**
+         * Fiscal year activation, recalc everything
+         */
         if ($event instanceof FiscalYearModified) {
             $fiscalYear = $event->model;
 
@@ -41,9 +48,8 @@ final class AutoRecalculateAnalytics implements ShouldQueue
 
         /**
          * Only react to CREATE / UPDATE
-         * Deletes are handled explicitly in controllers
          */
-        if (! in_array($event->action, ['created', 'updated', 'deleted'], true)) {
+        if (! in_array($event->action, ['created', 'updated'], true)) {
             return;
         }
 
