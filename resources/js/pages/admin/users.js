@@ -106,9 +106,9 @@ window.usersManager = () => ({
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-600">${created}</td>
                             <td class="px-6 py-4 text-sm text-right space-x-3">
-<button @click="edit(${u.id})" class="text-[#0d6efd] hover:text-blue-800 font-medium">Edit</button>                                ${
+<button @click="edit(${u.id})" class="text-[#0d6efd] hover:text-blue-800 font-medium cursor-pointer ">Edit</button>                                ${
                                 !isSelf
-                                    ? `<button @click="deleteUser(${u.id})" class="text-red-600 hover:text-red-800 font-medium">Delete</button>`
+                                    ? `<button @click="deleteUser(${u.id})" class="text-red-600 hover:text-red-800 font-medium cursor-pointer">Delete</button>`
                                     : `<span class="text-gray-400 text-xs">Cannot delete self</span>`
                             }
                             </td>

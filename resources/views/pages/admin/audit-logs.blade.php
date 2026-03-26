@@ -11,7 +11,7 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Action</label>
                     <select x-model="filters.action" @change="loadLogs()"
-                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] cursor-pointer">
                         <option value="">All Actions</option>
                         <option value="created">Created</option>
                         <option value="updated">Updated</option>
@@ -23,7 +23,7 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Resource</label>
                     <select x-model="filters.resource" @change="loadLogs()"
-                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] cursor-pointer">
                         <option value="">All Resources</option>
                         <option value="User">Users</option>
                         <option value="Budget">Budgets</option>
@@ -37,19 +37,19 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">From Date</label>
                     <input type="date" x-model="filters.from" @change="loadLogs()"
-                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] cursor-pointer">
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">To Date</label>
                     <input type="date" x-model="filters.to" @change="loadLogs()"
-                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                        class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] cursor-pointer">
                 </div>
             </div>
 
             <div class="mt-4 flex items-center gap-3">
                 <button @click="resetFilters()"
-                    class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-sm transition">
+                    class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-sm transition cursor-pointer">
                     Clear Filters
                 </button>
                 <span x-show="logs.length > 0" class="text-sm text-gray-600"
@@ -99,7 +99,8 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                     x-text="log.ip_address || 'N/A'"></td>
                                 <td class="px-6 py-4 text-sm text-gray-500">
-                                    <button @click="viewDetails(log)" class="text-[#0d6efd] hover:underline">
+                                    <button @click="viewDetails(log)"
+                                        class="text-[#0d6efd] hover:underline cursor-pointer">
                                         View
                                     </button>
                                 </td>

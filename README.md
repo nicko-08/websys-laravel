@@ -1,59 +1,256 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Public Sector Budget Management Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel 12 application for managing and visualizing government budgets, expenses, and analytics.
+It provides a **versioned REST API** for integrations and a **web-based admin dashboard** for operational use.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+GovBudget is designed to support transparency and efficient budget management through:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Centralized budget and expense tracking
+- Public analytics endpoints for data visibility
+- Administrative tools for managing users, units, and fiscal years
+- Full audit logging of system activity
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### API (v1)
 
-## Laravel Sponsors
+- Token-based authentication (Laravel Sanctum)
+- Budgets and budget items (CRUD)
+- Expenses (CRUD + summaries)
+- Government units with hierarchy
+- Fiscal years (single active year enforcement)
+- User management (admin)
+- Audit logs (read-only, filterable)
+- Public analytics endpoints
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Web Dashboard
 
-### Premium Partners
+- Budget and expense overview
+- Analytics visualization
+- Admin panels:
+    - Users
+    - Government units
+    - Fiscal years
+    - Audit logs
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Core Capabilities
 
-## Contributing
+- Account activation via signed URLs
+- Role-based access control (policies + middleware)
+- Centralized audit logging
+- Background jobs for analytics recalculation
+- Cache invalidation for analytics consistency
+- API documentation via Scribe
+- Configurable rate limiting, CORS, and security headers
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Tech Stack
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Backend
 
-## Security Vulnerabilities
+- PHP 8.2
+- Laravel 12
+- Laravel Sanctum (authentication)
+- MySQL
+- Database-backed queue and cache
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Frontend
+
+- Blade templates
+- Vite
+- Vanilla JavaScript
+- CSS
+
+### Tooling
+
+- Composer
+- Node.js + npm
+- Pest (testing)
+- Scribe (API documentation)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- PHP ≥ 8.2
+- Composer
+- Node.js (LTS)
+- MySQL
+- (Optional) Redis for cache/queue
+
+---
+
+### 1. Clone the Repository
+
+```bash
+git clone <repo-url>
+cd gov-budget-platform
+```
+
+---
+
+### 2. Environment Setup
+
+```bash
+cp .env.example .env
+```
+
+Update:
+
+- Database credentials
+- Mailer configuration
+- Queue & cache drivers
+- API-related configs
+
+---
+
+### 3. Install Dependencies & Build
+
+```bash
+composer install
+php artisan key:generate
+php artisan migrate
+
+npm install
+npm run build
+```
+
+---
+
+### 4. (Optional) Seed Database
+
+```bash
+php artisan db:seed
+```
+
+---
+
+## Running the Application
+
+### Development (recommended)
+
+```bash
+composer run dev
+```
+
+This starts:
+
+- Laravel server
+- Queue worker
+- Log viewer
+- Vite dev server
+
+---
+
+### Manual Setup
+
+```bash
+php artisan serve
+php artisan queue:listen --tries=1
+npm run dev
+```
+
+---
+
+### Access
+
+- Web UI: http://localhost:8000
+- API: http://localhost:8000/api
+
+---
+
+## API Overview
+
+### Authentication
+
+```http
+POST /api/v1/auth/login
+POST /api/v1/auth/logout
+```
+
+Uses Bearer token (Sanctum).
+
+---
+
+### Core Endpoints
+
+- `/api/v1/budgets`
+- `/api/v1/budget-items`
+- `/api/v1/expenses`
+- `/api/v1/government-units`
+- `/api/v1/fiscal-years`
+- `/api/v1/users`
+- `/api/v1/audit-logs`
+- `/api/v1/analytics`
+
+---
+
+## Account Activation Flow
+
+- User receives signed URL with token
+- GET `/activate-account/{token}` → show form
+- POST `/activate-account/{token}` → activate account
+
+---
+
+## Events & Background Processing
+
+### Events
+
+- BudgetModified
+- ExpenseModified
+- FiscalYearModified
+- GovernmentUnitModified
+- UserModified
+
+### Jobs
+
+- RecalculateBudgetAnalytics
+
+### Services
+
+- AnalyticsService
+- BudgetAnalyticsCalculator
+
+These handle:
+
+- Analytics recalculation
+- Cache invalidation
+- Audit logging
+
+---
+
+## API Documentation
+
+Generated using **Scribe**:
+
+```bash
+php artisan scribe:generate
+```
+
+---
+
+## Deployment Notes
+
+Ensure:
+
+- Proper `.env` configuration
+- Queue worker is running
+- Secure secrets (`APP_KEY`, DB credentials)
+- Correct CORS and security headers
+- Production cache/session setup (Redis recommended)
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is built on Laravel, licensed under the MIT License.

@@ -47,7 +47,7 @@
                     <li class="text-[#0d6efd]">Version 1.0</li>
                     <li class="text-[#0d6efd]">Last Updated: March 2026</li>
                     <li class="text-[#0d6efd]">Status: Operational</li>
-                    <li class="text-[#0d6efd]">Maintained by: ITS122L Baddies</li>
+                    <li class="text-[#0d6efd]">Maintained by: ITS122L Gwapo</li>
                 </ul>
             </div>
         </div>

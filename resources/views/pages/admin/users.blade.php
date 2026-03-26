@@ -7,7 +7,7 @@
                 <p class="text-sm text-gray-500 mt-1">Manage system users and their roles.</p>
             </div>
             <button @click="openModal()"
-                class="px-4 py-2 bg-[#0d6efd] hover:bg-blue-700 text-white text-sm font-medium rounded-sm transition flex items-center gap-2 shadow-sm">
+                class="px-4 py-2 bg-[#0d6efd] hover:bg-blue-700 text-white text-sm font-medium rounded-sm transition flex items-center gap-2 shadow-sm cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
@@ -60,7 +60,7 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
                             <select x-model="form.role" required
-                                class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd]">
+                                class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#0d6efd] focus:ring-1 focus:ring-[#0d6efd] cursor-pointer">
                                 <option value="">Select role...</option>
                                 <option value="admin">Administrator</option>
                                 <option value="budget-officer">Budget Officer</option>
@@ -106,9 +106,9 @@
 
                         <div class="pt-4 flex justify-end gap-3">
                             <button type="button" @click="showModal = false"
-                                class="px-5 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-sm">Cancel</button>
+                                class="px-5 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-sm cursor-pointer">Cancel</button>
                             <button type="submit" :disabled="saving"
-                                class="px-5 py-2 bg-[#0d6efd] hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium rounded-sm">
+                                class="px-5 py-2 bg-[#0d6efd] hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium rounded-sm cursor-pointer">
                                 <span x-show="!saving" x-text="editMode ? 'Update' : 'Create'"></span>
                                 <span x-show="saving">Saving...</span>
                             </button>
